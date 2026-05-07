@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en-US" class="dark no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <title>Nargis Beauty — Strategic Brand Identity & Packaging · Ghaidak Alosh</title>
+    <meta name="description" content="Nargis Beauty | Strategic Brand Identity & Packaging. A Rebirth in Materiality.">
+    <meta name="theme-color" content="#040404">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.addEventListener('load', function() {
+            if (typeof tailwind !== 'undefined') tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        colors: {
+                            obsidian: 'oklch(15% 0 0)',
+                            surface: 'oklch(18% 0.01 285)',
+                            surface2: 'oklch(15% 0.01 285)',
+                            ink: 'oklch(96.5% 0.008 105)',
+                            accent: 'oklch(83.5% 0.17 84)',
+                            accent2: 'oklch(88% 0.134 86)',
+                            whatsapp: 'oklch(76% 0.17 151)',
+                            linkedin: 'oklch(66% 0.11 247)'
+                        },
+                        fontFamily: {
+                            syne: ['Syne', 'sans-serif'],
+                            mono: ['DM Mono', 'monospace']
+                        },
+                        transitionTimingFunction: {
+                            'spring': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+                            'cinema': 'cubic-bezier(0.22, 1, 0.36, 1)'
+                        }
+                    }
+                }
+            };
+        });
+    </script>
+
+    <style>
+        :root { 
+            --bg: oklch(15% 0 0); 
+            --obsidian: oklch(15% 0 0);
+            --accent: oklch(83.5% 0.17 84); 
+            --ink: oklch(96.5% 0.008 105); 
+        }
+        
+        html { background: var(--bg); overflow-x: clip; -webkit-text-size-adjust: 100%; color-scheme: dark; scroll-behavior: smooth; cursor: none; }
+        body { font-family: 'Syne', sans-serif; background-color: var(--bg); color: var(--ink); overflow-x: clip; cursor: none; }
+        ::selection { background: oklch(83.5% 0.17 84 / 30%); color: inherit; }
+        a, button, input, textarea, select { cursor: none !important; border: none; outline: none; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        .noise-overlay { position: fixed; inset: 0; z-index: 9998; pointer-events: none; opacity: 0.04; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); transform: translateZ(0); }
+
+        html.lenis, html.lenis body { height: auto; width: 100%; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+
+        /* 3-State Cursor System */
+        #cur-dot { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); transform: translate(-50%, -50%); transition: opacity 0.25s; opacity: 0; box-shadow: 0 0 10px oklch(83.5% 0.17 84 / 80%); }
+        #cur-ring { position: fixed; top: 0; left: 0; z-index: 9998; pointer-events: none; width: 32px; height: 32px; border: 1px solid oklch(83.5% 0.17 84 / 50%); border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s, border-color 0.3s, border-radius 0.3s, opacity 0.25s; opacity: 0; display: flex; align-items: center; justify-content: center; }
+        #cur-label { font-size: 0.55rem; font-weight: 700; color: oklch(5% 0 0); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0; transition: opacity 0.15s; white-space: nowrap; }
+
+        body.cur-hover #cur-ring { width: 56px; height: 56px; background: oklch(83.5% 0.17 84 / 10%); border-color: transparent; }
+        body.cur-text #cur-ring { width: 88px; height: 32px; background: var(--accent); border-color: transparent; border-radius: 100px; box-shadow: 0 0 32px oklch(83.5% 0.17 84 / 40%); }
+        body.cur-text #cur-label { opacity: 1; }
+        body.cur-image #cur-ring { width: 88px; height: 88px; background: var(--accent); border-color: transparent; box-shadow: 0 0 32px oklch(83.5% 0.17 84 / 40%); }
+        body.cur-image #cur-label { opacity: 1; }
+
+        @media(pointer: coarse), (max-width: 1024px) {
+            #cur-dot, #cur-ring { display: none !important; }
+            body, a, button, input, textarea { cursor: auto !important; }
+        }
+
+        /* Nav & Menus */
+        .hud-nav { 
+            transition: top .45s cubic-bezier(0.16, 1, 0.3, 1), width .45s, border-radius .35s, background .4s, box-shadow .4s, transform .5s cubic-bezier(0.22, 1, 0.36, 1), opacity .4s ease-out; 
+            will-change: transform, opacity;
+        }
+        .hud-nav.scrolled { top: 0; width: 100% !important; max-width: 100%; border-radius: 0; background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%); backdrop-filter: blur(32px); box-shadow: 0 8px 32px oklch(5% 0 0 / 60%), inset 0 1px 0 rgba(255,255,255,0.03); }
+        
+        .hud-nav.nav-hidden {
+            transform: translate(-50%, -150%) !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        .nav-link { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; color: oklch(100% 0 0 / 60%); transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .nav-link::after { content: ''; position: absolute; bottom: 8px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 0 10px oklch(83.5% 0.17 84 / 80%), 0 0 4px oklch(83.5% 0.17 84 / 50%); }
+        .nav-link:hover { color: oklch(100% 0 0); transform: translateY(-1px); }
+        .nav-link:hover::after { transform: scaleX(1); }
+
+        /* Glass Components */
+        @property --btn-border-angle { syntax: '<angle>'; inherits: false; initial-value: -75deg; }
+        .btn-glass-cta { position: relative; overflow: hidden; background: linear-gradient(160deg, oklch(100% 0 0 / 14%) 0%, oklch(100% 0 0 / 6%) 50%, oklch(83.5% 0.17 84 / 10%) 100%); backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 oklch(100% 0 0 / 15%), 0 8px 32px oklch(5% 0 0 / 60%); transition: transform .3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow .3s; border: none; }
+        .btn-glass-cta::after { content: ''; position: absolute; inset: 0; border-radius: 999px; padding: 1px; box-sizing: border-box; background: conic-gradient(from var(--btn-border-angle) at 50% 50%, transparent 0%, oklch(100% 0 0 / 75%) 12%, oklch(83.5% 0.17 84 / 60%) 22%, transparent 35%, transparent 65%, oklch(83.5% 0.17 84 / 40%) 78%, oklch(100% 0 0 / 55%) 88%, transparent 100%); mask: linear-gradient(oklch(5% 0 0) 0 0) content-box, linear-gradient(oklch(5% 0 0) 0 0); mask-composite: exclude; -webkit-mask: linear-gradient(oklch(5% 0 0) 0 0) content-box, linear-gradient(oklch(5% 0 0) 0 0); -webkit-mask-composite: destination-out; pointer-events: none; opacity: 0; transition: opacity 0.4s, --btn-border-angle 700ms; z-index: 2; }
+        
+        .spotlight-card {
+            transform: translateZ(0);
+            will-change: transform;
+            position: relative; 
+            overflow: hidden; 
+            --mouse-x: 50%; 
+            --mouse-y: 50%; 
+            border: none;
+        }
+        .spotlight-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), oklch(83.5% 0.17 84 / 8%), transparent 65%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 0; border-radius: inherit; }
+
+        /* Initial states for GSAP Animation */
+        .reveal-up, .text-reveal { opacity: 0; }
+        .count-up { font-variant-numeric: tabular-nums; }
+
+        @media (hover: hover) and (pointer: fine) {
+            .spotlight-card:hover { transform: translateY(-8px) translateZ(0) !important; background-color: oklch(100% 0 0 / 5%) !important; }
+            .spotlight-card:hover::before { opacity: 1; }
+            .btn-glass-cta:hover { transform: translateY(-1px) translateZ(0) !important; box-shadow: inset 0 1px 0 oklch(100% 0 0 / 25%), 0 16px 48px oklch(5% 0 0 / 80%); }
+            .btn-glass-cta:hover::after { opacity: 1; --btn-border-angle: -145deg; }
+        }
+
+        .hover-trigger * { pointer-events: none; }
+        
+        /* PREMIUM HORIZONTAL SCROLL SLIDER */
+        .horiz-container {
+            position: relative;
+            height: 100svh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--obsidian);
+            box-sizing: border-box;
+            margin: 0;
+        }
+        .horiz-wrapper {
+            display: flex;
+            gap: 0; 
+            padding-inline: clamp(1.25rem, 6vw, 5rem);
+            width: max-content;
+            will-change: transform;
+            align-items: center;
+        }
+        .horiz-slide {
+            width: 80vw;
+            max-width: 1200px;
+            aspect-ratio: 16 / 9;
+            flex-shrink: 0;
+            overflow: hidden; 
+            background-color: var(--surface);
+            position: relative;
+        }
+        .horiz-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .horiz-slide:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Mobile Graceful Degradation to Native Swipe */
+        @media (max-width: 1024px) {
+            .horiz-container {
+                height: 100svh; 
+                display: flex;
+                align-items: center;
+                overflow: visible;
+                padding-top: 0;
+                padding-bottom: 0;
+                scroll-snap-align: start;
+            }
+            .horiz-wrapper {
+                width: 100vw;
+                height: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                margin-left: 0; 
+                padding-inline: 7.5vw; 
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                gap: 0; 
+                align-items: center;
+            }
+            .horiz-wrapper::-webkit-scrollbar { display: none; }
+            .horiz-slide {
+                scroll-snap-align: center;
+                width: 85vw;
+                aspect-ratio: 16 / 9;
+                max-width: none;
+            }
+            .horiz-intro {
+                scroll-snap-align: center;
+                width: 85vw;
+                padding-right: 0 !important;
+                text-align: center;
+            }
+        }
+
+        /* Swipe hint indicator */
+        .swipe-hint {
+            display: none;
+        }
+        @media (max-width: 1024px) {
+            .swipe-hint {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.58rem;
+                font-weight: 700;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: oklch(83.5% 0.17 84 / 60%);
+                position: absolute;
+                top: env(safe-area-inset-top, 2rem);
+                left: 7.5vw;
+                z-index: 10;
+                transition: opacity 0.6s ease;
+            }
+            .swipe-hint.hidden { opacity: 0; pointer-events: none; }
+            .swipe-hint-arrow {
+                display: inline-flex;
+                animation: swipeNudge 1.8s ease-in-out infinite;
+            }
+            @keyframes swipeNudge {
+                0%, 100% { transform: translateX(0); }
+                50% { transform: translateX(6px); }
+            }
+        }
+
+        /* Slider dots */
+        .slider-dots {
+            display: none;
+        }
+        @media (max-width: 1024px) {
+            .slider-dots {
+                display: flex;
+                justify-content: center;
+                gap: 6px;
+                padding: 1rem 0;
+                position: relative;
+                z-index: 10;
+                background: var(--obsidian);
+            }
+            .slider-dot {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: oklch(100% 0 0 / 15%);
+                transition: background 0.3s, transform 0.3s;
+                flex-shrink: 0;
+            }
+            .slider-dot.active {
+                background: oklch(83.5% 0.17 84 / 80%);
+                transform: scale(1.4);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent/30 selection:text-white" style="overflow: hidden;">
+
+<!-- FOUC-Proof Loader -->
+<div id="ga-loader" aria-hidden="true" style="position: fixed; inset: 0; z-index: 9999; background-color: var(--obsidian); display: flex; align-items: center; justify-content: center;" class="will-change-transform">
+    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 2rem; gap: clamp(2rem,4vw,3rem);">
+        <div style="width: clamp(200px,30vw,320px); height: 2px; background-color: rgba(255,255,255,0.05); position: relative; overflow: hidden; border-radius: 9999px; margin-top: 2.5rem;">
+            <div id="loaderBar" style="position: absolute; inset: 0; background-image: linear-gradient(to right, var(--accent), oklch(88% 0.134 86)); transform-origin: left; transform: scaleX(0); border-radius: 9999px; box-shadow: 0 0 12px oklch(83.5% 0.17 84 / 60%);"></div>
+        </div>
+        <div style="overflow: hidden; padding-top: 0.25rem; height: 20px; display: flex; align-items: center; justify-content: center;">
+            <span id="loaderText" style="display: block; font-family: 'DM Mono', monospace; font-weight: 700; font-size: 0.55rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.6); text-transform: uppercase; transform: translateY(101%); opacity: 0; will-change: transform, opacity;">RENDERING SYSTEM</span>
+        </div>
+    </div>
+</div>
+
+<div class="noise-overlay" aria-hidden="true"></div>
+<div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-accent to-accent2 z-[9999] w-0 pointer-events-none shadow-[0_0_8px_oklch(83.5%_0.17_84/50%)]"></div>
+
+<div id="cur-dot" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"><span id="cur-label"></span></div>
+
+<nav id="navbar" class="hud-nav fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] md:w-[calc(100%-clamp(3rem,8vw,10rem))] max-w-[1200px] h-16 px-5 lg:px-8 flex justify-between items-center z-[9600] rounded-full bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-[32px] shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)]" aria-label="Primary navigation">
+    <a href="/" aria-label="Home" class="z-10 flex items-center h-full min-w-[48px] hover:opacity-80 transition-opacity active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-full px-2" data-cursor="CLICK">
+        <img src="logo.svg" alt="GA." class="h-6 w-auto">
+    </a>
+    <div class="hidden lg:flex items-center gap-8 text-[0.68rem] font-bold uppercase tracking-[0.08em]">
+        <a href="/" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md" data-cursor="CLICK">All Work</a>
+        <span class="text-white/30">/</span>
+        <span class="text-white">Nargis Beauty</span>
+    </div>
+    <div class="flex items-center z-10 gap-4">
+        <a href="mailto:studio@ghaidak.com" class="hidden md:flex btn-glass-cta active:scale-[0.98] items-center justify-center px-6 h-12 min-w-[48px] rounded-full text-[0.65rem] font-bold uppercase tracking-[0.07em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent text-white" data-cursor="CLICK">Work With Me</a>
+        <a href="mailto:studio@ghaidak.com" class="md:hidden flex btn-glass-cta items-center justify-center w-10 h-10 rounded-full text-white" aria-label="Work With Me" data-cursor="CLICK">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </a>
+    </div>
+</nav>
+
+<main id="main" class="relative z-10 w-full pt-[calc(64px+clamp(3rem,5vw,5rem))] pb-24">
+    
+    <header class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)] mb-16 relative">
+        <div class="flex flex-col items-center text-center max-w-[900px] mx-auto">
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-6 reveal-up">
+                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_oklch(83.5%_0.17_84/20%)]">2026</span>
+                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_oklch(83.5%_0.17_84/20%)]">Brand Identity & Packaging</span>
+                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_oklch(83.5%_0.17_84/20%)]">Global Standards</span>
+            </div>
+            
+            <h1 class="font-extrabold tracking-[-0.02em] leading-[0.92] text-[clamp(3.5rem,12vw,8rem)] text-white mb-6 text-reveal">
+                NARGIS BEAUTY
+            </h1>
+            
+            <h2 class="text-[clamp(1.2rem,2.5vw,2rem)] text-accent font-bold mb-8 text-reveal">
+                A Rebirth in Materiality.
+            </h2>
+            
+            <p class="text-[clamp(1rem,1.6vw,1.2rem)] text-white/70 max-w-[52ch] leading-[1.75] mx-auto mb-12 reveal-up">
+                Nargis Beauty is a premium botanical skincare brand rooted in the philosophy that luxury is a tactile narrative. The objective was to craft a high-conversion brand identity that bridges the gap between ancient apothecary heritage and severe, modern aesthetic precision.
+            </p>
+        </div>
+
+        <div class="w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-[0_16px_48px_oklch(5%_0_0/80%),_inset_0_1px_0_rgba(255,255,255,0.03)] group reveal-up bg-surface border-none relative" data-cursor="VIEW">
+            <img src="nargis/1.avif" alt="Nargis Beauty Brand Identity Hero" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]" loading="eager">
+            <div class="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[oklch(15%_0_0)] to-transparent pointer-events-none lg:hidden"></div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-12 mt-12 border-t border-white/[0.04] reveal-up">
+            <div class="flex flex-col items-center text-center gap-2">
+                <span class="font-extrabold text-[clamp(1.5rem,3vw,2.5rem)] text-accent leading-none"><span class="count-up" data-target="15">0</span></span>
+                <span class="font-bold text-[0.58rem] tracking-[0.16em] uppercase text-white/60">Asset Deliverables</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-2">
+                <span class="font-extrabold text-[clamp(1.5rem,3vw,2.5rem)] text-accent leading-none"><span class="count-up" data-target="1">0</span></span>
+                <span class="font-bold text-[0.58rem] tracking-[0.16em] uppercase text-white/60">Senior Designer</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-2">
+                <span class="font-extrabold text-[clamp(1.5rem,3vw,2.5rem)] text-accent leading-none">Global</span>
+                <span class="font-bold text-[0.58rem] tracking-[0.16em] uppercase text-white/60">Target Market</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-2">
+                <span class="font-extrabold text-[clamp(1.5rem,3vw,2.5rem)] text-accent leading-none">16:9</span>
+                <span class="font-bold text-[0.58rem] tracking-[0.16em] uppercase text-white/60">Format Scale</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)] mb-24 reveal-up">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 flex flex-col gap-3 rounded-[24px]" data-cursor="READ">
+                <span class="font-bold text-[0.56rem] tracking-[0.18em] uppercase text-accent">Strategic Positioning</span>
+                <span class="font-bold text-[clamp(0.82rem,1.1vw,0.95rem)] text-white leading-[1.5]">Material Storytelling</span>
+            </div>
+            <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 flex flex-col gap-3 rounded-[24px]" data-cursor="READ">
+                <span class="font-bold text-[0.56rem] tracking-[0.18em] uppercase text-accent">The Brand Mark</span>
+                <span class="font-bold text-[clamp(0.82rem,1.1vw,0.95rem)] text-white leading-[1.5]">Heritage Meets Modernity</span>
+            </div>
+            <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 flex flex-col gap-3 rounded-[24px]" data-cursor="READ">
+                <span class="font-bold text-[0.56rem] tracking-[0.18em] uppercase text-accent">Typography System</span>
+                <span class="font-bold text-[clamp(0.82rem,1.1vw,0.95rem)] text-white leading-[1.5]">Ogg Roman & Neue Montreal</span>
+            </div>
+            <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 flex flex-col gap-3 rounded-[24px]" data-cursor="READ">
+                <span class="font-bold text-[0.56rem] tracking-[0.18em] uppercase text-accent">Color Palette</span>
+                <span class="font-bold text-[clamp(0.82rem,1.1vw,0.95rem)] text-white leading-[1.5]">Deep Plum, Terracotta & Cream</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)] mb-16 md:mb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-[clamp(3rem,6vw,6rem)] items-start mb-12">
+            <div class="lg:sticky top-32">
+                <span class="block font-bold text-[0.58rem] tracking-[0.18em] uppercase text-accent mb-4 reveal-up">Strategic Positioning</span>
+                <h2 class="text-[clamp(1.8rem,4vw,3.5rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white text-reveal">Material<br>Storytelling.</h2>
+            </div>
+            <div class="reveal-up">
+                <p class="text-[clamp(0.95rem,1.3vw,1.05rem)] text-white/70 leading-[1.85] mb-6">
+                    We moved away from sterile, conventional beauty tropes, leaning heavily into the high-frequency vibrations of texture—from the grain of raw stone and detoxifying clays to the fluidity of silk and cold-pressed artisan oils.
+                </p>
+                <p class="text-[clamp(0.95rem,1.3vw,1.05rem)] text-white/70 leading-[1.85] mb-8">
+                    The brand does not just harvest botanicals; it listens to the season’s whisper to find the earth's most honest expression. Intersecting elite branding with scalable physical and digital touchpoints, the resulting identity is an exercise in material storytelling—designed to be felt through the screen.
+                </p>
+                <div class="border-l-2 border-accent pl-6 py-2">
+                    <p class="text-[clamp(1.1rem,1.6vw,1.4rem)] font-bold italic text-white leading-[1.5]">"If you can feel the texture through the screen, the brand is alive."</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-[0_16px_48px_oklch(5%_0_0/80%),_inset_0_1px_0_rgba(255,255,255,0.03)] group reveal-up bg-surface border-none" data-cursor="VIEW">
+            <img src="nargis/2.avif" alt="Nargis Material Storytelling" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]" loading="lazy">
+        </div>
+    </section>
+
+    <section class="bg-surface py-24 mb-0 border-t border-white/[0.04]">
+        <div class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)]">
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-[clamp(3rem,6vw,6rem)] items-start">
+                <div class="lg:sticky top-32">
+                    <span class="block font-bold text-[0.58rem] tracking-[0.18em] uppercase text-accent mb-4 reveal-up">Visual Identity</span>
+                    <h2 class="text-[clamp(1.8rem,4vw,3.5rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white text-reveal">The Architecture.</h2>
+                    <p class="text-[clamp(0.95rem,1.3vw,1.05rem)] text-white/70 leading-[1.85] mt-6 reveal-up">
+                        In a market saturated with severe, minimalist wordmarks, we made the deliberate, strategic choice to anchor Nargis Beauty with a heritage-driven, illustrative symbol. This grounds the brand in human touch and approachability.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col gap-4 reveal-up">
+                    <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                        <span class="font-bold text-[0.55rem] tracking-[0.2em] uppercase text-accent block mb-2">Typography</span>
+                        <h3 class="font-bold text-[1rem] text-white mb-3">Structural Tension</h3>
+                        <p class="text-[0.85rem] text-white/70 leading-[1.7]"><strong>Ogg Roman (Elegance):</strong> The anchor of the visual soul. A lush, calligraphic, high-contrast serif that embodies the brand's heritage and premium aspirations. <br><br><strong>Neue Montreal (Utility & Precision):</strong> The structural baseline. A clean, Swiss-inspired workhorse ensuring absolute clarity and modern functionality across web ecosystems and packaging formats.</p>
+                    </div>
+                    <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                        <span class="font-bold text-[0.55rem] tracking-[0.2em] uppercase text-accent block mb-2">Color System</span>
+                        <h3 class="font-bold text-[1rem] text-white mb-3">Psychology of Palette</h3>
+                        <p class="text-[0.85rem] text-white/70 leading-[1.7]">Moving away from stark contrasts, we utilize earthy depth: <br><br><strong>Deep Plum (2A1A26):</strong> Authority and Luxury Depth.<br><strong>Terracotta (C47A6B):</strong> The Earthy Heartbeat, used with mathematical restraint.<br><strong>Cream (F7F5F0):</strong> Foundations & Raw Skin, providing essential breathing room.</p>
+                    </div>
+                    <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                        <span class="font-bold text-[0.55rem] tracking-[0.2em] uppercase text-accent block mb-2">Packaging</span>
+                        <h3 class="font-bold text-[1rem] text-white mb-3">Apothecary Modernism</h3>
+                        <p class="text-[0.85rem] text-white/70 leading-[1.7]">The packaging architecture was designed as a permanent heirloom. Weighted amber glass protects volatile botanical extractions—like our rare Narcissus Absolue—while raw copper closures and scalloped labeling evoke a sense of grounding permanence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="horiz-section" class="horiz-container border-b border-white/[0.04]">
+        <div class="swipe-hint" id="swipe-hint" aria-hidden="true">
+            <span>Swipe</span>
+            <span class="swipe-hint-arrow">→</span>
+        </div>
+        <div id="horiz-wrapper" class="horiz-wrapper" data-cursor="DRAG">
+            
+            <div class="horiz-intro w-[85vw] md:w-[40vw] lg:w-[35vw] xl:w-[30vw] flex-shrink-0 flex flex-col justify-center pr-8 md:pr-16 lg:pr-[6vw] xl:pr-[8vw]">
+                <span class="block font-bold text-[0.58rem] tracking-[0.18em] uppercase text-accent mb-6">Visual Execution</span>
+                <h2 class="text-[clamp(3.5rem,8vw,7rem)] font-extrabold uppercase tracking-tight leading-[0.85] text-white mb-6">
+                    THE<br>
+                    GAL<br>
+                    LERY.
+                </h2>
+                <p class="text-[clamp(0.95rem,1.2vw,1.1rem)] text-white/60 max-w-[40ch] mx-auto lg:mx-0 leading-[1.75]">A complete breakdown of the design architecture, moving directly from foundational brand logic into production-ready physical and digital touchpoints.</p>
+            </div>
+
+            <div class="horiz-slide group"><img src="nargis/3.avif" alt="Nargis Application 3" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/4.avif" alt="Nargis Application 4" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/5.avif" alt="Nargis Application 5" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/6.avif" alt="Nargis Application 6" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/7.avif" alt="Nargis Application 7" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/8.avif" alt="Nargis Application 8" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/9.avif" alt="Nargis Application 9" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/10.avif" alt="Nargis Application 10" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/11.avif" alt="Nargis Application 11" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/12.avif" alt="Nargis Application 12" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/13.avif" alt="Nargis Application 13" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/14.avif" alt="Nargis Application 14" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/15.avif" alt="Nargis Application 15" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="nargis/16.avif" alt="Nargis Application 16" loading="lazy"></div>
+
+            <div class="w-[clamp(1.25rem,6vw,5rem)] flex-shrink-0"></div>
+        </div>
+    </section>
+    <div class="slider-dots" id="slider-dots" aria-hidden="true"></div>
+
+    <section class="bg-surface py-16 md:py-24 mb-16 md:mb-24 border-b border-white/[0.04]">
+        <div class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)]">
+            <div class="mb-12">
+                <span class="block font-bold text-[0.58rem] tracking-[0.18em] uppercase text-accent mb-4 reveal-up">Output · Impact</span>
+                <h2 class="text-[clamp(1.8rem,4vw,3.5rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white text-reveal">The Ecosystem.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up">
+                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                    <span class="font-extrabold text-[clamp(2.5rem,4vw,3.5rem)] text-accent leading-none block mb-4"><span class="count-up" data-target="100">0</span>%</span>
+                    <h3 class="font-bold text-[0.8rem] uppercase tracking-[0.1em] text-white mb-2">Bespoke Assets</h3>
+                    <p class="text-[0.8rem] text-white/70 leading-[1.6]">Complete UI and packaging system delivered from concept to production-ready files.</p>
+                </div>
+                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                    <span class="font-extrabold text-[clamp(2.5rem,4vw,3.5rem)] text-accent leading-none block mb-4"><span class="count-up" data-target="1">0</span></span>
+                    <h3 class="font-bold text-[0.8rem] uppercase tracking-[0.1em] text-white mb-2">Design System</h3>
+                    <p class="text-[0.8rem] text-white/70 leading-[1.6]">A single overarching design system built on Ogg Roman and Neue Montreal grids.</p>
+                </div>
+                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                    <span class="font-extrabold text-[clamp(2.5rem,4vw,3.5rem)] text-accent leading-none block mb-4"><span class="count-up" data-target="200">0</span>+</span>
+                    <h3 class="font-bold text-[0.8rem] uppercase tracking-[0.1em] text-white mb-2">Global Deployments</h3>
+                    <p class="text-[0.8rem] text-white/70 leading-[1.6]">Backed by a six-year track record scaling high-conversion visual identities.</p>
+                </div>
+                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                    <span class="font-extrabold text-[clamp(2.5rem,4vw,3.5rem)] text-accent leading-none block mb-4"><span class="count-up" data-target="3">0</span></span>
+                    <h3 class="font-bold text-[0.8rem] uppercase tracking-[0.1em] text-white mb-2">Constraints Resolved</h3>
+                    <p class="text-[0.8rem] text-white/70 leading-[1.6]">Aesthetic precision, tactile material translation, and conversion optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)] mb-16 reveal-up">
+        <div class="mb-6 flex items-center gap-4">
+            <span class="font-bold text-[0.58rem] tracking-[0.18em] uppercase text-white/30">Nargis Beauty · Global Identity Spread</span>
+            <div class="flex-1 h-px bg-white/[0.06]"></div>
+        </div>
+        <div class="w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-[0_16px_48px_oklch(5%_0_0/80%),_inset_0_1px_0_rgba(255,255,255,0.03)] group reveal-up bg-surface border-none mb-12" data-cursor="VIEW">
+            <img src="nargis/17.avif" alt="Nargis Full Spread 1" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]" loading="lazy">
+        </div>
+        <div class="w-full aspect-[1920/332] rounded-[24px] overflow-hidden shadow-[0_16px_48px_oklch(5%_0_0/80%),_inset_0_1px_0_rgba(255,255,255,0.03)] group reveal-up bg-surface border-none" data-cursor="VIEW">
+            <img src="nargis/18.avif" alt="Nargis Full Spread 2" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]" loading="lazy">
+        </div>
+    </section>
+
+    <section class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)]">
+        <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(2.5rem,6vw,5rem)] rounded-[32px] flex flex-col items-center text-center reveal-up border-none">
+            <span class="font-bold text-[0.58rem] tracking-[0.18em] uppercase text-accent mb-6">Available Now · Global</span>
+            <h2 class="text-[clamp(2rem,5vw,4rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white mb-6 text-reveal">Build an Asset.<br>Not a Cost.</h2>
+            <p class="text-[clamp(0.95rem,1.2vw,1.1rem)] text-white/70 max-w-[48ch] leading-[1.75] mb-10">Senior Graphic Designer. 6 years scaling high-performance web ecosystems and elite brand identities across the USA, Canada, UAE, and EU.</p>
+            
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="https://wa.link/649ato" class="btn-glass-cta active:scale-[0.98] flex items-center justify-center gap-3 px-[clamp(1.5rem,5vw,2rem)] h-14 min-w-[48px] rounded-full text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">
+                    <svg class="w-5 h-5 text-whatsapp" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp Now
+                </a>
+                <a href="mailto:studio@ghaidak.com" class="flex items-center justify-center px-8 h-14 min-w-[48px] rounded-full bg-white/[0.05] shadow-[0_0_20px_rgba(255,255,255,0.02),_inset_0_1px_0_rgba(255,255,255,0.05)] text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white/80 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">studio@ghaidak.com</a>
+            </div>
+        </div>
+
+        <div class="mt-24 pt-12 border-t border-white/[0.04]">
+            <a href="#" class="group flex items-center justify-between reveal-up focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-[24px]" data-cursor="CLICK">
+                <div>
+                    <p class="font-bold text-[0.58rem] tracking-[0.18em] uppercase text-white/40 mb-2">Back to Top</p>
+                    <h2 class="text-[clamp(1.8rem,4vw,3.5rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white group-hover:text-accent transition-colors">NARGIS BEAUTY</h2>
+                    <p class="font-bold text-[0.6rem] tracking-[0.1em] uppercase text-white/60 mt-4">Premium Botanical Skincare</p>
+                </div>
+                <div class="w-16 h-16 rounded-full bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] flex items-center justify-center group-hover:bg-accent transition-colors shrink-0">
+                    <svg class="w-6 h-6 text-white/50 group-hover:text-obsidian group-hover:-translate-y-1 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12l7-7 7 7M12 19V5"/></svg>
+                </div>
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-obsidian pt-[clamp(5rem,10vh,8rem)] md:pt-16 pb-[clamp(7rem,12vh,9rem)] px-[clamp(1.5rem,6vw,5rem)] md:px-[clamp(1.25rem,6vw,5rem)] relative z-20 border-t border-white/[0.04]">
+    <div class="max-w-[1400px] mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-8 pb-10 md:pb-12 mb-8 border-b border-white/[0.04]">
+            <div class="flex flex-col md:flex-row items-center md:items-end gap-6 md:gap-10">
+                <a href="/" aria-label="Home" class="hover-trigger min-h-[48px] flex items-center justify-center md:justify-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2" data-cursor="CLICK">
+                    <img src="logo.svg" alt="GA" class="h-8 md:h-6 w-auto opacity-80 md:opacity-60 hover:opacity-100 transition-opacity">
+                </a>
+                <span class="text-[0.65rem] font-bold text-white/40 uppercase tracking-[0.15em] text-center md:text-left">Senior Graphic Designer<br>Boutique Agency Director</span>
+            </div>
+            <div class="flex flex-col items-center md:items-end">
+                <span class="md:hidden text-[0.55rem] font-bold text-white/40 uppercase tracking-[0.15em] mb-2">Direct Inquiry</span>
+                <a href="mailto:studio@ghaidak.com" class="font-extrabold md:font-bold text-[1.1rem] md:text-[0.52rem] text-white md:text-white/60 uppercase md:lowercase tracking-[0.06em] hover:text-accent md:hover:text-white transition-colors hover-trigger min-h-[48px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2" data-cursor="CLICK">studio@ghaidak.com</a>
+            </div>
+        </div>
+        <div class="flex flex-col-reverse lg:flex-row justify-between items-center lg:items-center pt-4 font-bold text-[0.6rem] md:text-[0.52rem] text-white/60 uppercase tracking-[0.1em] gap-12 lg:gap-8">
+            <span class="shrink-0 whitespace-nowrap text-center lg:text-left text-white/40 md:text-white/60 text-[0.55rem] md:text-[0.52rem]">© <span id="current-year">2026</span> Ghaidak Studio. All rights reserved.</span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-row w-full lg:w-auto justify-items-center lg:justify-end gap-x-2 lg:gap-x-8 gap-y-6 lg:gap-y-0">
+                <a href="/" class="hover:text-white transition-colors hover-trigger min-h-[48px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 lg:-mx-2 whitespace-nowrap" data-cursor="CLICK">All Work</a>
+                <a href="mailto:studio@ghaidak.com" class="hover:text-white transition-colors hover-trigger min-h-[48px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 lg:-mx-2 whitespace-nowrap" data-cursor="CLICK">Email</a>
+                <a href="https://linkedin.com/in/ghaidak-alosh" target="_blank" class="hover:text-white transition-colors hover-trigger min-h-[48px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 lg:-mx-2 whitespace-nowrap" data-cursor="CLICK">LinkedIn</a>
+                <a href="https://behance.net/ghaidakalo5fb4" target="_blank" class="hover:text-white transition-colors hover-trigger min-h-[48px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 lg:-mx-2 whitespace-nowrap" data-cursor="CLICK">Behance</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<script>
+document.documentElement.classList.remove('no-js');
+const yearEl = document.getElementById('current-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+const MQ_MOBILE = window.matchMedia('(max-width:1024px)');
+const REDUCED_MO = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+// Smooth Scroll Init
+let lenisRef = null;
+if (!MQ_MOBILE.matches && typeof Lenis !== 'undefined') {
+    lenisRef = new Lenis({ duration: 0.8, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothTouch: false });
+    if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        lenisRef.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(time => lenisRef.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0, 0);
+    } else {
+        const raf = time => { lenisRef.raf(time); requestAnimationFrame(raf); };
+        requestAnimationFrame(raf);
+    }
+}
+
+// Improved Loader Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const loaderBg = document.getElementById('ga-loader');
+    const loaderBar = document.getElementById('loaderBar');
+    const loaderText = document.getElementById('loaderText');
+    if(!loaderBg || !window.gsap) return;
+
+    gsap.to(loaderText, { y: '0%', opacity: 1, duration: 1.0, ease: 'expo.out', delay: 0.1 });
+
+    let progress = { val: 0 };
+    let loadTween = gsap.to(progress, {
+        val: 85, duration: 2.0, ease: 'power3.out',
+        onUpdate: () => gsap.set(loaderBar, { scaleX: progress.val / 100 })
+    });
+
+    const triggerSystemReady = () => {
+        loadTween.kill();
+        gsap.to(progress, {
+            val: 100, duration: 0.4, ease: 'power4.out',
+            onUpdate: () => gsap.set(loaderBar, { scaleX: progress.val / 100 }),
+            onComplete: () => {
+                gsap.to(loaderText, {
+                    y: -15, opacity: 0, duration: 0.2, ease: 'power2.in',
+                    onComplete: () => {
+                        loaderText.style.color = "var(--accent)";
+                        loaderText.textContent = "SYSTEM READY";
+                        gsap.fromTo(loaderText, { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'expo.out' });
+                    }
+                });
+                const exitTl = gsap.timeline({ 
+                    delay: 0.5, 
+                    onComplete: () => { 
+                        loaderBg.remove();
+                        document.body.style.overflow = ''; // Unlock scrolling seamlessly
+                    } 
+                });
+                exitTl.to([loaderBar, loaderText], { opacity: 0, y: -20, duration: 0.4, stagger: 0.1, ease: 'power3.in' })
+                      .to(loaderBg, { yPercent: -100, duration: 0.8, ease: 'expo.inOut' });
+            }
+        });
+    };
+
+    if (document.readyState === 'complete') {
+        triggerSystemReady();
+    } else {
+        window.addEventListener('load', triggerSystemReady, { once: true });
+    }
+});
+
+// Scroll Effects
+const progressBar = document.getElementById('scrollProgress');
+const navEl = document.querySelector('.hud-nav');
+let navScrolled = false, rafPending = false;
+window.addEventListener('scroll', () => {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+        const s = window.scrollY;
+        const max = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        if (progressBar) progressBar.style.width = max > 0 ? `${Math.min((s / max) * 100, 100)}%` : '0%';
+        const past = s > 60;
+        if (past !== navScrolled) {
+            navScrolled = past;
+            if(navEl) navEl.classList.toggle('scrolled', past);
+        }
+        rafPending = false;
+    });
+}, { passive: true });
+
+// ADVANCED GSAP REVEALS AND ANIMATIONS
+if (window.gsap && window.ScrollTrigger && !REDUCED_MO) {
+    
+    gsap.utils.toArray('.text-reveal').forEach(el => {
+        gsap.fromTo(el, 
+            { y: 60, opacity: 0, skewY: 3 },
+            { 
+                y: 0, opacity: 1, skewY: 0,
+                duration: 1.4, 
+                ease: "expo.out",
+                scrollTrigger: { trigger: el, start: "top 85%", once: true }
+            }
+        );
+    });
+
+    gsap.utils.toArray('.reveal-up').forEach(el => {
+        gsap.fromTo(el, 
+            { y: 40, opacity: 0 },
+            { 
+                y: 0, opacity: 1, 
+                duration: 1.2, 
+                ease: "power3.out",
+                scrollTrigger: { trigger: el, start: "top 90%", once: true }
+            }
+        );
+    });
+
+    gsap.utils.toArray('.count-up').forEach(el => {
+        const target = parseFloat(el.getAttribute('data-target'));
+        const isZero = target === 0;
+        const startVal = isZero ? 10 : 0;
+        
+        ScrollTrigger.create({
+            trigger: el,
+            start: "top 90%",
+            once: true,
+            onEnter: () => {
+                gsap.fromTo(el, { innerText: startVal }, {
+                    innerText: target,
+                    duration: 2.5,
+                    ease: "power4.out",
+                    snap: { innerText: 1 },
+                    onUpdate: function() {
+                        el.textContent = Math.round(this.targets()[0].innerText);
+                    }
+                });
+            }
+        });
+    });
+
+    const horizSection = document.getElementById('horiz-section');
+    const horizWrapper = document.getElementById('horiz-wrapper');
+    const navElToHide = document.getElementById('navbar');
+
+    if (!MQ_MOBILE.matches) {
+        if (horizSection && horizWrapper) {
+            const getScrollAmount = () => {
+                return -(horizWrapper.scrollWidth - window.innerWidth + 100); 
+            };
+
+            const tween = gsap.to(horizWrapper, {
+                x: getScrollAmount,
+                ease: "none"
+            });
+
+            ScrollTrigger.create({
+                trigger: horizSection,
+                start: "top top",
+                end: () => `+=${getScrollAmount() * -1}`,
+                pin: true,
+                animation: tween,
+                scrub: 1,
+                invalidateOnRefresh: true,
+                onToggle: self => {
+                    if(navElToHide) {
+                        if(self.isActive) navElToHide.classList.add('nav-hidden');
+                        else navElToHide.classList.remove('nav-hidden');
+                    }
+                }
+            });
+        }
+    } else {
+        if (horizSection) {
+            ScrollTrigger.create({
+                trigger: horizSection,
+                start: "top 100px",
+                end: "bottom 100px",
+                onToggle: self => {
+                    if(navElToHide) {
+                        if(self.isActive) navElToHide.classList.add('nav-hidden');
+                        else navElToHide.classList.remove('nav-hidden');
+                    }
+                }
+            });
+        }
+    }
+} else {
+    document.querySelectorAll('.reveal-up, .text-reveal').forEach(el => el.style.opacity = 1);
+    document.querySelectorAll('.count-up').forEach(el => el.textContent = el.getAttribute('data-target'));
+}
+
+// Cursor Logic
+const initCursor = () => {
+    if (MQ_MOBILE.matches || REDUCED_MO || !window.gsap) return;
+    const curRing = document.getElementById('cur-ring'), curDot = document.getElementById('cur-dot'), curLabel = document.getElementById('cur-label');
+    if (!curRing || !curDot || !curLabel) return;
+    
+    document.body.style.cursor = 'none';
+    gsap.set([curRing, curDot], { xPercent: -50, yPercent: -50 });
+    
+    const ringXTo = gsap.quickTo(curRing, 'x', { duration: 0.38, ease: 'power3.out' }), ringYTo = gsap.quickTo(curRing, 'y', { duration: 0.38, ease: 'power3.out' });
+    const dotXTo = gsap.quickTo(curDot, 'x', { duration: 0.1, ease: 'power3.out' }), dotYTo = gsap.quickTo(curDot, 'y', { duration: 0.1, ease: 'power3.out' });
+
+    window.addEventListener('mousemove', e => {
+        ringXTo(e.clientX); ringYTo(e.clientY); dotXTo(e.clientX); dotYTo(e.clientY);
+        curRing.style.opacity = '1'; curDot.style.opacity = '1';
+    }, { passive: true });
+    
+    window.addEventListener('mouseleave', () => { curRing.style.opacity = '0'; curDot.style.opacity = '0'; });
+
+    document.body.addEventListener('mouseover', e => {
+        const target = e.target.closest('[data-cursor], a, button');
+        document.body.classList.remove('cur-hover', 'cur-text', 'cur-image');
+        curLabel.textContent = '';
+        if (target && !target.closest('#navbar')) {
+            if (target.dataset.cursor) {
+                if(target.dataset.cursor === 'VIEW' || target.dataset.cursor === 'DRAG') document.body.classList.add('cur-image');
+                else document.body.classList.add('cur-text');
+                curLabel.textContent = target.dataset.cursor;
+            } else { document.body.classList.add('cur-hover'); }
+        }
+    }, { passive: true });
+};
+window.addEventListener('load', initCursor);
+
+// Spotlight Effect
+document.querySelectorAll('.spotlight-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    });
+});
+
+// Mobile Slider Dots + Swipe Hint
+if (MQ_MOBILE.matches) {
+    const wrapper = document.getElementById('horiz-wrapper');
+    const dotsContainer = document.getElementById('slider-dots');
+    const swipeHint = document.getElementById('swipe-hint');
+
+    if (wrapper && dotsContainer) {
+        const slides = Array.from(wrapper.children).filter(el => 
+            el.classList.contains('horiz-slide') || el.classList.contains('horiz-intro')
+        );
+        
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        let hinted = false;
+
+        wrapper.addEventListener('scroll', () => {
+            if (!hinted && swipeHint) {
+                hinted = true;
+                swipeHint.classList.add('hidden');
+            }
+
+            const slideWidth = wrapper.scrollWidth / slides.length;
+            const activeIndex = Math.round(wrapper.scrollLeft / slideWidth);
+            dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+        }, { passive: true });
+    }
+}
+
+const slider = document.getElementById('horiz-wrapper');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+if(slider && MQ_MOBILE.matches) {
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+}
+</script>
+</body>
+</html>

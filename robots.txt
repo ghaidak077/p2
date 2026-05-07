@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /og-image.html
+
+Sitemap: https://ghaidak.com/sitemap.xml

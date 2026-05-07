@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en-US" class="dark no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <title>Wade Fit Studio — Strategic Brand Identity · Ghaidak Alosh</title>
+    <meta name="description" content="Wade Fit Studio | Strategic Brand Identity. Form Meets Force. A Rebirth in Performance.">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        window.addEventListener('load', function() {
+            if (typeof tailwind !== 'undefined') tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        colors: {
+                            obsidian: '#000000',
+                            surface: '#0a0a0a',
+                            surface2: '#121212',
+                            ink: '#ffffff',
+                            accent: '#B71D23', // Performance Red
+                            accent2: '#481E1F', // Oxblood
+                            whatsapp: 'oklch(76% 0.17 151)',
+                            linkedin: 'oklch(66% 0.11 247)'
+                        },
+                        fontFamily: {
+                            syne: ['Syne', 'sans-serif'], 
+                            mono: ['DM Mono', 'monospace']
+                        },
+                        transitionTimingFunction: {
+                            'spring': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+                            'cinema': 'cubic-bezier(0.22, 1, 0.36, 1)'
+                        }
+                    }
+                }
+            };
+        });
+    </script>
+
+    <style>
+        :root { 
+            --bg: #000000; 
+            --obsidian: #000000;
+            --accent: #B71D23; 
+            --ink: #ffffff; 
+        }
+        
+        html { background: var(--bg); overflow-x: clip; -webkit-text-size-adjust: 100%; color-scheme: dark; scroll-behavior: smooth; cursor: none; }
+        body { font-family: 'Syne', sans-serif; background-color: var(--bg); color: var(--ink); overflow-x: clip; cursor: none; }
+        ::selection { background: rgba(183, 29, 35, 0.3); color: inherit; }
+        a, button, input, textarea, select { cursor: none !important; border: none; outline: none; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        .noise-overlay { position: fixed; inset: 0; z-index: 9998; pointer-events: none; opacity: 0.04; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); transform: translateZ(0); }
+
+        html.lenis, html.lenis body { height: auto; width: 100%; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+
+        /* 3-State Cursor System */
+        #cur-dot { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); transform: translate(-50%, -50%); transition: opacity 0.25s; opacity: 0; box-shadow: 0 0 10px rgba(183, 29, 35, 0.8); }
+        #cur-ring { position: fixed; top: 0; left: 0; z-index: 9998; pointer-events: none; width: 32px; height: 32px; border: 1px solid rgba(183, 29, 35, 0.5); border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s, border-color 0.3s, border-radius 0.3s, opacity 0.25s; opacity: 0; display: flex; align-items: center; justify-content: center; }
+        #cur-label { font-size: 0.55rem; font-weight: 700; color: #ffffff; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0; transition: opacity 0.15s; white-space: nowrap; }
+
+        body.cur-hover #cur-ring { width: 56px; height: 56px; background: rgba(183, 29, 35, 0.1); border-color: transparent; }
+        body.cur-text #cur-ring { width: 88px; height: 32px; background: var(--accent); border-color: transparent; border-radius: 100px; box-shadow: 0 0 32px rgba(183, 29, 35, 0.4); }
+        body.cur-text #cur-label { opacity: 1; }
+        body.cur-image #cur-ring { width: 88px; height: 88px; background: var(--accent); border-color: transparent; box-shadow: 0 0 32px rgba(183, 29, 35, 0.4); }
+        body.cur-image #cur-label { opacity: 1; }
+
+        @media(pointer: coarse), (max-width: 1024px) {
+            #cur-dot, #cur-ring { display: none !important; }
+            body, a, button, input, textarea { cursor: auto !important; }
+        }
+
+        /* Nav & Menus */
+        .hud-nav { 
+            transition: top .45s cubic-bezier(0.16, 1, 0.3, 1), width .45s, border-radius .35s, background .4s, box-shadow .4s, transform .5s cubic-bezier(0.22, 1, 0.36, 1), opacity .4s ease-out; 
+            will-change: transform, opacity;
+        }
+        .hud-nav.scrolled { top: 0; width: 100% !important; max-width: 100%; border-radius: 0; background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%); backdrop-filter: blur(32px); box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.03); }
+        
+        .hud-nav.nav-hidden {
+            transform: translate(-50%, -150%) !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        .nav-link { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; color: rgba(255,255,255,0.6); transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .nav-link::after { content: ''; position: absolute; bottom: 8px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 0 10px rgba(183, 29, 35, 0.8), 0 0 4px rgba(183, 29, 35, 0.5); }
+        .nav-link:hover { color: #ffffff; transform: translateY(-1px); }
+        .nav-link:hover::after { transform: scaleX(1); }
+
+        /* Glass Components */
+        @property --btn-border-angle { syntax: '<angle>'; inherits: false; initial-value: -75deg; }
+        .btn-glass-cta { position: relative; overflow: hidden; background: linear-gradient(160deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 50%, rgba(183,29,35,0.1) 100%); backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 8px 32px rgba(0,0,0,0.6); transition: transform .3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow .3s; border: none; }
+        .btn-glass-cta::after { content: ''; position: absolute; inset: 0; border-radius: 999px; padding: 1px; box-sizing: border-box; background: conic-gradient(from var(--btn-border-angle) at 50% 50%, transparent 0%, rgba(255,255,255,0.75) 12%, rgba(183,29,35,0.6) 22%, transparent 35%, transparent 65%, rgba(183,29,35,0.4) 78%, rgba(255,255,255,0.55) 88%, transparent 100%); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: destination-out; pointer-events: none; opacity: 0; transition: opacity 0.4s, --btn-border-angle 700ms; z-index: 2; }
+        
+        .spotlight-card {
+            transform: translateZ(0);
+            will-change: transform;
+            position: relative; 
+            overflow: hidden; 
+            --mouse-x: 50%; 
+            --mouse-y: 50%; 
+            border: none;
+        }
+        .spotlight-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(183,29,35,0.08), transparent 65%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 0; border-radius: inherit; }
+
+        /* Initial states for GSAP Animation */
+        .reveal-up, .text-reveal { opacity: 0; }
+        .count-up { font-variant-numeric: tabular-nums; }
+
+        @media (hover: hover) and (pointer: fine) {
+            .spotlight-card:hover { transform: translateY(-8px) translateZ(0) !important; background-color: rgba(255,255,255,0.05) !important; }
+            .spotlight-card:hover::before { opacity: 1; }
+            .btn-glass-cta:hover { transform: translateY(-1px) translateZ(0) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 16px 48px rgba(0,0,0,0.8); }
+            .btn-glass-cta:hover::after { opacity: 1; --btn-border-angle: -145deg; }
+        }
+
+        .hover-trigger * { pointer-events: none; }
+        
+        /* PREMIUM HORIZONTAL SCROLL SLIDER */
+        .horiz-container {
+            position: relative;
+            height: 100svh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--obsidian);
+            box-sizing: border-box;
+            margin: 0;
+        }
+        .horiz-wrapper {
+            display: flex;
+            gap: 0; 
+            padding-inline: clamp(1.25rem, 6vw, 5rem);
+            width: max-content;
+            will-change: transform;
+            align-items: center;
+        }
+        .horiz-slide {
+            width: 80vw;
+            max-width: 1200px;
+            aspect-ratio: 16 / 9;
+            flex-shrink: 0;
+            overflow: hidden; 
+            background-color: var(--surface);
+            position: relative;
+        }
+        .horiz-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .horiz-slide:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Mobile Graceful Degradation to Native Swipe */
+        @media (max-width: 1024px) {
+            .horiz-container {
+                height: 100svh; 
+                display: flex;
+                align-items: center;
+                overflow: visible;
+                padding-top: 0;
+                padding-bottom: 0;
+                scroll-snap-align: start;
+            }
+            .horiz-wrapper {
+                width: 100vw;
+                height: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                margin-left: 0; 
+                padding-inline: 7.5vw; 
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                gap: 0; 
+                align-items: center;
+            }
+            .horiz-wrapper::-webkit-scrollbar { display: none; }
+            .horiz-slide {
+                scroll-snap-align: center;
+                width: 85vw;
+                aspect-ratio: 16 / 9;
+                max-width: none;
+            }
+            .horiz-intro {
+                scroll-snap-align: center;
+                width: 85vw;
+                padding-right: 0 !important;
+                text-align: center;
+            }
+        }
+
+        /* Swipe hint indicator */
+        .swipe-hint {
+            display: none;
+        }
+        @media (max-width: 1024px) {
+            .swipe-hint {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.58rem;
+                font-weight: 700;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: rgba(183,29,35,0.6);
+                position: absolute;
+                top: env(safe-area-inset-top, 2rem);
+                left: 7.5vw;
+                z-index: 10;
+                transition: opacity 0.6s ease;
+            }
+            .swipe-hint.hidden { opacity: 0; pointer-events: none; }
+            .swipe-hint-arrow {
+                display: inline-flex;
+                animation: swipeNudge 1.8s ease-in-out infinite;
+            }
+            @keyframes swipeNudge {
+                0%, 100% { transform: translateX(0); }
+                50% { transform: translateX(6px); }
+            }
+        }
+
+        /* Slider dots */
+        .slider-dots {
+            display: none;
+        }
+        @media (max-width: 1024px) {
+            .slider-dots {
+                display: flex;
+                justify-content: center;
+                gap: 6px;
+                padding: 1rem 0;
+                position: relative;
+                z-index: 10;
+                background: var(--obsidian);
+            }
+            .slider-dot {
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.15);
+                transition: background 0.3s, transform 0.3s;
+                flex-shrink: 0;
+            }
+            .slider-dot.active {
+                background: rgba(183,29,35,0.8);
+                transform: scale(1.4);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent/30 selection:text-white" style="overflow: hidden;">
+
+<div id="ga-loader" aria-hidden="true" style="position: fixed; inset: 0; z-index: 9999; background-color: var(--obsidian); display: flex; align-items: center; justify-content: center;" class="will-change-transform">
+    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 2rem; gap: clamp(2rem,4vw,3rem);">
+        <div style="width: clamp(200px,30vw,320px); height: 2px; background-color: rgba(255,255,255,0.05); position: relative; overflow: hidden; border-radius: 9999px; margin-top: 2.5rem;">
+            <div id="loaderBar" style="position: absolute; inset: 0; background-image: linear-gradient(to right, var(--accent), #481E1F); transform-origin: left; transform: scaleX(0); border-radius: 9999px; box-shadow: 0 0 12px rgba(183,29,35,0.6);"></div>
+        </div>
+        <div style="overflow: hidden; padding-top: 0.25rem; height: 20px; display: flex; align-items: center; justify-content: center;">
+            <span id="loaderText" style="display: block; font-family: 'DM Mono', monospace; font-weight: 700; font-size: 0.55rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.6); text-transform: uppercase; transform: translateY(101%); opacity: 0; will-change: transform, opacity;">RENDERING SYSTEM</span>
+        </div>
+    </div>
+</div>
+
+<div class="noise-overlay" aria-hidden="true"></div>
+<div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-accent to-accent2 z-[9999] w-0 pointer-events-none shadow-[0_0_8px_rgba(183,29,35,0.5)]"></div>
+
+<div id="cur-dot" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"><span id="cur-label"></span></div>
+
+<nav id="navbar" class="hud-nav fixed top-5 left-1/2 -translate-x-1/2 w-[calc(100%-2.5rem)] md:w-[calc(100%-clamp(3rem,8vw,10rem))] max-w-[1200px] h-16 px-5 lg:px-8 flex justify-between items-center z-[9600] rounded-full bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-[32px] shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)]" aria-label="Primary navigation">
+    <a href="/" aria-label="Home" class="z-10 flex items-center h-full min-w-[48px] hover:opacity-80 transition-opacity active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-full px-2" data-cursor="CLICK">
+        <img src="logo.svg" alt="GA." class="h-6 w-auto">
+    </a>
+    <div class="hidden lg:flex items-center gap-8 text-[0.68rem] font-bold uppercase tracking-[0.08em]">
+        <a href="/" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md" data-cursor="CLICK">All Work</a>
+        <span class="text-white/30">/</span>
+        <span class="text-white">Wade Fit Studio</span>
+    </div>
+    <div class="flex items-center z-10 gap-4">
+        <a href="mailto:studio@ghaidak.com" class="hidden md:flex btn-glass-cta active:scale-[0.98] items-center justify-center px-6 h-12 min-w-[48px] rounded-full text-[0.65rem] font-bold uppercase tracking-[0.07em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent text-white" data-cursor="CLICK">Work With Me</a>
+        <a href="mailto:studio@ghaidak.com" class="md:hidden flex btn-glass-cta items-center justify-center w-10 h-10 rounded-full text-white" aria-label="Work With Me" data-cursor="CLICK">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </a>
+    </div>
+</nav>
+
+<main id="main" class="relative z-10 w-full pt-[calc(64px+clamp(3rem,5vw,5rem))] pb-24">
+    
+    <header class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)] mb-16 relative">
+        <div class="flex flex-col items-center text-center max-w-[900px] mx-auto">
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-6 reveal-up">
+                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_rgba(183,29,35,0.2)]">2026</span>
+                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_rgba(183,29,35,0.2)]">Brand Identity & Strategy</span>
+                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_rgba(183,29,35,0.2)]">Fitness Sector</span>
+            </div>
+            
+            <h1 class="font-extrabold tracking-[-0.02em] leading-[0.92] text-[clamp(3.5rem,10vw,8rem)] text-white mb-6 text-reveal">
+                WADE FIT STUDIO
+            </h1>
+            
+            <h2 class="text-[clamp(1.2rem,2.5vw,2rem)] text-accent font-bold mb-8 text-reveal">
+                Form Meets Force.
+            </h2>
+            
+            <p class="text-[clamp(1rem,1.6vw,1.2rem)] text-white/70 max-w-[52ch] leading-[1.75] mx-auto mb-12 reveal-up">
+                Saturated markets demand a high-impact response. We engineered an identity for the elite clientele who values precision and raw results over generic fitness trends.
+            </p>
+        </div>
+
+        <div class="w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.8),_inset_0_1px_0_rgba(255,255,255,0.03)] group reveal-up bg-surface border-none relative" data-cursor="VIEW">
+            <img src="wade/1.avif" alt="Wade Fit Studio Brand Identity Hero" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]" loading="eager">
+            <div class="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#000000] to-transparent pointer-events-none lg:hidden"></div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-12 mt-12 border-t border-white/[0.04] reveal-up">
+            <div class="flex flex-col items-center text-center gap-2">
+                <span class="font-extrabold text-[clamp(1.5rem,3vw,2.5rem)] text-accent leading-none"><span class="count-up" data-target="15">0</span></span>
+                <span class="font-bold text-[0.58rem] tracking-[0.16em] uppercase text-white/60">Asset Deliverables</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-2">
+                <span class="font-extrabold text-[clamp(1.5rem,3vw,2.5rem)] text-accent leading-none"><span class="count-up" data-target="1">0</span></span>
+                <span class="font-bold text-[0.58rem] tracking-[0.16em] uppercase text-white/60">Senior Designer</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-2">
+                <span class="font-extrabold text-[clamp(1.5rem,3vw,2.5rem)] text-accent leading-none">Global</span>
+                <span class="font-bold text-[0.58rem] tracking-[0.16em] uppercase text-white/60">Target Market</span>
+            </div>
+            <div class="flex flex-col items-center text-center gap-2">
+                <span class="font-extrabold text-[clamp(1.5rem,3vw,2.5rem)] text-accent leading-none">16:9</span>
+                <span class="font-bold text-[0.58rem] tracking-[0.16em] uppercase text-white/60">Format Scale</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)] mb-24 reveal-up">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 flex flex-col gap-3 rounded-[24px]" data-cursor="READ">
+                <span class="font-bold text-[0.56rem] tracking-[0.18em] uppercase text-accent">Strategic Positioning</span>
+                <span class="font-bold text-[clamp(0.82rem,1.1vw,0.95rem)] text-white leading-[1.5]">Cut Through The Noise</span>
+            </div>
+            <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 flex flex-col gap-3 rounded-[24px]" data-cursor="READ">
+                <span class="font-bold text-[0.56rem] tracking-[0.18em] uppercase text-accent">The Brand Mark</span>
+                <span class="font-bold text-[clamp(0.82rem,1.1vw,0.95rem)] text-white leading-[1.5]">Structural Geometry</span>
+            </div>
+            <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 flex flex-col gap-3 rounded-[24px]" data-cursor="READ">
+                <span class="font-bold text-[0.56rem] tracking-[0.18em] uppercase text-accent">Architectural Type</span>
+                <span class="font-bold text-[clamp(0.82rem,1.1vw,0.95rem)] text-white leading-[1.5]">Monument Extended & Neue Montreal</span>
+            </div>
+            <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 flex flex-col gap-3 rounded-[24px]" data-cursor="READ">
+                <span class="font-bold text-[0.56rem] tracking-[0.18em] uppercase text-accent">Physiological Anchors</span>
+                <span class="font-bold text-[clamp(0.82rem,1.1vw,0.95rem)] text-white leading-[1.5]">Performance Red & Oxblood</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)] mb-16 md:mb-24">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-[clamp(3rem,6vw,6rem)] items-start mb-12">
+            <div class="lg:sticky top-32">
+                <span class="block font-bold text-[0.58rem] tracking-[0.18em] uppercase text-accent mb-4 reveal-up">Strategic Positioning</span>
+                <h2 class="text-[clamp(1.8rem,4vw,3.5rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white text-reveal">Industrial<br>Brutalism.</h2>
+            </div>
+            <div class="reveal-up">
+                <p class="text-[clamp(0.95rem,1.3vw,1.05rem)] text-white/70 leading-[1.85] mb-6">
+                    The studio is a sensory extension of the brand. Matte black hardware, raw concrete, and directional LED pulses foster a focus-driven state. We captured the raw grit of effort through an editorial lens where motion conveys progress.
+                </p>
+                <p class="text-[clamp(0.95rem,1.3vw,1.05rem)] text-white/70 leading-[1.85] mb-8">
+                    Saturated markets demand a high-impact response. Intersecting elite branding with scalable physical and digital touchpoints, the resulting identity is an exercise in dominance—designed to command attention and respect.
+                </p>
+                <div class="border-l-2 border-accent pl-6 py-2">
+                    <p class="text-[clamp(1.1rem,1.6vw,1.4rem)] font-bold italic text-white leading-[1.5]">"Stripped of excess. Designed entirely for impact."</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.8),_inset_0_1px_0_rgba(255,255,255,0.03)] group reveal-up bg-surface border-none" data-cursor="VIEW">
+            <img src="wade/2.avif" alt="Wade Fit Studio Industrial Brutalism" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]" loading="eager">
+        </div>
+    </section>
+
+    <section class="bg-surface py-24 mb-0 border-t border-white/[0.04]">
+        <div class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)]">
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-[clamp(3rem,6vw,6rem)] items-start">
+                <div class="lg:sticky top-32">
+                    <span class="block font-bold text-[0.58rem] tracking-[0.18em] uppercase text-accent mb-4 reveal-up">Visual Identity</span>
+                    <h2 class="text-[clamp(1.8rem,4vw,3.5rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white text-reveal">The Architecture.</h2>
+                    <p class="text-[clamp(0.95rem,1.3vw,1.05rem)] text-white/70 leading-[1.85] mt-6 reveal-up">
+                        Seamlessly merging the initial 'W' with the structural geometry of a barbell, the Wade Fit brand mark is an unapologetic symbol of strength. Stripped of excess. Designed entirely for impact.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col gap-4 reveal-up">
+                    <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                        <span class="font-bold text-[0.55rem] tracking-[0.2em] uppercase text-accent block mb-2">Architectural Type</span>
+                        <h3 class="font-bold text-[1rem] text-white mb-3">Form Meets Force</h3>
+                        <p class="text-[0.85rem] text-white/70 leading-[1.7]"><strong>Monument Extended (Primary):</strong> Unapologetic. Structural. Weight. This typeface is a physical force that occupies space, mirroring the stability of the athlete. <br><br><strong>PP Neue Montreal (Secondary):</strong> Clinical Luxury. Precision. Strategy. The sophisticated counter-balance providing editorial clarity and refinement.</p>
+                    </div>
+                    <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                        <span class="font-bold text-[0.55rem] tracking-[0.2em] uppercase text-accent block mb-2">Color System</span>
+                        <h3 class="font-bold text-[1rem] text-white mb-3">Physiological Anchors</h3>
+                        <p class="text-[0.85rem] text-white/70 leading-[1.7]"><strong>Performance Red (#B71D23):</strong> The kinetic trigger. High-energy contrast used strictly for data points and calls-to-action.<br><strong>Oxblood (#481E1F):</strong> The shadow of effort. Adds depth and a "blood, sweat, and iron" grit to the visual narrative.<br><strong>Carbon Black (#000000):</strong> The foundation of dominance. It represents total immersion and the removal of distraction.<br><strong>Champagne Bronze (#D0BFA6):</strong> The elite standard. Replaces neutral gray to signify industrial luxury and achievement.</p>
+                    </div>
+                    <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                        <span class="font-bold text-[0.55rem] tracking-[0.2em] uppercase text-accent block mb-2">Lifestyle Ecosystem</span>
+                        <h3 class="font-bold text-[1rem] text-white mb-3">The 360º Vanguard</h3>
+                        <p class="text-[0.85rem] text-white/70 leading-[1.7]">From signature tech-wear to biometric labs. A lifestyle ecosystem engineered for the aesthetic athlete. We designed the architecture to serve as a permanent fixture, integrating physical performance with elite brand touchpoints.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="horiz-section" class="horiz-container border-b border-white/[0.04]">
+        <div class="swipe-hint" id="swipe-hint" aria-hidden="true">
+            <span>Swipe</span>
+            <span class="swipe-hint-arrow">→</span>
+        </div>
+        <div id="horiz-wrapper" class="horiz-wrapper" data-cursor="DRAG">
+            
+            <div class="horiz-intro w-[85vw] md:w-[40vw] lg:w-[35vw] xl:w-[30vw] flex-shrink-0 flex flex-col justify-center pr-8 md:pr-16 lg:pr-[6vw] xl:pr-[8vw]">
+                <span class="block font-bold text-[0.58rem] tracking-[0.18em] uppercase text-accent mb-6">Visual Execution</span>
+                <h2 class="text-[clamp(3.5rem,8vw,7rem)] font-extrabold uppercase tracking-tight leading-[0.85] text-white mb-6">
+                    THE<br>
+                    GAL<br>
+                    LERY.
+                </h2>
+                <p class="text-[clamp(0.95rem,1.2vw,1.1rem)] text-white/60 max-w-[40ch] mx-auto lg:mx-0 leading-[1.75]">A complete breakdown of the design architecture, moving directly from foundational brand logic into production-ready physical and digital touchpoints.</p>
+            </div>
+
+            <div class="horiz-slide group"><img src="wade/3.avif" alt="Wade Fit Application 3" loading="eager"></div>
+            <div class="horiz-slide group"><img src="wade/4.avif" alt="Wade Fit Application 4" loading="eager"></div>
+            <div class="horiz-slide group"><img src="wade/5.avif" alt="Wade Fit Application 5" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="wade/6.avif" alt="Wade Fit Application 6" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="wade/7.avif" alt="Wade Fit Application 7" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="wade/8.avif" alt="Wade Fit Application 8" loading="lazy"></div>
+            <div class="horiz-slide group"><img src="wade/9.avif" alt="Wade Fit Application 9" loading="lazy"></div>
+
+            <div class="w-[clamp(1.25rem,6vw,5rem)] flex-shrink-0"></div>
+        </div>
+    </section>
+    <div class="slider-dots" id="slider-dots" aria-hidden="true"></div>
+
+    <section class="bg-surface py-16 md:py-24 mb-16 md:mb-24 border-b border-white/[0.04]">
+        <div class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)]">
+            <div class="mb-12">
+                <span class="block font-bold text-[0.58rem] tracking-[0.18em] uppercase text-accent mb-4 reveal-up">Output · Impact</span>
+                <h2 class="text-[clamp(1.8rem,4vw,3.5rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white text-reveal">The Ecosystem.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up">
+                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                    <span class="font-extrabold text-[clamp(2.5rem,4vw,3.5rem)] text-accent leading-none block mb-4"><span class="count-up" data-target="100">0</span>%</span>
+                    <h3 class="font-bold text-[0.8rem] uppercase tracking-[0.1em] text-white mb-2">Bespoke Assets</h3>
+                    <p class="text-[0.8rem] text-white/70 leading-[1.6]">Complete UI and environment system delivered from concept to production-ready files.</p>
+                </div>
+                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                    <span class="font-extrabold text-[clamp(2.5rem,4vw,3.5rem)] text-accent leading-none block mb-4"><span class="count-up" data-target="1">0</span></span>
+                    <h3 class="font-bold text-[0.8rem] uppercase tracking-[0.1em] text-white mb-2">Design System</h3>
+                    <p class="text-[0.8rem] text-white/70 leading-[1.6]">A single overarching design system built on Monument Extended and Neue Montreal.</p>
+                </div>
+                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                    <span class="font-extrabold text-[clamp(2.5rem,4vw,3.5rem)] text-accent leading-none block mb-4"><span class="count-up" data-target="200">0</span>+</span>
+                    <h3 class="font-bold text-[0.8rem] uppercase tracking-[0.1em] text-white mb-2">Global Deployments</h3>
+                    <p class="text-[0.8rem] text-white/70 leading-[1.6]">Backed by a six-year track record scaling high-conversion visual identities.</p>
+                </div>
+                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-8 rounded-[24px]" data-cursor="READ">
+                    <span class="font-extrabold text-[clamp(2.5rem,4vw,3.5rem)] text-accent leading-none block mb-4"><span class="count-up" data-target="3">0</span></span>
+                    <h3 class="font-bold text-[0.8rem] uppercase tracking-[0.1em] text-white mb-2">Constraints Resolved</h3>
+                    <p class="text-[0.8rem] text-white/70 leading-[1.6]">Aesthetic precision, structural material translation, and conversion optimization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)] mb-16 reveal-up">
+        <div class="mb-6 flex items-center gap-4">
+            <span class="font-bold text-[0.58rem] tracking-[0.18em] uppercase text-white/30">Wade Fit Studio · Global Identity Spread</span>
+            <div class="flex-1 h-px bg-white/[0.06]"></div>
+        </div>
+        <div class="w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.8),_inset_0_1px_0_rgba(255,255,255,0.03)] group reveal-up bg-surface border-none mb-12" data-cursor="VIEW">
+            <img src="wade/10.avif" alt="Wade Fit Full Spread 1" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]" loading="lazy">
+        </div>
+        <div class="w-full aspect-[1920/332] rounded-[24px] overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.8),_inset_0_1px_0_rgba(255,255,255,0.03)] group reveal-up bg-surface border-none" data-cursor="VIEW">
+            <img src="wade/11.avif" alt="Wade Fit Full Spread 2" class="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.02]" loading="lazy">
+        </div>
+    </section>
+
+    <section class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)]">
+        <div class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.6),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(2.5rem,6vw,5rem)] rounded-[32px] flex flex-col items-center text-center reveal-up border-none">
+            <span class="font-bold text-[0.58rem] tracking-[0.18em] uppercase text-accent mb-6">Strategic Partnership & Investor Inquiries</span>
+            <h2 class="text-[clamp(2rem,5vw,4rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white mb-6 text-reveal">Join The<br>Vanguard.</h2>
+            <p class="text-[clamp(0.95rem,1.2vw,1.1rem)] text-white/70 max-w-[48ch] leading-[1.75] mb-10">Senior Graphic Designer. 6 years scaling high-performance web ecosystems and elite brand identities across the USA, Canada, UAE, and EU.</p>
+            
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="mailto:studio@wadefit.com" class="btn-glass-cta active:scale-[0.98] flex items-center justify-center gap-3 px-[clamp(1.5rem,5vw,2rem)] h-14 min-w-[48px] rounded-full text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    studio@wadefit.com
+                </a>
+                <a href="mailto:studio@ghaidak.com" class="flex items-center justify-center px-8 h-14 min-w-[48px] rounded-full bg-white/[0.05] shadow-[0_0_20px_rgba(255,255,255,0.02),_inset_0_1px_0_rgba(255,255,255,0.05)] text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white/80 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">@WadeFitStudio</a>
+            </div>
+        </div>
+
+        <div class="mt-24 pt-12 border-t border-white/[0.04]">
+            <a href="#" class="group flex items-center justify-between reveal-up focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-[24px]" data-cursor="CLICK">
+                <div>
+                    <p class="font-bold text-[0.58rem] tracking-[0.18em] uppercase text-white/40 mb-2">Back to Top</p>
+                    <h2 class="text-[clamp(1.8rem,4vw,3.5rem)] font-extrabold uppercase tracking-tight leading-[0.92] text-white group-hover:text-accent transition-colors">WADE FIT STUDIO</h2>
+                    <p class="font-bold text-[0.6rem] tracking-[0.1em] uppercase text-white/60 mt-4">Elite Performance Ecosystem</p>
+                </div>
+                <div class="w-16 h-16 rounded-full bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] flex items-center justify-center group-hover:bg-accent transition-colors shrink-0">
+                    <svg class="w-6 h-6 text-white/50 group-hover:text-ink group-hover:-translate-y-1 transition-all" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12l7-7 7 7M12 19V5"/></svg>
+                </div>
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-obsidian pt-[clamp(5rem,10vh,8rem)] md:pt-16 pb-[clamp(7rem,12vh,9rem)] px-[clamp(1.5rem,6vw,5rem)] md:px-[clamp(1.25rem,6vw,5rem)] relative z-20 border-t border-white/[0.04]">
+    <div class="max-w-[1400px] mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-8 pb-10 md:pb-12 mb-8 border-b border-white/[0.04]">
+            <div class="flex flex-col md:flex-row items-center md:items-end gap-6 md:gap-10">
+                <a href="/" aria-label="Home" class="hover-trigger min-h-[48px] flex items-center justify-center md:justify-start focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2" data-cursor="CLICK">
+                    <img src="logo.svg" alt="GA" class="h-8 md:h-6 w-auto opacity-80 md:opacity-60 hover:opacity-100 transition-opacity">
+                </a>
+                <span class="text-[0.65rem] font-bold text-white/40 uppercase tracking-[0.15em] text-center md:text-left">Senior Graphic Designer<br>Boutique Agency Director</span>
+            </div>
+            <div class="flex flex-col items-center md:items-end">
+                <span class="md:hidden text-[0.55rem] font-bold text-white/40 uppercase tracking-[0.15em] mb-2">Direct Inquiry</span>
+                <a href="mailto:studio@ghaidak.com" class="font-extrabold md:font-bold text-[1.1rem] md:text-[0.52rem] text-white md:text-white/60 uppercase md:lowercase tracking-[0.06em] hover:text-accent md:hover:text-white transition-colors hover-trigger min-h-[48px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2" data-cursor="CLICK">studio@ghaidak.com</a>
+            </div>
+        </div>
+        <div class="flex flex-col-reverse lg:flex-row justify-between items-center lg:items-center pt-4 font-bold text-[0.6rem] md:text-[0.52rem] text-white/60 uppercase tracking-[0.1em] gap-12 lg:gap-8">
+            <span class="shrink-0 whitespace-nowrap text-center lg:text-left text-white/40 md:text-white/60 text-[0.55rem] md:text-[0.52rem]">© <span id="current-year">2026</span> Ghaidak Studio. All rights reserved.</span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-row w-full lg:w-auto justify-items-center lg:justify-end gap-x-2 lg:gap-x-8 gap-y-6 lg:gap-y-0">
+                <a href="/" class="hover:text-white transition-colors hover-trigger min-h-[48px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 lg:-mx-2 whitespace-nowrap" data-cursor="CLICK">All Work</a>
+                <a href="mailto:studio@ghaidak.com" class="hover:text-white transition-colors hover-trigger min-h-[48px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 lg:-mx-2 whitespace-nowrap" data-cursor="CLICK">Email</a>
+                <a href="https://linkedin.com/in/ghaidak-alosh" target="_blank" class="hover:text-white transition-colors hover-trigger min-h-[48px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 lg:-mx-2 whitespace-nowrap" data-cursor="CLICK">LinkedIn</a>
+                <a href="https://behance.net/ghaidakalo5fb4" target="_blank" class="hover:text-white transition-colors hover-trigger min-h-[48px] flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2 lg:-mx-2 whitespace-nowrap" data-cursor="CLICK">Behance</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<script>
+document.documentElement.classList.remove('no-js');
+const yearEl = document.getElementById('current-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+const MQ_MOBILE = window.matchMedia('(max-width:1024px)');
+const REDUCED_MO = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+// Smooth Scroll Init
+let lenisRef = null;
+if (!MQ_MOBILE.matches && typeof Lenis !== 'undefined') {
+    lenisRef = new Lenis({ duration: 0.8, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothTouch: false });
+    if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        lenisRef.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add(time => lenisRef.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0, 0);
+    } else {
+        const raf = time => { lenisRef.raf(time); requestAnimationFrame(raf); };
+        requestAnimationFrame(raf);
+    }
+}
+
+// Improved Loader Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const loaderBg = document.getElementById('ga-loader');
+    const loaderBar = document.getElementById('loaderBar');
+    const loaderText = document.getElementById('loaderText');
+    if(!loaderBg || !window.gsap) return;
+
+    gsap.to(loaderText, { y: '0%', opacity: 1, duration: 1.0, ease: 'expo.out', delay: 0.1 });
+
+    let progress = { val: 0 };
+    let loadTween = gsap.to(progress, {
+        val: 85, duration: 2.0, ease: 'power3.out',
+        onUpdate: () => gsap.set(loaderBar, { scaleX: progress.val / 100 })
+    });
+
+    const triggerSystemReady = () => {
+        loadTween.kill();
+        gsap.to(progress, {
+            val: 100, duration: 0.4, ease: 'power4.out',
+            onUpdate: () => gsap.set(loaderBar, { scaleX: progress.val / 100 }),
+            onComplete: () => {
+                gsap.to(loaderText, {
+                    y: -15, opacity: 0, duration: 0.2, ease: 'power2.in',
+                    onComplete: () => {
+                        loaderText.style.color = "var(--accent)";
+                        loaderText.textContent = "SYSTEM READY";
+                        gsap.fromTo(loaderText, { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'expo.out' });
+                    }
+                });
+                const exitTl = gsap.timeline({ 
+                    delay: 0.5, 
+                    onComplete: () => { 
+                        loaderBg.remove();
+                        document.body.style.overflow = ''; // Unlock scrolling seamlessly
+                        if(window.ScrollTrigger) ScrollTrigger.refresh(); // Refresh calculation after loader clears
+                    } 
+                });
+                exitTl.to([loaderBar, loaderText], { opacity: 0, y: -20, duration: 0.4, stagger: 0.1, ease: 'power3.in' })
+                      .to(loaderBg, { yPercent: -100, duration: 0.8, ease: 'expo.inOut' });
+            }
+        });
+    };
+
+    // Ensure slider width gets calculated correctly even if images take a sec to load
+    window.addEventListener('load', () => {
+        triggerSystemReady();
+        setTimeout(() => { if(window.ScrollTrigger) ScrollTrigger.refresh(); }, 500);
+    });
+});
+
+// Scroll Effects
+const progressBar = document.getElementById('scrollProgress');
+const navEl = document.querySelector('.hud-nav');
+let navScrolled = false, rafPending = false;
+window.addEventListener('scroll', () => {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => {
+        const s = window.scrollY;
+        const max = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        if (progressBar) progressBar.style.width = max > 0 ? `${Math.min((s / max) * 100, 100)}%` : '0%';
+        const past = s > 60;
+        if (past !== navScrolled) {
+            navScrolled = past;
+            if(navEl) navEl.classList.toggle('scrolled', past);
+        }
+        rafPending = false;
+    });
+}, { passive: true });
+
+// ADVANCED GSAP REVEALS AND ANIMATIONS
+if (window.gsap && window.ScrollTrigger && !REDUCED_MO) {
+    
+    gsap.utils.toArray('.text-reveal').forEach(el => {
+        gsap.fromTo(el, 
+            { y: 60, opacity: 0, skewY: 3 },
+            { 
+                y: 0, opacity: 1, skewY: 0,
+                duration: 1.4, 
+                ease: "expo.out",
+                scrollTrigger: { trigger: el, start: "top 85%", once: true }
+            }
+        );
+    });
+
+    gsap.utils.toArray('.reveal-up').forEach(el => {
+        gsap.fromTo(el, 
+            { y: 40, opacity: 0 },
+            { 
+                y: 0, opacity: 1, 
+                duration: 1.2, 
+                ease: "power3.out",
+                scrollTrigger: { trigger: el, start: "top 90%", once: true }
+            }
+        );
+    });
+
+    gsap.utils.toArray('.count-up').forEach(el => {
+        const target = parseFloat(el.getAttribute('data-target'));
+        const isZero = target === 0;
+        const startVal = isZero ? 10 : 0;
+        
+        ScrollTrigger.create({
+            trigger: el,
+            start: "top 90%",
+            once: true,
+            onEnter: () => {
+                gsap.fromTo(el, { innerText: startVal }, {
+                    innerText: target,
+                    duration: 2.5,
+                    ease: "power4.out",
+                    snap: { innerText: 1 },
+                    onUpdate: function() {
+                        el.textContent = Math.round(this.targets()[0].innerText);
+                    }
+                });
+            }
+        });
+    });
+
+    const horizSection = document.getElementById('horiz-section');
+    const horizWrapper = document.getElementById('horiz-wrapper');
+    const navElToHide = document.getElementById('navbar');
+
+    if (!MQ_MOBILE.matches) {
+        if (horizSection && horizWrapper) {
+            const getScrollAmount = () => {
+                return -(horizWrapper.scrollWidth - window.innerWidth + 100); 
+            };
+
+            const tween = gsap.to(horizWrapper, {
+                x: getScrollAmount,
+                ease: "none"
+            });
+
+            ScrollTrigger.create({
+                trigger: horizSection,
+                start: "top top",
+                end: () => `+=${getScrollAmount() * -1}`,
+                pin: true,
+                animation: tween,
+                scrub: 1,
+                invalidateOnRefresh: true,
+                onToggle: self => {
+                    if(navElToHide) {
+                        if(self.isActive) navElToHide.classList.add('nav-hidden');
+                        else navElToHide.classList.remove('nav-hidden');
+                    }
+                }
+            });
+        }
+    } else {
+        if (horizSection) {
+            ScrollTrigger.create({
+                trigger: horizSection,
+                start: "top 100px",
+                end: "bottom 100px",
+                onToggle: self => {
+                    if(navElToHide) {
+                        if(self.isActive) navElToHide.classList.add('nav-hidden');
+                        else navElToHide.classList.remove('nav-hidden');
+                    }
+                }
+            });
+        }
+    }
+} else {
+    document.querySelectorAll('.reveal-up, .text-reveal').forEach(el => el.style.opacity = 1);
+    document.querySelectorAll('.count-up').forEach(el => el.textContent = el.getAttribute('data-target'));
+}
+
+// Cursor Logic
+const initCursor = () => {
+    if (MQ_MOBILE.matches || REDUCED_MO || !window.gsap) return;
+    const curRing = document.getElementById('cur-ring'), curDot = document.getElementById('cur-dot'), curLabel = document.getElementById('cur-label');
+    if (!curRing || !curDot || !curLabel) return;
+    
+    document.body.style.cursor = 'none';
+    gsap.set([curRing, curDot], { xPercent: -50, yPercent: -50 });
+    
+    const ringXTo = gsap.quickTo(curRing, 'x', { duration: 0.38, ease: 'power3.out' }), ringYTo = gsap.quickTo(curRing, 'y', { duration: 0.38, ease: 'power3.out' });
+    const dotXTo = gsap.quickTo(curDot, 'x', { duration: 0.1, ease: 'power3.out' }), dotYTo = gsap.quickTo(curDot, 'y', { duration: 0.1, ease: 'power3.out' });
+
+    window.addEventListener('mousemove', e => {
+        ringXTo(e.clientX); ringYTo(e.clientY); dotXTo(e.clientX); dotYTo(e.clientY);
+        curRing.style.opacity = '1'; curDot.style.opacity = '1';
+    }, { passive: true });
+    
+    window.addEventListener('mouseleave', () => { curRing.style.opacity = '0'; curDot.style.opacity = '0'; });
+
+    document.body.addEventListener('mouseover', e => {
+        const target = e.target.closest('[data-cursor], a, button');
+        document.body.classList.remove('cur-hover', 'cur-text', 'cur-image');
+        curLabel.textContent = '';
+        if (target && !target.closest('#navbar')) {
+            if (target.dataset.cursor) {
+                if(target.dataset.cursor === 'VIEW' || target.dataset.cursor === 'DRAG') document.body.classList.add('cur-image');
+                else document.body.classList.add('cur-text');
+                curLabel.textContent = target.dataset.cursor;
+            } else { document.body.classList.add('cur-hover'); }
+        }
+    }, { passive: true });
+};
+window.addEventListener('load', initCursor);
+
+// Spotlight Effect
+document.querySelectorAll('.spotlight-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    });
+});
+
+// Mobile Slider Dots + Swipe Hint
+if (MQ_MOBILE.matches) {
+    const wrapper = document.getElementById('horiz-wrapper');
+    const dotsContainer = document.getElementById('slider-dots');
+    const swipeHint = document.getElementById('swipe-hint');
+
+    if (wrapper && dotsContainer) {
+        const slides = Array.from(wrapper.children).filter(el => 
+            el.classList.contains('horiz-slide') || el.classList.contains('horiz-intro')
+        );
+        
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        let hinted = false;
+
+        wrapper.addEventListener('scroll', () => {
+            if (!hinted && swipeHint) {
+                hinted = true;
+                swipeHint.classList.add('hidden');
+            }
+
+            const slideWidth = wrapper.scrollWidth / slides.length;
+            const activeIndex = Math.round(wrapper.scrollLeft / slideWidth);
+            dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+        }, { passive: true });
+    }
+}
+
+const slider = document.getElementById('horiz-wrapper');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+if(slider && MQ_MOBILE.matches) {
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+}
+</script>
+</body>
+</html>

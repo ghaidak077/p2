@@ -1,0 +1,74 @@
+# ─────────────────────────────────────────────────────────────
+# Cloudflare Pages — _headers
+# 2026 security standards · Single HTML Architecture
+# ─────────────────────────────────────────────────────────────
+
+/*
+  # HTTPS Strict Transport Security (2-year, preload-ready)
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # Clickjacking protection
+  X-Frame-Options: DENY
+
+  # MIME-type sniffing protection
+  X-Content-Type-Options: nosniff
+
+  # Referrer: send origin only on cross-origin HTTPS requests
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Content Security Policy (Updated for single-file Tailwind CDN)
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://cdn.tailwindcss.com https://static.cloudflareinsights.com https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://usebasin.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://cloudflareinsights.com https://www.clarity.ms https://c.clarity.ms; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://usebasin.com; upgrade-insecure-requests;
+
+  # Permissions Policy (2026)
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), autoplay=(), picture-in-picture=(), screen-wake-lock=(), web-share=()
+
+  # Cross-Origin policies
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: cross-origin
+
+  # Hide server fingerprint
+  X-Powered-By: none
+
+  # Cache: HTML — always revalidate 
+  Cache-Control: public, max-age=0, must-revalidate
+
+# ── Static assets: 1-year immutable ──
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/logos/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.avif
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/logo.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── Crawl/meta files: 24h cache ──
+
+/sitemap.xml
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/robots.txt
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/site.webmanifest
+  Cache-Control: public, max-age=86400, must-revalidate
+  Content-Type: application/manifest+json; charset=utf-8
