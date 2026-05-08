@@ -346,7 +346,7 @@
             #rotate-prompt { display: none !important; }
         }
 
-        /* ═══════════════════════════════════════════════
+                /* ═══════════════════════════════════════════════
            MOBILE OVERHAUL — margins, type scale, slider
            ═══════════════════════════════════════════════ */
         @media (max-width: 1024px) {
@@ -368,26 +368,21 @@
                 padding-right: clamp(1rem, 5vw, 1.5rem) !important;
             }
 
-            /* ── Headline scale-down: all large display headings ── */
+            /* ── Headline scale-down (UNIFIED & SMALLER) ── */
             h1 {
-                font-size: clamp(2.6rem, 14vw, 4.5rem) !important;
-                line-height: 0.9 !important;
+                font-size: clamp(2rem, 11vw, 3.2rem) !important;
+                line-height: 0.95 !important;
             }
             h2.text-reveal,
             h2[class*="text-[clamp(1.8rem"] {
-                font-size: clamp(1.5rem, 8vw, 2.4rem) !important;
-                line-height: 0.95 !important;
+                font-size: clamp(1.4rem, 7.5vw, 2.2rem) !important;
+                line-height: 1 !important;
             }
-            /* The "Build an Asset. Not a Cost." CTA heading */
             .spotlight-card h2,
             section h2[class*="text-[clamp(2rem"] {
-                font-size: clamp(1.6rem, 9vw, 2.8rem) !important;
-                line-height: 0.95 !important;
+                font-size: clamp(1.4rem, 8vw, 2.4rem) !important;
+                line-height: 1 !important;
                 word-break: break-word;
-            }
-            /* Section section intro headlines */
-            h2[class*="text-[clamp(1.8rem"] {
-                font-size: clamp(1.5rem, 7.5vw, 2.4rem) !important;
             }
 
             /* ── Body text ── */
@@ -413,16 +408,15 @@
                 margin-bottom: 2.5rem !important;
             }
 
-            /* ── Hero image border radius ── */
-            .rounded-\[24px\] { border-radius: 16px !important; }
-            .rounded-\[32px\] { border-radius: 16px !important; }
+            /* ── Border radius ── */
+            .rounded-\[24px\], .rounded-\[32px\] { border-radius: 16px !important; }
 
-            /* ── CTA section "Build an Asset" card ── */
+            /* ── CTA card padding ── */
             .spotlight-card.p-\[clamp\(2\.5rem\,6vw\,5rem\)\] {
                 padding: clamp(1.5rem, 6vw, 2.5rem) !important;
             }
 
-            /* ── CTA buttons on mobile ── */
+            /* ── CTA buttons ── */
             .flex-wrap.gap-4.justify-center a {
                 width: 100% !important;
                 justify-content: center !important;
@@ -434,7 +428,7 @@
                 font-size: 0.85rem !important;
             }
 
-            /* ── Grid to single column ── */
+            /* ── Grid to 2-col ── */
             .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
                 grid-template-columns: 1fr 1fr !important;
                 gap: 0.75rem !important;
@@ -443,21 +437,19 @@
 
         /* ── Ultra-narrow phones (≤ 390px) ── */
         @media (max-width: 390px) {
-            h1 { font-size: clamp(2.2rem, 16vw, 3rem) !important; }
+            h1 { font-size: clamp(1.8rem, 12vw, 2.5rem) !important; }
             .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
                 grid-template-columns: 1fr !important;
             }
         }
 
-        /* ── Mobile slider: 21:9 aware full-width slides ── */
+        /* ── Mobile slider: True 16:9 full-width slides (UNIFIED) ── */
         @media (max-width: 1024px) {
-            /* Show slides edge-to-edge with slight side peek on 21:9 */
             .horiz-slide {
                 width: 100vw !important;
                 flex-shrink: 0 !important;
-                /* Use 16:9 but cap height so 21:9 phones see full slide + some breathing room */
-                aspect-ratio: unset !important;
-                height: min(56.25vw, 60vh) !important;
+                aspect-ratio: 16 / 9 !important;
+                height: auto !important;
                 border-radius: 0 !important;
                 box-shadow: none !important;
             }
@@ -467,12 +459,21 @@
                 object-fit: cover !important;
                 border-radius: 0 !important;
             }
-            /* Wrapper must not clip */
             .horiz-wrapper {
-                align-items: stretch !important;
+                align-items: center !important;
             }
         }
-    </style>
+
+        /* Mobile Landscape Specific overrides */
+        @media (max-width: 1024px) and (orientation: landscape) {
+            .horiz-slide {
+                height: 100svh !important;
+                width: auto !important;
+                aspect-ratio: 16 / 9 !important;
+                max-width: none !important;
+            }
+        }
+</style>
 </head>
 <body class="antialiased selection:bg-accent/30 selection:text-white" style="overflow: hidden;">
 
@@ -942,7 +943,7 @@ if (window.gsap && window.ScrollTrigger && !REDUCED_MO) {
         });
     });
 
-    const horizSection = document.getElementById('horiz-section');
+        const horizSection = document.getElementById('horiz-section');
     const horizWrapper = document.getElementById('horiz-wrapper');
     const navElToHide = document.getElementById('navbar');
 
@@ -988,17 +989,13 @@ if (window.gsap && window.ScrollTrigger && !REDUCED_MO) {
         }
     }
 
-    // Fallback for mobile without GSAP fully loaded
+    // Fallback nav hide without GSAP for mobile
     if (MQ_MOBILE.matches && !window.ScrollTrigger) {
-        const navFallback = document.getElementById('navbar');
-        const sliderSection = document.getElementById('horiz-section');
-        if (navFallback && sliderSection) {
+        if (navElToHide && horizSection) {
             const io = new IntersectionObserver(entries => {
-                entries.forEach(e => {
-                    navFallback.classList.toggle('nav-hidden', e.isIntersecting);
-                });
+                entries.forEach(e => { navElToHide.classList.toggle('nav-hidden', e.isIntersecting); });
             }, { threshold: 0.15 });
-            io.observe(sliderSection);
+            io.observe(horizSection);
         }
     }
 } else {

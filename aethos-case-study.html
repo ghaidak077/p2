@@ -340,7 +340,7 @@
             #rotate-prompt { display: none !important; }
         }
 
-        /* ═══════════════════════════════════════════════
+                /* ═══════════════════════════════════════════════
            MOBILE OVERHAUL — margins, type scale, slider
            ═══════════════════════════════════════════════ */
         @media (max-width: 1024px) {
@@ -362,20 +362,20 @@
                 padding-right: clamp(1rem, 5vw, 1.5rem) !important;
             }
 
-            /* ── Headline scale-down ── */
+            /* ── Headline scale-down (UNIFIED & SMALLER) ── */
             h1 {
-                font-size: clamp(2.6rem, 14vw, 4.5rem) !important;
-                line-height: 0.9 !important;
+                font-size: clamp(2rem, 11vw, 3.2rem) !important;
+                line-height: 0.95 !important;
             }
             h2.text-reveal,
             h2[class*="text-[clamp(1.8rem"] {
-                font-size: clamp(1.5rem, 8vw, 2.4rem) !important;
-                line-height: 0.95 !important;
+                font-size: clamp(1.4rem, 7.5vw, 2.2rem) !important;
+                line-height: 1 !important;
             }
-            /* CTA card heading */
+            .spotlight-card h2,
             section h2[class*="text-[clamp(2rem"] {
-                font-size: clamp(1.6rem, 9vw, 2.8rem) !important;
-                line-height: 0.95 !important;
+                font-size: clamp(1.4rem, 8vw, 2.4rem) !important;
+                line-height: 1 !important;
                 word-break: break-word;
             }
 
@@ -403,8 +403,7 @@
             }
 
             /* ── Border radius ── */
-            .rounded-\[24px\] { border-radius: 16px !important; }
-            .rounded-\[32px\] { border-radius: 16px !important; }
+            .rounded-\[24px\], .rounded-\[32px\] { border-radius: 16px !important; }
 
             /* ── CTA card padding ── */
             .spotlight-card.p-\[clamp\(2\.5rem\,6vw\,5rem\)\] {
@@ -418,6 +417,11 @@
                 font-size: 0.75rem !important;
             }
 
+            /* ── Footer email ── */
+            footer a[href^="mailto"] {
+                font-size: 0.85rem !important;
+            }
+
             /* ── Grid to 2-col ── */
             .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
                 grid-template-columns: 1fr 1fr !important;
@@ -427,19 +431,19 @@
 
         /* ── Ultra-narrow phones (≤ 390px) ── */
         @media (max-width: 390px) {
-            h1 { font-size: clamp(2.2rem, 16vw, 3rem) !important; }
+            h1 { font-size: clamp(1.8rem, 12vw, 2.5rem) !important; }
             .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
                 grid-template-columns: 1fr !important;
             }
         }
 
-        /* ── Mobile slider: 21:9-aware full-width slides ── */
+        /* ── Mobile slider: True 16:9 full-width slides (UNIFIED) ── */
         @media (max-width: 1024px) {
             .horiz-slide {
                 width: 100vw !important;
                 flex-shrink: 0 !important;
-                aspect-ratio: unset !important;
-                height: min(56.25vw, 60vh) !important;
+                aspect-ratio: 16 / 9 !important;
+                height: auto !important;
                 border-radius: 0 !important;
                 box-shadow: none !important;
             }
@@ -450,12 +454,22 @@
                 border-radius: 0 !important;
             }
             .horiz-wrapper {
-                align-items: stretch !important;
+                align-items: center !important;
             }
         }
-    </style>
+
+        /* Mobile Landscape Specific overrides */
+        @media (max-width: 1024px) and (orientation: landscape) {
+            .horiz-slide {
+                height: 100svh !important;
+                width: auto !important;
+                aspect-ratio: 16 / 9 !important;
+                max-width: none !important;
+            }
+        }
+</style>
 </head>
-<body class="antialiased selection:bg-accent/30 selection:text-white">
+<body class="antialiased selection:bg-accent/30 selection:text-white" style="overflow: hidden;">
 
 <!-- Rotate Prompt: mobile portrait only -->
 <div id="rotate-prompt" role="dialog" aria-label="Rotate your device">
@@ -474,10 +488,10 @@
 <div id="ga-loader" aria-hidden="true" class="fixed inset-0 z-[9999] bg-obsidian flex items-center justify-center will-change-transform">
     <div class="flex flex-col items-center gap-[clamp(2rem,4vw,3rem)] w-full px-8">
         <div class="w-[clamp(200px,30vw,320px)] h-[2px] bg-white/5 relative overflow-hidden rounded-full mt-10">
-            <div id="loaderBar" class="absolute inset-0 bg-gradient-to-r from-accent to-accent2 origin-left scale-x-0 shadow-[0_0_12px_oklch(90.5%_0.233_122/60%)] rounded-full"></div>
+            <div id="loaderBar" class="absolute inset-0 bg-gradient-to-r from-accent to-accent2 origin-left shadow-[0_0_12px_oklch(90.5%_0.233_122/60%)] rounded-full" style="transform: scaleX(0); transform-origin: left;"></div>
         </div>
         <div class="overflow-hidden pt-1 h-[20px] flex items-center justify-center">
-            <span id="loaderText" class="block font-bold text-[0.55rem] tracking-[0.25em] text-white/60 uppercase font-mono translate-y-[101%] opacity-0 will-change-transform">RENDERING SYSTEM</span>
+            <span id="loaderText" class="block font-bold text-[0.55rem] tracking-[0.25em] text-white/60 uppercase font-mono will-change-transform" style="transform: translateY(101%); opacity: 0;">RENDERING SYSTEM</span>
         </div>
     </div>
 </div>
@@ -831,33 +845,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const loaderText = document.getElementById('loaderText');
     if(!loaderBg || !window.gsap) return;
 
-    gsap.to(loaderText, { y: '0%', opacity: 1, duration: 1.4, ease: 'expo.out', delay: 0.2 });
+    gsap.to(loaderText, { y: '0%', opacity: 1, duration: 1.0, ease: 'expo.out', delay: 0.1 });
 
     let progress = { val: 0 };
     let loadTween = gsap.to(progress, {
-        val: 85, duration: 2.8, ease: 'power3.inOut',
+        val: 85, duration: 2.0, ease: 'power3.out',
         onUpdate: () => gsap.set(loaderBar, { scaleX: progress.val / 100 })
     });
 
-    window.addEventListener('load', () => {
+    const triggerSystemReady = () => {
         loadTween.kill();
         gsap.to(progress, {
-            val: 100, duration: 0.6, ease: 'power4.out',
+            val: 100, duration: 0.4, ease: 'power4.out',
             onUpdate: () => gsap.set(loaderBar, { scaleX: progress.val / 100 }),
             onComplete: () => {
                 gsap.to(loaderText, {
-                    y: -15, opacity: 0, duration: 0.25, ease: 'power2.in',
+                    y: -15, opacity: 0, duration: 0.2, ease: 'power2.in',
                     onComplete: () => {
                         loaderText.style.color = "var(--accent)";
                         loaderText.textContent = "SYSTEM READY";
-                        gsap.fromTo(loaderText, { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'expo.out' });
+                        gsap.fromTo(loaderText, { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'expo.out' });
                     }
                 });
-                const exitTl = gsap.timeline({ delay: 0.7, onComplete: () => loaderBg.remove() });
-                exitTl.to([loaderBar, loaderText], { opacity: 0, y: -20, duration: 0.5, stagger: 0.1, ease: 'power3.in' })
-                      .to(loaderBg, { yPercent: -100, duration: 1.2, ease: 'expo.inOut' });
+                const exitTl = gsap.timeline({
+                    delay: 0.5,
+                    onComplete: () => {
+                        loaderBg.remove();
+                        document.body.style.overflow = '';
+                        if(window.ScrollTrigger) ScrollTrigger.refresh();
+                    }
+                });
+                exitTl.to([loaderBar, loaderText], { opacity: 0, y: -20, duration: 0.4, stagger: 0.1, ease: 'power3.in' })
+                      .to(loaderBg, { yPercent: -100, duration: 0.8, ease: 'expo.inOut' });
             }
         });
+    };
+
+    window.addEventListener('load', () => {
+        triggerSystemReady();
+        setTimeout(() => { if(window.ScrollTrigger) ScrollTrigger.refresh(); }, 500);
     });
 });
 
@@ -934,11 +960,11 @@ if (window.gsap && window.ScrollTrigger && !REDUCED_MO) {
         });
     });
 
-    // 4. Horizontal Pin Slider (Desktop Only)
-    if (!MQ_MOBILE.matches) {
         const horizSection = document.getElementById('horiz-section');
-        const horizWrapper = document.getElementById('horiz-wrapper');
-        
+    const horizWrapper = document.getElementById('horiz-wrapper');
+    const navElToHide = document.getElementById('navbar');
+
+    if (!MQ_MOBILE.matches) {
         if (horizSection && horizWrapper) {
             const getScrollAmount = () => {
                 return -(horizWrapper.scrollWidth - window.innerWidth + 100); 
@@ -958,7 +984,6 @@ if (window.gsap && window.ScrollTrigger && !REDUCED_MO) {
                 scrub: 1,
                 invalidateOnRefresh: true,
                 onToggle: self => {
-                    const navElToHide = document.getElementById('navbar');
                     if(navElToHide) {
                         if(self.isActive) navElToHide.classList.add('nav-hidden');
                         else navElToHide.classList.remove('nav-hidden');
@@ -966,25 +991,35 @@ if (window.gsap && window.ScrollTrigger && !REDUCED_MO) {
                 }
             });
         }
-    }
-} else {
-    // Fallback if GSAP is missing or user prefers reduced motion
-    document.querySelectorAll('.reveal-up, .text-reveal').forEach(el => el.style.opacity = 1);
-    document.querySelectorAll('.count-up').forEach(el => el.textContent = el.getAttribute('data-target'));
-}
-
-    // Mobile IntersectionObserver fallback for nav hide
-    if (MQ_MOBILE.matches) {
-        const navFallback = document.getElementById('navbar');
-        const sliderSection = document.getElementById('horiz-section');
-        if (navFallback && sliderSection) {
-            const io = new IntersectionObserver(entries => {
-                entries.forEach(e => { navFallback.classList.toggle('nav-hidden', e.isIntersecting); });
-            }, { threshold: 0.15 });
-            io.observe(sliderSection);
+    } else {
+        // Mobile: hide nav while slider section is visible
+        if (horizSection) {
+            ScrollTrigger.create({
+                trigger: horizSection,
+                start: "top 80px",
+                end: "bottom 80px",
+                onEnter: () => { if(navElToHide) navElToHide.classList.add('nav-hidden'); },
+                onLeave: () => { if(navElToHide) navElToHide.classList.remove('nav-hidden'); },
+                onEnterBack: () => { if(navElToHide) navElToHide.classList.add('nav-hidden'); },
+                onLeaveBack: () => { if(navElToHide) navElToHide.classList.remove('nav-hidden'); }
+            });
         }
     }
 
+    // Fallback nav hide without GSAP for mobile
+    if (MQ_MOBILE.matches && !window.ScrollTrigger) {
+        if (navElToHide && horizSection) {
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(e => { navElToHide.classList.toggle('nav-hidden', e.isIntersecting); });
+            }, { threshold: 0.15 });
+            io.observe(horizSection);
+        }
+    }
+
+} else {
+    document.querySelectorAll('.reveal-up, .text-reveal').forEach(el => el.style.opacity = 1);
+    document.querySelectorAll('.count-up').forEach(el => el.textContent = el.getAttribute('data-target'));
+}
 
 // Cursor Logic
 const initCursor = () => {
