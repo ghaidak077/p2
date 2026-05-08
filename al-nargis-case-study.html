@@ -493,7 +493,8 @@
 <!-- FOUC-Proof Loader -->
 <div id="ga-loader" aria-hidden="true" style="position: fixed; inset: 0; z-index: 9999; background-color: var(--obsidian); display: flex; align-items: center; justify-content: center;" class="will-change-transform">
     <div style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 2rem; gap: clamp(2rem,4vw,3rem);">
-        <div style="width: clamp(200px,30vw,320px); height: 2px; background-color: rgba(255,255,255,0.05); position: relative; overflow: hidden; border-radius: 9999px; margin-top: 2.5rem;">
+        <img src="logo.svg" alt="GA." id="loaderLogo" style="height: 2.5rem; width: auto; opacity: 0;">
+        <div style="width: clamp(200px,30vw,320px); height: 2px; background-color: rgba(255,255,255,0.05); position: relative; overflow: hidden; border-radius: 9999px;">
             <div id="loaderBar" style="position: absolute; inset: 0; background-image: linear-gradient(to right, var(--accent), oklch(97% 0.008 90)); transform-origin: left; transform: scaleX(0); border-radius: 9999px; box-shadow: 0 0 12px oklch(97% 0.008 90 / 60%);"></div>
         </div>
         <div style="overflow: hidden; padding-top: 0.25rem; height: 20px; display: flex; align-items: center; justify-content: center;">
@@ -829,8 +830,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const loaderBg = document.getElementById('ga-loader');
     const loaderBar = document.getElementById('loaderBar');
     const loaderText = document.getElementById('loaderText');
+    const loaderLogo = document.getElementById('loaderLogo');
     if(!loaderBg || !window.gsap) return;
 
+    if(loaderLogo) gsap.to(loaderLogo, { opacity: 1, duration: 0.8, ease: 'expo.out', delay: 0.05 });
     gsap.to(loaderText, { y: '0%', opacity: 1, duration: 1.0, ease: 'expo.out', delay: 0.1 });
 
     let progress = { val: 0 };
@@ -975,26 +978,11 @@ if (window.gsap && window.ScrollTrigger && !REDUCED_MO) {
             });
         }
     } else {
-        // Mobile: hide nav while slider section is visible
-        if (horizSection) {
-            ScrollTrigger.create({
-                trigger: horizSection,
-                start: "top 80px",
-                end: "bottom 80px",
-                onEnter: () => { if(navElToHide) navElToHide.classList.add('nav-hidden'); },
-                onLeave: () => { if(navElToHide) navElToHide.classList.remove('nav-hidden'); },
-                onEnterBack: () => { if(navElToHide) navElToHide.classList.add('nav-hidden'); },
-                onLeaveBack: () => { if(navElToHide) navElToHide.classList.remove('nav-hidden'); }
-            });
-        }
-    }
-
-    // Fallback nav hide without GSAP for mobile
-    if (MQ_MOBILE.matches && !window.ScrollTrigger) {
+        // Mobile: hide nav while slider section is visible via IntersectionObserver
         if (navElToHide && horizSection) {
             const io = new IntersectionObserver(entries => {
                 entries.forEach(e => { navElToHide.classList.toggle('nav-hidden', e.isIntersecting); });
-            }, { threshold: 0.15 });
+            }, { threshold: 0.1 });
             io.observe(horizSection);
         }
     }
