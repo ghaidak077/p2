@@ -24,8 +24,8 @@
                             surface: 'oklch(18% 0.01 285)',
                             surface2: 'oklch(15% 0.01 285)',
                             ink: 'oklch(96.5% 0.008 105)',
-                            accent: 'oklch(83.5% 0.17 84)',
-                            accent2: 'oklch(88% 0.134 86)',
+                            accent: 'oklch(97% 0.008 90)',
+                            accent2: 'oklch(97% 0.008 90)',
                             whatsapp: 'oklch(76% 0.17 151)',
                             linkedin: 'oklch(66% 0.11 247)'
                         },
@@ -47,13 +47,13 @@
         :root { 
             --bg: oklch(15% 0 0); 
             --obsidian: oklch(15% 0 0);
-            --accent: oklch(83.5% 0.17 84); 
+            --accent: oklch(97% 0.008 90); 
             --ink: oklch(96.5% 0.008 105); 
         }
         
         html { background: var(--bg); overflow-x: clip; -webkit-text-size-adjust: 100%; color-scheme: dark; scroll-behavior: smooth; cursor: none; }
         body { font-family: 'Syne', sans-serif; background-color: var(--bg); color: var(--ink); overflow-x: clip; cursor: none; }
-        ::selection { background: oklch(83.5% 0.17 84 / 30%); color: inherit; }
+        ::selection { background: oklch(97% 0.008 90 / 30%); color: inherit; }
         a, button, input, textarea, select { cursor: none !important; border: none; outline: none; }
 
         @media (prefers-reduced-motion: reduce) {
@@ -73,14 +73,14 @@
         .lenis.lenis-stopped { overflow: hidden; }
 
         /* 3-State Cursor System */
-        #cur-dot { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); transform: translate(-50%, -50%); transition: opacity 0.25s; opacity: 0; box-shadow: 0 0 10px oklch(83.5% 0.17 84 / 80%); }
-        #cur-ring { position: fixed; top: 0; left: 0; z-index: 9998; pointer-events: none; width: 32px; height: 32px; border: 1px solid oklch(83.5% 0.17 84 / 50%); border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s, border-color 0.3s, border-radius 0.3s, opacity 0.25s; opacity: 0; display: flex; align-items: center; justify-content: center; }
+        #cur-dot { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); transform: translate(-50%, -50%); transition: opacity 0.25s; opacity: 0; box-shadow: 0 0 10px oklch(97% 0.008 90 / 80%); }
+        #cur-ring { position: fixed; top: 0; left: 0; z-index: 9998; pointer-events: none; width: 32px; height: 32px; border: 1px solid oklch(97% 0.008 90 / 50%); border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s, border-color 0.3s, border-radius 0.3s, opacity 0.25s; opacity: 0; display: flex; align-items: center; justify-content: center; }
         #cur-label { font-size: 0.55rem; font-weight: 700; color: oklch(5% 0 0); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0; transition: opacity 0.15s; white-space: nowrap; }
 
-        body.cur-hover #cur-ring { width: 56px; height: 56px; background: oklch(83.5% 0.17 84 / 10%); border-color: transparent; }
-        body.cur-text #cur-ring { width: 88px; height: 32px; background: var(--accent); border-color: transparent; border-radius: 100px; box-shadow: 0 0 32px oklch(83.5% 0.17 84 / 40%); }
+        body.cur-hover #cur-ring { width: 56px; height: 56px; background: oklch(97% 0.008 90 / 10%); border-color: transparent; }
+        body.cur-text #cur-ring { width: 88px; height: 32px; background: var(--accent); border-color: transparent; border-radius: 100px; box-shadow: 0 0 32px oklch(97% 0.008 90 / 40%); }
         body.cur-text #cur-label { opacity: 1; }
-        body.cur-image #cur-ring { width: 88px; height: 88px; background: var(--accent); border-color: transparent; box-shadow: 0 0 32px oklch(83.5% 0.17 84 / 40%); }
+        body.cur-image #cur-ring { width: 88px; height: 88px; background: var(--accent); border-color: transparent; box-shadow: 0 0 32px oklch(97% 0.008 90 / 40%); }
         body.cur-image #cur-label { opacity: 1; }
 
         @media(pointer: coarse), (max-width: 1024px) {
@@ -102,14 +102,14 @@
         }
 
         .nav-link { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; color: oklch(100% 0 0 / 60%); transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        .nav-link::after { content: ''; position: absolute; bottom: 8px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 0 10px oklch(83.5% 0.17 84 / 80%), 0 0 4px oklch(83.5% 0.17 84 / 50%); }
+        .nav-link::after { content: ''; position: absolute; bottom: 8px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 0 10px oklch(97% 0.008 90 / 80%), 0 0 4px oklch(97% 0.008 90 / 50%); }
         .nav-link:hover { color: oklch(100% 0 0); transform: translateY(-1px); }
         .nav-link:hover::after { transform: scaleX(1); }
 
         /* Glass Components */
         @property --btn-border-angle { syntax: '<angle>'; inherits: false; initial-value: -75deg; }
-        .btn-glass-cta { position: relative; overflow: hidden; background: linear-gradient(160deg, oklch(100% 0 0 / 14%) 0%, oklch(100% 0 0 / 6%) 50%, oklch(83.5% 0.17 84 / 10%) 100%); backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 oklch(100% 0 0 / 15%), 0 8px 32px oklch(5% 0 0 / 60%); transition: transform .3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow .3s; border: none; }
-        .btn-glass-cta::after { content: ''; position: absolute; inset: 0; border-radius: 999px; padding: 1px; box-sizing: border-box; background: conic-gradient(from var(--btn-border-angle) at 50% 50%, transparent 0%, oklch(100% 0 0 / 75%) 12%, oklch(83.5% 0.17 84 / 60%) 22%, transparent 35%, transparent 65%, oklch(83.5% 0.17 84 / 40%) 78%, oklch(100% 0 0 / 55%) 88%, transparent 100%); mask: linear-gradient(oklch(5% 0 0) 0 0) content-box, linear-gradient(oklch(5% 0 0) 0 0); mask-composite: exclude; -webkit-mask: linear-gradient(oklch(5% 0 0) 0 0) content-box, linear-gradient(oklch(5% 0 0) 0 0); -webkit-mask-composite: destination-out; pointer-events: none; opacity: 0; transition: opacity 0.4s, --btn-border-angle 700ms; z-index: 2; }
+        .btn-glass-cta { position: relative; overflow: hidden; background: linear-gradient(160deg, oklch(100% 0 0 / 14%) 0%, oklch(100% 0 0 / 6%) 50%, oklch(97% 0.008 90 / 10%) 100%); backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 oklch(100% 0 0 / 15%), 0 8px 32px oklch(5% 0 0 / 60%); transition: transform .3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow .3s; border: none; }
+        .btn-glass-cta::after { content: ''; position: absolute; inset: 0; border-radius: 999px; padding: 1px; box-sizing: border-box; background: conic-gradient(from var(--btn-border-angle) at 50% 50%, transparent 0%, oklch(100% 0 0 / 75%) 12%, oklch(97% 0.008 90 / 60%) 22%, transparent 35%, transparent 65%, oklch(97% 0.008 90 / 40%) 78%, oklch(100% 0 0 / 55%) 88%, transparent 100%); mask: linear-gradient(oklch(5% 0 0) 0 0) content-box, linear-gradient(oklch(5% 0 0) 0 0); mask-composite: exclude; -webkit-mask: linear-gradient(oklch(5% 0 0) 0 0) content-box, linear-gradient(oklch(5% 0 0) 0 0); -webkit-mask-composite: destination-out; pointer-events: none; opacity: 0; transition: opacity 0.4s, --btn-border-angle 700ms; z-index: 2; }
         
         .spotlight-card {
             transform: translateZ(0);
@@ -120,7 +120,7 @@
             --mouse-y: 50%; 
             border: none;
         }
-        .spotlight-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), oklch(83.5% 0.17 84 / 8%), transparent 65%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 0; border-radius: inherit; }
+        .spotlight-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), oklch(97% 0.008 90 / 8%), transparent 65%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 0; border-radius: inherit; }
 
         /* Initial states for GSAP Animation */
         .reveal-up, .text-reveal { opacity: 0; }
@@ -226,7 +226,7 @@
                 font-weight: 700;
                 letter-spacing: 0.15em;
                 text-transform: uppercase;
-                color: oklch(83.5% 0.17 84 / 60%);
+                color: oklch(97% 0.008 90 / 60%);
                 position: absolute;
                 top: env(safe-area-inset-top, 2rem);
                 left: 7.5vw;
@@ -267,7 +267,7 @@
                 flex-shrink: 0;
             }
             .slider-dot.active {
-                background: oklch(83.5% 0.17 84 / 80%);
+                background: oklch(97% 0.008 90 / 80%);
                 transform: scale(1.4);
             }
         }
@@ -279,7 +279,7 @@
 <div id="ga-loader" aria-hidden="true" style="position: fixed; inset: 0; z-index: 9999; background-color: var(--obsidian); display: flex; align-items: center; justify-content: center;" class="will-change-transform">
     <div style="display: flex; flex-direction: column; align-items: center; width: 100%; padding: 0 2rem; gap: clamp(2rem,4vw,3rem);">
         <div style="width: clamp(200px,30vw,320px); height: 2px; background-color: rgba(255,255,255,0.05); position: relative; overflow: hidden; border-radius: 9999px; margin-top: 2.5rem;">
-            <div id="loaderBar" style="position: absolute; inset: 0; background-image: linear-gradient(to right, var(--accent), oklch(88% 0.134 86)); transform-origin: left; transform: scaleX(0); border-radius: 9999px; box-shadow: 0 0 12px oklch(83.5% 0.17 84 / 60%);"></div>
+            <div id="loaderBar" style="position: absolute; inset: 0; background-image: linear-gradient(to right, var(--accent), oklch(97% 0.008 90)); transform-origin: left; transform: scaleX(0); border-radius: 9999px; box-shadow: 0 0 12px oklch(97% 0.008 90 / 60%);"></div>
         </div>
         <div style="overflow: hidden; padding-top: 0.25rem; height: 20px; display: flex; align-items: center; justify-content: center;">
             <span id="loaderText" style="display: block; font-family: 'DM Mono', monospace; font-weight: 700; font-size: 0.55rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.6); text-transform: uppercase; transform: translateY(101%); opacity: 0; will-change: transform, opacity;">RENDERING SYSTEM</span>

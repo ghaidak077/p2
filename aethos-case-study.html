@@ -24,8 +24,8 @@
                             surface: 'oklch(18% 0.01 285)',
                             surface2: 'oklch(15% 0.01 285)',
                             ink: 'oklch(96.5% 0.008 105)',
-                            accent: 'oklch(83.5% 0.17 84)',
-                            accent2: 'oklch(88% 0.134 86)',
+                            accent: 'oklch(90.5% 0.233 122)',
+                            accent2: 'oklch(93% 0.20 122)',
                             whatsapp: 'oklch(76% 0.17 151)',
                             linkedin: 'oklch(66% 0.11 247)'
                         },
@@ -47,13 +47,13 @@
         :root { 
             --bg: oklch(15% 0 0); 
             --obsidian: oklch(15% 0 0);
-            --accent: oklch(83.5% 0.17 84); 
+            --accent: oklch(90.5% 0.233 122); 
             --ink: oklch(96.5% 0.008 105); 
         }
         
         html { background: var(--bg); overflow-x: clip; -webkit-text-size-adjust: 100%; color-scheme: dark; scroll-behavior: smooth; cursor: none; }
         body { font-family: 'Syne', sans-serif; background-color: var(--bg); color: var(--ink); overflow-x: clip; cursor: none; }
-        ::selection { background: oklch(83.5% 0.17 84 / 30%); color: inherit; }
+        ::selection { background: oklch(90.5% 0.233 122 / 30%); color: inherit; }
         a, button, input, textarea, select { cursor: none !important; border: none; outline: none; }
 
         @media (prefers-reduced-motion: reduce) {
@@ -73,14 +73,14 @@
         .lenis.lenis-stopped { overflow: hidden; }
 
         /* 3-State Cursor System */
-        #cur-dot { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); transform: translate(-50%, -50%); transition: opacity 0.25s; opacity: 0; box-shadow: 0 0 10px oklch(83.5% 0.17 84 / 80%); }
-        #cur-ring { position: fixed; top: 0; left: 0; z-index: 9998; pointer-events: none; width: 32px; height: 32px; border: 1px solid oklch(83.5% 0.17 84 / 50%); border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s, border-color 0.3s, border-radius 0.3s, opacity 0.25s; opacity: 0; display: flex; align-items: center; justify-content: center; }
+        #cur-dot { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); transform: translate(-50%, -50%); transition: opacity 0.25s; opacity: 0; box-shadow: 0 0 10px oklch(90.5% 0.233 122 / 80%); }
+        #cur-ring { position: fixed; top: 0; left: 0; z-index: 9998; pointer-events: none; width: 32px; height: 32px; border: 1px solid oklch(90.5% 0.233 122 / 50%); border-radius: 50%; transform: translate(-50%, -50%); transition: width 0.3s cubic-bezier(0.16,1,0.3,1), height 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s, border-color 0.3s, border-radius 0.3s, opacity 0.25s; opacity: 0; display: flex; align-items: center; justify-content: center; }
         #cur-label { font-size: 0.55rem; font-weight: 700; color: oklch(5% 0 0); letter-spacing: 0.1em; text-transform: uppercase; opacity: 0; transition: opacity 0.15s; white-space: nowrap; }
 
-        body.cur-hover #cur-ring { width: 56px; height: 56px; background: oklch(83.5% 0.17 84 / 10%); border-color: transparent; }
-        body.cur-text #cur-ring { width: 88px; height: 32px; background: var(--accent); border-color: transparent; border-radius: 100px; box-shadow: 0 0 32px oklch(83.5% 0.17 84 / 40%); }
+        body.cur-hover #cur-ring { width: 56px; height: 56px; background: oklch(90.5% 0.233 122 / 10%); border-color: transparent; }
+        body.cur-text #cur-ring { width: 88px; height: 32px; background: var(--accent); border-color: transparent; border-radius: 100px; box-shadow: 0 0 32px oklch(90.5% 0.233 122 / 40%); }
         body.cur-text #cur-label { opacity: 1; }
-        body.cur-image #cur-ring { width: 88px; height: 88px; background: var(--accent); border-color: transparent; box-shadow: 0 0 32px oklch(83.5% 0.17 84 / 40%); }
+        body.cur-image #cur-ring { width: 88px; height: 88px; background: var(--accent); border-color: transparent; box-shadow: 0 0 32px oklch(90.5% 0.233 122 / 40%); }
         body.cur-image #cur-label { opacity: 1; }
 
         @media(pointer: coarse), (max-width: 1024px) {
@@ -92,14 +92,14 @@
         .hud-nav { transition: top .45s cubic-bezier(0.16, 1, 0.3, 1), width .45s, border-radius .35s, background .4s, box-shadow .4s; }
         .hud-nav.scrolled { top: 0; width: 100% !important; max-width: 100%; border-radius: 0; background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%); backdrop-filter: blur(32px); box-shadow: 0 8px 32px oklch(5% 0 0 / 60%), inset 0 1px 0 rgba(255,255,255,0.03); }
         .nav-link { position: relative; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; color: oklch(100% 0 0 / 60%); transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        .nav-link::after { content: ''; position: absolute; bottom: 8px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 0 10px oklch(83.5% 0.17 84 / 80%), 0 0 4px oklch(83.5% 0.17 84 / 50%); }
+        .nav-link::after { content: ''; position: absolute; bottom: 8px; left: 0; right: 0; height: 2px; background: var(--accent); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 0 10px oklch(90.5% 0.233 122 / 80%), 0 0 4px oklch(90.5% 0.233 122 / 50%); }
         .nav-link:hover { color: oklch(100% 0 0); transform: translateY(-1px); }
         .nav-link:hover::after { transform: scaleX(1); }
 
         /* Glass Components */
         @property --btn-border-angle { syntax: '<angle>'; inherits: false; initial-value: -75deg; }
-        .btn-glass-cta { position: relative; overflow: hidden; background: linear-gradient(160deg, oklch(100% 0 0 / 14%) 0%, oklch(100% 0 0 / 6%) 50%, oklch(83.5% 0.17 84 / 10%) 100%); backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 oklch(100% 0 0 / 15%), 0 8px 32px oklch(5% 0 0 / 60%); transition: transform .3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow .3s; border: none; }
-        .btn-glass-cta::after { content: ''; position: absolute; inset: 0; border-radius: 999px; padding: 1px; box-sizing: border-box; background: conic-gradient(from var(--btn-border-angle) at 50% 50%, transparent 0%, oklch(100% 0 0 / 75%) 12%, oklch(83.5% 0.17 84 / 60%) 22%, transparent 35%, transparent 65%, oklch(83.5% 0.17 84 / 40%) 78%, oklch(100% 0 0 / 55%) 88%, transparent 100%); mask: linear-gradient(oklch(5% 0 0) 0 0) content-box, linear-gradient(oklch(5% 0 0) 0 0); mask-composite: exclude; -webkit-mask: linear-gradient(oklch(5% 0 0) 0 0) content-box, linear-gradient(oklch(5% 0 0) 0 0); -webkit-mask-composite: destination-out; pointer-events: none; opacity: 0; transition: opacity 0.4s, --btn-border-angle 700ms; z-index: 2; }
+        .btn-glass-cta { position: relative; overflow: hidden; background: linear-gradient(160deg, oklch(100% 0 0 / 14%) 0%, oklch(100% 0 0 / 6%) 50%, oklch(90.5% 0.233 122 / 10%) 100%); backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 oklch(100% 0 0 / 15%), 0 8px 32px oklch(5% 0 0 / 60%); transition: transform .3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow .3s; border: none; }
+        .btn-glass-cta::after { content: ''; position: absolute; inset: 0; border-radius: 999px; padding: 1px; box-sizing: border-box; background: conic-gradient(from var(--btn-border-angle) at 50% 50%, transparent 0%, oklch(100% 0 0 / 75%) 12%, oklch(90.5% 0.233 122 / 60%) 22%, transparent 35%, transparent 65%, oklch(90.5% 0.233 122 / 40%) 78%, oklch(100% 0 0 / 55%) 88%, transparent 100%); mask: linear-gradient(oklch(5% 0 0) 0 0) content-box, linear-gradient(oklch(5% 0 0) 0 0); mask-composite: exclude; -webkit-mask: linear-gradient(oklch(5% 0 0) 0 0) content-box, linear-gradient(oklch(5% 0 0) 0 0); -webkit-mask-composite: destination-out; pointer-events: none; opacity: 0; transition: opacity 0.4s, --btn-border-angle 700ms; z-index: 2; }
         
         .spotlight-card {
             transform: translateZ(0);
@@ -110,7 +110,7 @@
             --mouse-y: 50%; 
             border: none;
         }
-        .spotlight-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), oklch(83.5% 0.17 84 / 8%), transparent 65%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 0; border-radius: inherit; }
+        .spotlight-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), oklch(90.5% 0.233 122 / 8%), transparent 65%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; z-index: 0; border-radius: inherit; }
 
         /* Initial states for GSAP Animation */
         .reveal-up, .text-reveal { opacity: 0; }
@@ -214,7 +214,7 @@
                 font-weight: 700;
                 letter-spacing: 0.15em;
                 text-transform: uppercase;
-                color: oklch(83.5% 0.17 84 / 60%);
+                color: oklch(90.5% 0.233 122 / 60%);
                 padding: 0.75rem clamp(1.25rem, 6vw, 5rem) 0;
                 transition: opacity 0.6s ease;
             }
@@ -249,7 +249,7 @@
                 flex-shrink: 0;
             }
             .slider-dot.active {
-                background: oklch(83.5% 0.17 84 / 80%);
+                background: oklch(90.5% 0.233 122 / 80%);
                 transform: scale(1.4);
             }
         }
@@ -258,7 +258,7 @@
 <body class="antialiased selection:bg-accent/30 selection:text-white">
 
 <div class="noise-overlay" aria-hidden="true"></div>
-<div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-accent to-accent2 z-[9999] w-0 pointer-events-none shadow-[0_0_8px_oklch(83.5%_0.17_84/50%)]"></div>
+<div id="scrollProgress" class="fixed top-0 left-0 h-[2px] bg-gradient-to-r from-accent to-accent2 z-[9999] w-0 pointer-events-none shadow-[0_0_8px_oklch(90.5%_0.233_122/50%)]"></div>
 
 <div id="cur-dot" aria-hidden="true"></div>
 <div id="cur-ring" aria-hidden="true"><span id="cur-label"></span></div>
@@ -266,7 +266,7 @@
 <div id="ga-loader" aria-hidden="true" class="fixed inset-0 z-[9999] bg-obsidian flex items-center justify-center will-change-transform">
     <div class="flex flex-col items-center gap-[clamp(2rem,4vw,3rem)] w-full px-8">
         <div class="w-[clamp(200px,30vw,320px)] h-[2px] bg-white/5 relative overflow-hidden rounded-full mt-10">
-            <div id="loaderBar" class="absolute inset-0 bg-gradient-to-r from-accent to-accent2 origin-left scale-x-0 shadow-[0_0_12px_oklch(83.5%_0.17_84/60%)] rounded-full"></div>
+            <div id="loaderBar" class="absolute inset-0 bg-gradient-to-r from-accent to-accent2 origin-left scale-x-0 shadow-[0_0_12px_oklch(90.5%_0.233_122/60%)] rounded-full"></div>
         </div>
         <div class="overflow-hidden pt-1 h-[20px] flex items-center justify-center">
             <span id="loaderText" class="block font-bold text-[0.55rem] tracking-[0.25em] text-white/60 uppercase font-mono translate-y-[101%] opacity-0 will-change-transform">RENDERING SYSTEM</span>
@@ -296,9 +296,9 @@
     <header class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)] mb-16 relative">
         <div class="flex flex-col items-center text-center max-w-[900px] mx-auto">
             <div class="flex flex-wrap items-center justify-center gap-3 mb-6 reveal-up">
-                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_oklch(83.5%_0.17_84/20%)]">2026</span>
-                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_oklch(83.5%_0.17_84/20%)]">UI/UX · Design System</span>
-                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_oklch(83.5%_0.17_84/20%)]">Web3 · Fintech</span>
+                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_oklch(90.5%_0.233_122/20%)]">2026</span>
+                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_oklch(90.5%_0.233_122/20%)]">UI/UX · Design System</span>
+                <span class="inline-flex items-center h-7 px-4 rounded-full bg-accent/10 text-[0.58rem] font-bold tracking-[0.12em] uppercase text-accent shadow-[0_0_10px_oklch(90.5%_0.233_122/20%)]">Web3 · Fintech</span>
             </div>
             
             <h1 class="font-extrabold tracking-[-0.02em] leading-[0.92] text-[clamp(3.5rem,12vw,8rem)] text-white mb-8 text-reveal">
