@@ -46,55 +46,6 @@
     }]
     </script>
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Are you available for full-time roles?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Full-time, part-time, hybrid, or remote. Currently based in Kuala Lumpur and available immediately — for KL-based roles, remote positions, or relocation for the right opportunity. EP sponsorship required for Malaysia only. For remote and international roles, no sponsorship needed, no delays."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are you available for freelance projects and retainers?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Project-based, ongoing retainer, or embedded as a senior creative partner. 80% of my client relationships last 2+ years."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does bilingual actually mean in practice?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "I design in Arabic and English natively — not translated. RTL/LTR layouts, Arabic typography, GCC cultural adaptation, and MENA market entry built into the work from day one. No translators, no extra rounds."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does the AI workflow mean for me?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Production tasks that take most senior designers three days take me one. I use AI tooling to compress repetitive asset generation and iteration, so my time goes to strategy, creative direction, and craft."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you sign NDAs?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Always. Standard NDA or company-provided. Your strategy, IP, and pre-launch work stay completely confidential."
-          }
-        }
-      ]
-    }
-    </script>
-    
     <link rel="preload" as="font" type="font/woff2" href="fonts/Syne-Regular.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="fonts/Syne-ExtraBold.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="fonts/Syne-Bold.woff2" crossorigin>
@@ -271,21 +222,6 @@
             to { transform: translate3d(calc(-100% - clamp(3rem, 6vw, 5rem)), 0, 0); } 
         }
 
-        .portfolio-backgrounds { position: sticky; top: 0; left: 0; width: 100%; height: 100svh; overflow: hidden; z-index: 1; background: var(--bg); }
-        .port-bg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.1s cubic-bezier(0.22,1,0.36,1); }
-        .port-bg.is-active { opacity: 1; z-index: 2; }
-        .port-bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(24px) brightness(0.45); transition: filter 1s cubic-bezier(0.22,1,0.36,1); }
-        .port-bg.is-active img { filter: blur(0px) brightness(0.50); }
-        .portfolio-content { position: relative; z-index: 10; width: 100%; margin-top: -100svh; }
-        .port-item { height: 100svh; display: flex; flex-direction: column; justify-content: center; position: relative; display: block; }
-        .port-text-wrap { opacity: 0.1; transform: translateY(24px); transition: opacity .85s cubic-bezier(0.22,1,0.36,1), transform .95s cubic-bezier(0.22,1,0.36,1); padding-left: 1rem; display: flex; flex-direction: column; justify-content: center; height: 100%; }
-        .port-item.is-active .port-text-wrap { opacity: 1; transform: translateY(0); text-shadow: 0 1px 16px oklch(5% 0 0 / 70%); }
-        .port-title { color: transparent; -webkit-text-stroke: 1px oklch(100% 0 0 / 25%); transform: translateY(16px); filter: blur(5px); transition: color .65s .15s, -webkit-text-stroke .65s .15s, transform .85s .15s cubic-bezier(0.22,1,0.36,1), filter .65s .15s ease; }
-        .port-item.is-active .port-title { color: oklch(100% 0 0); -webkit-text-stroke: 1px transparent; transform: translateY(0); filter: blur(0); text-shadow: 0 2px 24px oklch(5% 0 0 / 85%); }
-        .port-desc, .port-arrow, .port-meta { opacity: 0; transform: translateY(16px); transition: opacity .65s .28s, transform .75s .28s; }
-        .port-item.is-active .port-desc, .port-item.is-active .port-arrow, .port-item.is-active .port-meta { opacity: 1; transform: translateY(0); }
-        .port-item:focus-visible .port-text-wrap { opacity: 1; }
-
         /* --- HARDWARE ACCELERATION & PAINT BOTTLENECKS --- */
         .reveal-up { 
             opacity: 0; 
@@ -333,15 +269,10 @@
                 box-shadow: inset 0 1px 0 oklch(100% 0 0 / 25%), 0 16px 48px oklch(5% 0 0 / 80%);
             }
             .btn-glass-cta:hover::after { opacity: 1; --btn-border-angle: -145deg; }
-            
-            .port-bg img {
-                will-change: filter;
-            }
         }
 
         .hover-trigger * { pointer-events: none; }
 
-        /* FIX: capabilities section heading overflow on mobile */
         .capabilities-heading {
             overflow-wrap: break-word;
             word-break: break-word;
@@ -425,13 +356,13 @@
         <div class="hero-top relative z-10 grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-end pb-[clamp(2rem,3vw,2.5rem)]">
             <div class="flex flex-col justify-center max-w-[900px]">
                 <p class="font-bold text-[clamp(0.6rem,0.9vw,0.75rem)] uppercase tracking-[0.2em] text-white/60 mb-5 md:mb-6 pl-1">Senior Design Partner & Art Director · Bilingual Arabic–English · Available in KL and Globally</p>
-                <h1 class="mega-type font-extrabold tracking-[-0.02em] leading-[1.05] text-[clamp(2.5rem,5.5vw,5rem)] text-white">
-                    The market buys 
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2 filter drop-shadow-[0_0_24px_oklch(83.5%_0.17_84/0.3)]">perception.</span>
-                    <span class="block mt-4 md:mt-6 text-[clamp(1.1rem,2vw,1.6rem)] font-bold text-white/60 tracking-normal leading-[1.4] max-w-[30ch]">I build the systems that control it.</span>
+                <h1 class="mega-type font-extrabold tracking-[-0.02em] leading-[1.05] text-[clamp(2.5rem,4.5vw,4.5rem)] text-white">
+                    Brand systems.<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2 filter drop-shadow-[0_0_24px_oklch(83.5%_0.17_84/0.3)]">Arabic + English.</span><br>
+                    48 hours.
                 </h1>
                 <div class="mt-8 sm:mt-12 flex items-center reveal-up" style="animation-delay: 0.4s;">
-                    <a href="#contact" class="btn-glass-cta active:scale-[0.98] flex items-center justify-center px-[clamp(1.5rem,5vw,2rem)] h-14 min-w-[48px] rounded-full text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian" data-cursor="CLICK">
+                    <a href="#portfolio" class="btn-glass-cta active:scale-[0.98] flex items-center justify-center px-[clamp(1.5rem,5vw,2rem)] h-14 min-w-[48px] rounded-full text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian" data-cursor="CLICK">
                         See the Work <svg class="w-4 h-4 ml-3 opacity-70" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
                 </div>
@@ -458,12 +389,6 @@
                     <span class="block text-[0.82rem] font-bold text-white mt-2">200+ Delivered</span>
                 </div>
             </div>
-        </div>
-
-        <div class="hero-bottom relative z-10 pt-[clamp(2rem,3vw,2.5rem)] flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mt-10">
-            <p class="text-[clamp(1rem,1.5vw,1.12rem)] text-white/70 max-w-[48ch] leading-[1.82] font-normal">
-                7 years. 200+ projects across GCC, MENA, USA, and Europe — in Arabic and English. Brand identity systems, AI-accelerated performance creative, and bilingual RTL/LTR design for companies that compete globally. Available for projects, retainers, and full-time roles.
-            </p>
         </div>
     </section>
 
@@ -495,58 +420,54 @@
         </div>
     </section>
 
-    <section id="portfolio" class="relative w-full pt-16">
-        <div class="portfolio-backgrounds" aria-hidden="true">
-            <picture class="port-bg is-active" id="bg-1">
-                <img src="nargis.avif" alt="Al Nargis Beauty" fetchpriority="high" class="w-full h-full object-cover">
-            </picture>
-            <picture class="port-bg" id="bg-2">
-                <img src="aethos.avif" alt="Aethos Case Study" loading="lazy" class="w-full h-full object-cover">
-            </picture>
-            <picture class="port-bg" id="bg-3">
-                <img src="wade.avif" alt="Wade Fit Studio" loading="lazy" class="w-full h-full object-cover">
-            </picture>
-            <div class="absolute inset-0 z-10 bg-gradient-to-b from-obsidian via-transparent to-obsidian pointer-events-none"></div>
+    <section id="portfolio" class="relative w-full pt-16 pb-24 z-20">
+        <div class="flex flex-col justify-center px-[clamp(1.25rem,6vw,5rem)] py-[clamp(3rem,6vh,5.5rem)] relative z-10 max-w-[1400px] mx-auto reveal-up">
+            <h2 class="text-[clamp(1.8rem,9vw,4.5rem)] font-extrabold uppercase tracking-tight text-white mb-6">The Work.</h2>
+            <p class="text-[clamp(0.9rem,1.4vw,1rem)] text-white/70 max-w-[52ch] leading-[1.75]">Every brief starts with a business problem, in Arabic or English, for GCC markets or global audiences. The design is the answer.</p>
+        </div>
+
+        <div class="px-[clamp(1.25rem,6vw,5rem)] max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+            <a href="al-nargis-case-study.html" class="group block spotlight-card rounded-3xl overflow-hidden bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] border border-white/5 transition-transform duration-[400ms] hover:-translate-y-2 reveal-up" data-cursor="VIEW">
+                <div class="w-full aspect-[4/3] overflow-hidden">
+                    <img src="nargis.avif" alt="Al Nargis" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="p-8">
+                    <span class="block font-bold text-[0.55rem] text-white/60 tracking-[0.1em] uppercase mb-3">BEAUTY · Brand Identity</span>
+                    <h3 class="text-[1.5rem] font-extrabold uppercase leading-[1] tracking-tight text-white mb-4">AL NARGIS</h3>
+                    <p class="text-[0.85rem] text-white/70 leading-[1.6]">A beauty brand entering a market where every competitor looked clinical or mass-market. Built an identity around softness as strength.</p>
+                    <span class="flex items-center gap-2 font-bold text-[0.65rem] text-accent uppercase tracking-[0.08em] mt-6">View case study <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+            
+            <a href="aethos-case-study.html" class="group block spotlight-card rounded-3xl overflow-hidden bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] border border-white/5 transition-transform duration-[400ms] hover:-translate-y-2 reveal-up delay-100" data-cursor="VIEW">
+                <div class="w-full aspect-[4/3] overflow-hidden">
+                    <img src="aethos.avif" alt="Aethos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="p-8">
+                    <span class="block font-bold text-[0.55rem] text-white/60 tracking-[0.1em] uppercase mb-3">TECHNOLOGY · Brand Identity</span>
+                    <h3 class="text-[1.5rem] font-extrabold uppercase leading-[1] tracking-tight text-white mb-4">AETHOS</h3>
+                    <p class="text-[0.85rem] text-white/70 leading-[1.6]">A brand identity designed to convey authority and innovation. Built for scalability across digital ecosystems, giving founders a premium foundation.</p>
+                    <span class="flex items-center gap-2 font-bold text-[0.65rem] text-accent uppercase tracking-[0.08em] mt-6">View case study <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <a href="wade-case-study.html" class="group block spotlight-card rounded-3xl overflow-hidden bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] border border-white/5 transition-transform duration-[400ms] hover:-translate-y-2 reveal-up delay-200" data-cursor="VIEW">
+                <div class="w-full aspect-[4/3] overflow-hidden">
+                    <img src="wade.avif" alt="Wade Fit" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="p-8">
+                    <span class="block font-bold text-[0.55rem] text-white/60 tracking-[0.1em] uppercase mb-3">FITNESS · Logo Design</span>
+                    <h3 class="text-[1.5rem] font-extrabold uppercase leading-[1] tracking-tight text-white mb-4">WADE FIT</h3>
+                    <p class="text-[0.85rem] text-white/70 leading-[1.6]">A fitness studio that needed to feel serious without feeling intimidating. Structured, intentional, built for people who show up.</p>
+                    <span class="flex items-center gap-2 font-bold text-[0.65rem] text-accent uppercase tracking-[0.08em] mt-6">View case study <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
         </div>
         
-        <div class="portfolio-content">
-            <div class="flex flex-col justify-center px-[clamp(1.25rem,6vw,5rem)] py-[clamp(3rem,6vh,5.5rem)] relative z-10 max-w-[1400px] mx-auto reveal-up">
-                <h2 class="text-[clamp(1.8rem,9vw,4.5rem)] font-extrabold uppercase tracking-tight text-white mb-6">The Work.</h2>
-                <p class="text-[clamp(0.9rem,1.4vw,1rem)] text-white/70 max-w-[52ch] leading-[1.75]">Every brief starts with a business problem, in Arabic or English, for GCC markets or global audiences. The design is the answer.</p>
-            </div>
-
-            <a href="al-nargis-case-study.html" class="port-item is-active hover-trigger px-[clamp(1.25rem,6vw,5rem)] max-w-[1400px] mx-auto focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-xl" data-target="bg-1" data-cursor="VIEW">
-                <article class="port-text-wrap max-w-[620px] pl-8">
-                    <span class="port-meta block font-bold text-[0.62rem] text-white/60 tracking-[0.1em] uppercase mb-4">BEAUTY &nbsp;·&nbsp; Brand Identity</span>
-                    <h3 class="port-title text-[clamp(1.8rem,8vw,6rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-transparent">AL NARGIS</h3>
-                    <p class="port-desc text-[clamp(0.82rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mt-6">A beauty brand entering a market where every competitor looked clinical or mass-market. Built an identity around softness as strength: a botanical mark, a lavender system, and lifestyle direction.</p>
-                    <span class="port-arrow flex items-center gap-3 font-bold text-[0.68rem] text-accent uppercase tracking-[0.08em] mt-8">View brand identity <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                </article>
+        <div class="py-16 flex justify-center relative z-10">
+            <a href="https://behance.net/ghaidakalo5fb4" target="_blank" rel="noopener noreferrer" class="flex items-center min-h-[48px] gap-3 font-bold text-[0.72rem] text-white/60 uppercase tracking-[0.14em] pb-1 hover:text-white transition-colors active:scale-[0.98] hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-4" data-cursor="OPEN">
+                Full portfolio on Behance <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            
-            <a href="aethos-case-study.html" class="port-item hover-trigger px-[clamp(1.25rem,6vw,5rem)] max-w-[1400px] mx-auto focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-xl" data-target="bg-2" data-cursor="VIEW">
-                <article class="port-text-wrap max-w-[620px] pl-8">
-                    <span class="port-meta block font-bold text-[0.62rem] text-white/60 tracking-[0.1em] uppercase mb-4">TECHNOLOGY &nbsp;·&nbsp; Brand Identity</span>
-                    <h3 class="port-title text-[clamp(1.8rem,8vw,6rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-transparent">AETHOS</h3>
-                    <p class="port-desc text-[clamp(0.82rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mt-6">A brand identity designed to convey authority and innovation. Built for scalability across digital ecosystems, giving the founders a premium visual foundation for growth and lasting impact.</p>
-                    <span class="port-arrow flex items-center gap-3 font-bold text-[0.68rem] text-accent uppercase tracking-[0.08em] mt-8">View brand identity <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                </article>
-            </a>
-
-            <a href="wade-case-study.html" class="port-item hover-trigger px-[clamp(1.25rem,6vw,5rem)] max-w-[1400px] mx-auto focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-xl" data-target="bg-3" data-cursor="VIEW">
-                <article class="port-text-wrap max-w-[620px] pl-8">
-                    <span class="port-meta block font-bold text-[0.62rem] text-white/60 tracking-[0.1em] uppercase mb-4">FITNESS &nbsp;·&nbsp; Logo Design</span>
-                    <h3 class="port-title text-[clamp(1.8rem,8vw,6rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-transparent">WADE FIT</h3>
-                    <p class="port-desc text-[clamp(0.82rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mt-6">A fitness studio that needed to feel serious without feeling intimidating. The W and barbell are not a visual trick: they are a positioning statement. Structured, intentional, built for people who show up.</p>
-                    <span class="port-arrow flex items-center gap-3 font-bold text-[0.68rem] text-accent uppercase tracking-[0.08em] mt-8">View identity system <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                </article>
-            </a>
-            
-            <div class="py-24 flex justify-center relative z-10">
-                <a href="https://behance.net/ghaidakalo5fb4" target="_blank" rel="noopener noreferrer" class="flex items-center min-h-[48px] gap-3 font-bold text-[0.72rem] text-white/60 uppercase tracking-[0.14em] pb-1 hover:text-white transition-colors active:scale-[0.98] hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-4" data-cursor="OPEN">
-                    Full portfolio on Behance <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-            </div>
         </div>
     </section>
 
@@ -627,8 +548,8 @@
                         <span class="text-accent font-bold text-[0.56rem] tracking-[0.22em] uppercase opacity-80">01</span>
                         <svg class="w-5 h-5 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
                     </div>
-                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.5rem)] uppercase tracking-[-0.01em] mb-4">Brand Systems</h3>
-                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 max-w-[52ch]">Visual architecture that scales. From core identity to comprehensive guidelines, built to stay consistent across every touchpoint, in every market, in any language.</p>
+                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.5rem)] uppercase tracking-[-0.01em] mb-4">Brand Identity Systems</h3>
+                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 max-w-[52ch]">Logo, guidelines, and 200+ assets delivered fast. Built to stay consistent across every touchpoint, in every market, in any language.</p>
                     <div class="mt-8 pt-6 border-t border-white/[0.05] flex flex-wrap gap-2">
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">Logo System</span>
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">Color and Type</span>
@@ -643,8 +564,8 @@
                             <svg class="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                         </div>
                     </div>
-                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">Bilingual Brand Systems</h3>
-                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Native Arabic with C2 English. Full RTL/LTR typographic systems, GCC market entry, and MENA cultural adaptation built into every brand system from day one. A dual-market design capability for GCC and MENA market entry, with deep expertise in Islamic Finance and Halal Branding. This is not a translation service. It is a dual-market design capability most agencies cannot offer.</p>
+                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">Bilingual GCC Design</h3>
+                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Native Arabic and English. RTL/LTR layouts and cultural adaptation built in. Not a translation service — true dual-market design for GCC and MENA market entry, with deep expertise in Islamic Finance and Halal Branding.</p>
                     <div class="mt-8 pt-6 border-t border-accent/10 flex flex-wrap gap-2">
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-accent/60 bg-accent/[0.08] px-3 py-1.5 rounded-full">Islamic Finance</span>
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-accent/60 bg-accent/[0.08] px-3 py-1.5 rounded-full">Halal Branding</span>
@@ -657,8 +578,8 @@
                         <span class="text-accent font-bold text-[0.56rem] tracking-[0.22em] uppercase opacity-80">02</span>
                         <svg class="w-5 h-5 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                     </div>
-                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4">Web and UI Design</h3>
-                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">High-conversion web ecosystems featuring Zero-Friction Developer Handoffs. Production-ready Figma files with robust component libraries built for clean developer handoffs and fast iteration.</p>
+                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4">High-Conversion Websites</h3>
+                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Fast, scalable websites and UI systems built in Figma. Ready for clean developer handoff.</p>
                     <div class="mt-6 pt-5 border-t border-white/[0.05] flex flex-wrap gap-2">
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">Figma Handoff</span>
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">UI Systems</span>
@@ -670,8 +591,8 @@
                         <span class="text-accent font-bold text-[0.56rem] tracking-[0.22em] uppercase opacity-80">03</span>
                         <svg class="w-5 h-5 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                     </div>
-                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4">Marketing Visuals</h3>
-                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Performance creative optimized for ROAS and scale. +18% average CTR improvement on bilingual localized paid campaigns. Asset libraries that let teams move fast without breaking the brand.</p>
+                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4">Performance Ad Creative</h3>
+                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Ads optimized for ROAS. Bilingual localized campaigns that drive higher CTR and scale your growth.</p>
                     <div class="mt-6 pt-5 border-t border-white/[0.05] flex flex-wrap gap-2">
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">Ad Creatives</span>
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">Social</span>
@@ -683,8 +604,8 @@
                         <span class="text-accent font-bold text-[0.56rem] tracking-[0.22em] uppercase opacity-80">04</span>
                         <svg class="w-5 h-5 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                     </div>
-                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4">Strategic Decks</h3>
-                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 max-w-[52ch]">Pitch decks and presentations built for the room where the decision is made. Data and strategy elevated into visual authority that moves investors and closes deals.</p>
+                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4">Pitch Decks & Presentations</h3>
+                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 max-w-[52ch]">Presentations built to close deals. Your data and strategy elevated into visual authority for investors.</p>
                     <div class="mt-6 pt-5 border-t border-white/[0.05] flex flex-wrap gap-2">
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">Pitch Decks</span>
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">One-Pagers</span>
@@ -698,16 +619,40 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 auto-rows-auto">
                 <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
-                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">The 48-Hour Brand Sprint</h3>
-                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Leveraging AI-augmented workflows to compress standard 5-day conceptual timelines into 48 hours without reducing quality.</p>
+                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">48-Hour Brand Sprint</h3>
+                    <ul class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 mb-8 space-y-2">
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Core Identity & Logo</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Color & Type System</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Ready in 48 hours</li>
+                    </ul>
+                    <div class="pt-5 border-t border-white/10 flex justify-between items-center mt-auto">
+                        <span class="font-bold text-white text-[0.9rem]">From $3,500</span>
+                        <a href="#contact" class="text-[0.65rem] font-bold uppercase tracking-[0.08em] text-white hover:text-accent transition-colors" data-cursor="CLICK">Book →</a>
+                    </div>
                 </div>
                 <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger delay-[80ms]" data-cursor="READ">
-                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">Bulletproof Brand Governance</h3>
-                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Comprehensive Brand Identity SOPs and guidelines built for international teams to scale without breaking the system.</p>
+                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">Brand Governance System</h3>
+                    <ul class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 mb-8 space-y-2">
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Comprehensive Guidelines</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> International Team SOPs</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Asset Libraries</li>
+                    </ul>
+                    <div class="pt-5 border-t border-white/10 flex justify-between items-center mt-auto">
+                        <span class="font-bold text-white text-[0.9rem]">From $2,000</span>
+                        <a href="#contact" class="text-[0.65rem] font-bold uppercase tracking-[0.08em] text-white hover:text-accent transition-colors" data-cursor="CLICK">Book →</a>
+                    </div>
                 </div>
                 <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger delay-[160ms]" data-cursor="READ">
                     <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">GCC Market Entry Audit</h3>
-                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Bicultural typographic and visual strategy for Western brands entering the Middle East.</p>
+                    <ul class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 mb-8 space-y-2">
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Visual Strategy Review</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Bicultural Typography Check</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Cultural Adaptation Plan</li>
+                    </ul>
+                    <div class="pt-5 border-t border-white/10 flex justify-between items-center mt-auto">
+                        <span class="font-bold text-white text-[0.9rem]">From $1,200</span>
+                        <a href="#contact" class="text-[0.65rem] font-bold uppercase tracking-[0.08em] text-white hover:text-accent transition-colors" data-cursor="CLICK">Book →</a>
+                    </div>
                 </div>
             </div>
 
@@ -734,17 +679,13 @@
                 <div class="flex flex-col reveal-up">
                     <h3 class="text-[clamp(1.1rem,1.6vw,1.35rem)] font-extrabold uppercase tracking-tight mb-4">Senior Design Partner.</h3>
                     <p class="text-[clamp(0.95rem,1.3vw,1.05rem)] text-white/70 leading-[1.85] mb-6 max-w-[48ch]">
-                        Seven years. 200+ projects across the USA, UAE, Europe, and MENA. I partner with creative directors, founders, and marketing leads to build brand ecosystems that perform — in Arabic and English, for markets that demand both.<br><br>
-
-                        My workflow combines Adobe Creative Suite and Figma with AI production tools. Senior quality at a pace most designers at this level cannot match. Brand systems, web design, performance creative: faster, without compromise.<br><br>
-                        
-                        Based in Kuala Lumpur. Available for projects, retainers, and full-time or remote roles globally. If you are building something that needs senior bilingual creative leadership — in-house or outsourced — I want to hear about it.
+                        Seven years. 200+ projects. I partner with founders and creative directors to build brand ecosystems that perform — in Arabic and English, for markets that demand both.
                     </p>
                     
                     <div class="mt-12 pt-8">
                         <span class="block font-bold text-[0.56rem] tracking-[0.14em] uppercase text-white/60 mb-6">Credentials</span>
                         <div class="py-2 mb-4">
-                            <div class="font-normal text-[0.74rem] text-white/70 leading-[1.4] flex items-center gap-2">Executive Leadership Certificate <span class="opacity-40" aria-hidden="true">·</span> Cornell University <span class="opacity-40" aria-hidden="true">·</span> 2023</div>
+                            <div class="font-normal text-[0.74rem] text-white/70 leading-[1.4] flex items-center gap-2">Executive Leadership Certificate <span class="opacity-40" aria-hidden="true">·</span> Cornell University <span class="opacity-40" aria-hidden="true">·</span> 2024</div>
                         </div>
                         <div class="py-2">
                             <div class="font-normal text-[0.74rem] text-white/90 leading-[1.4] flex items-center gap-2">Design Lead, SyrproBridges Ed. 1</div>
@@ -762,82 +703,6 @@
                         <a href="https://behance.net/ghaidakalo5fb4" target="_blank" rel="noopener noreferrer" class="flex items-center min-h-[48px] font-bold text-[0.9rem] text-white/70 hover:text-white transition-colors active:scale-[0.98] pb-1 hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-4" data-cursor="OPEN">Behance →</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="how-it-starts" class="relative bg-surface py-[clamp(4.5rem,8vh,8rem)] px-[clamp(1.25rem,6vw,5rem)] overflow-hidden pt-24">
-        <div class="absolute bottom-[-15%] left-[-10%] w-[55vw] h-[55vh] bg-[radial-gradient(ellipse_50%_50%_at_0%_100%,oklch(83.5%_0.17_84/4%)_0%,transparent_65%)] pointer-events-none"></div>
-        <div class="max-w-[1400px] mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row md:items-end justify-between pb-12 mb-16 reveal-up">
-                <h2 class="text-[clamp(1.8rem,9vw,4.5rem)] font-extrabold uppercase tracking-tight leading-[0.92]">The Process</h2>
-                <span class="text-[0.58rem] font-bold text-white/60 tracking-[0.18em] uppercase mt-4 md:mt-0">Simple process. Senior output.</span>
-            </div>
-            
-            <div class="flex flex-col gap-6 md:gap-8 mb-16">
-                <div class="spotlight-card grid grid-cols-[96px_1fr] md:max-lg:grid-cols-[48px_1fr] max-md:grid-cols-[48px_1fr] gap-[clamp(1.5rem,3vw,3rem)] p-[clamp(2rem,3vw,3rem)] rounded-3xl items-start bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
-                    <span class="font-bold text-[0.72rem] text-accent tracking-[0.08em] pt-1">01</span>
-                    <div>
-                        <h3 class="font-extrabold text-[clamp(1.35rem,2.2vw,1.9rem)] uppercase tracking-[-0.02em] leading-[1.1] mb-4">Send the brief or role</h3>
-                        <p class="font-normal text-[clamp(0.92rem,1.2vw,1rem)] text-white/70 leading-[1.85]">Share the project brief, scope, or job description. A paragraph is enough. I read it carefully, assess fit honestly, and reply with a clear answer — no discovery call that wastes your time.</p>
-                    </div>
-                </div>
-                
-                <div class="spotlight-card grid grid-cols-[96px_1fr] md:max-lg:grid-cols-[48px_1fr] max-md:grid-cols-[48px_1fr] gap-[clamp(1.5rem,3vw,3rem)] p-[clamp(2rem,3vw,3rem)] rounded-3xl items-start bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
-                    <span class="font-bold text-[0.72rem] text-accent tracking-[0.08em] pt-1">02</span>
-                    <div>
-                        <h3 class="font-extrabold text-[clamp(1.35rem,2.2vw,1.9rem)] uppercase tracking-[-0.02em] leading-[1.1] mb-4">Response within 2 hours</h3>
-                        <p class="font-normal text-[clamp(0.92rem,1.2vw,1rem)] text-white/70 leading-[1.85]">An honest assessment of fit, timeline, and capability. If the role or project is not an ideal match, I will communicate that transparently so your team can keep moving forward.</p>
-                    </div>
-                </div>
-
-                <div class="spotlight-card grid grid-cols-[96px_1fr] md:max-lg:grid-cols-[48px_1fr] max-md:grid-cols-[48px_1fr] gap-[clamp(1.5rem,3vw,3rem)] p-[clamp(2rem,3vw,3rem)] rounded-3xl items-start bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
-                    <span class="font-bold text-[0.72rem] text-accent tracking-[0.08em] pt-1">03</span>
-                    <div>
-                        <h3 class="font-extrabold text-[clamp(1.35rem,2.2vw,1.9rem)] uppercase tracking-[-0.02em] leading-[1.1] mb-4">One aligned conversation</h3>
-                        <p class="font-normal text-[clamp(0.92rem,1.2vw,1rem)] text-white/70 leading-[1.85]">One focused call or interview to confirm culture, workflow, and expectations. We move when there is clarity on both sides. NDA available on request.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="reveal-up mt-8">
-                <a href="#contact" class="flex items-center min-h-[48px] gap-3 font-bold text-[0.68rem] text-white/60 uppercase tracking-[0.1em] pb-1 hover:text-white transition-colors active:scale-[0.98] hover-trigger inline-flex w-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2" data-cursor="CLICK">
-                    Submit a request below <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12l7 7-7 7"/></svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="py-[clamp(4rem,8vw,8rem)] px-[clamp(1.25rem,6vw,5rem)] bg-obsidian max-w-[1400px] mx-auto pt-24">
-        <div class="flex flex-col md:flex-row md:items-end justify-between pb-12 mb-16 reveal-up">
-            <h2 class="text-[clamp(1.8rem,9vw,4.5rem)] font-extrabold uppercase tracking-tight leading-[0.92]">Questions</h2>
-            <span class="text-[0.58rem] font-bold text-white/60 tracking-[0.18em] uppercase mt-4 md:mt-0">Direct answers.</span>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="spotlight-card p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
-                <h3 class="font-bold text-[clamp(0.82rem,1.2vw,0.95rem)] text-white tracking-[0.03em] mb-4">Are you available for full-time roles?</h3>
-                <p class="text-[clamp(0.78rem,1.1vw,0.88rem)] text-white/60 leading-[1.65]">Yes. Full-time, part-time, hybrid, or remote — I am open to the right structure. Currently based in Kuala Lumpur and available immediately — for KL-based roles, remote positions, or relocation for the right opportunity. EP sponsorship required for Malaysia only. For remote and international roles, no sponsorship needed, no delays.</p>
-            </div>
-            <div class="spotlight-card p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger delay-[120ms]" data-cursor="READ">
-                <h3 class="font-bold text-[clamp(0.82rem,1.2vw,0.95rem)] text-white tracking-[0.03em] mb-4">Are you available for freelance projects and retainers?</h3>
-                <p class="text-[clamp(0.78rem,1.1vw,0.88rem)] text-white/60 leading-[1.65]">Yes. Project-based, ongoing retainer, or embedded as a senior creative partner. 80% of my client relationships last 2+ years. I work best with founders, creative directors, and marketing leads who want a senior partner, not a vendor.</p>
-            </div>
-            <div class="spotlight-card p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
-                <h3 class="font-bold text-[clamp(0.82rem,1.2vw,0.95rem)] text-white tracking-[0.03em] mb-4">What does bilingual actually mean in practice?</h3>
-                <p class="text-[clamp(0.78rem,1.1vw,0.88rem)] text-white/60 leading-[1.65]">It means I design in Arabic and English natively — not translated. RTL/LTR layouts, Arabic typography, GCC cultural adaptation, and MENA market entry built into the work from day one. No translators, no extra rounds, no cultural consultant on the side. This is rare at senior level and it is built into everything I deliver.</p>
-            </div>
-            <div class="spotlight-card p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger delay-[120ms]" data-cursor="READ">
-                <h3 class="font-bold text-[clamp(0.82rem,1.2vw,0.95rem)] text-white tracking-[0.03em] mb-4">What does the AI workflow mean for me?</h3>
-                <p class="text-[clamp(0.78rem,1.1vw,0.88rem)] text-white/60 leading-[1.65]">Production tasks that take most senior designers three days take me one. I use AI tooling to compress repetitive asset generation and iteration, so my time goes to strategy, creative direction, and craft. You get more senior thinking per week — not less quality.</p>
-            </div>
-            <div class="spotlight-card p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
-                <h3 class="font-bold text-[clamp(0.82rem,1.2vw,0.95rem)] text-white tracking-[0.03em] mb-4">What kind of companies do you work best with?</h3>
-                <p class="text-[clamp(0.78rem,1.1vw,0.88rem)] text-white/60 leading-[1.65]">Companies competing in more than one market or language. Brands entering the GCC or MENA region. Founders who need a complete visual system, not just a logo. Creative teams that need a senior partner who can run independently without handholding. If any of that sounds like you, we should talk.</p>
-            </div>
-            <div class="spotlight-card p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger delay-[120ms]" data-cursor="READ">
-                <h3 class="font-bold text-[clamp(0.82rem,1.2vw,0.95rem)] text-white tracking-[0.03em] mb-4">Do you sign NDAs?</h3>
-                <p class="text-[clamp(0.78rem,1.1vw,0.88rem)] text-white/60 leading-[1.65]">Always. Standard NDA or company-provided. Your strategy, IP, and pre-launch work stay completely confidential.</p>
             </div>
         </div>
     </section>
@@ -894,6 +759,75 @@
                             </div>
                             <span class="font-bold text-[0.6rem] uppercase tracking-[0.1em] text-white/40 group-hover:text-linkedin transition-colors ml-4">Connect</span>
                         </a>
+                    </div>
+                </div>
+
+                <div id="how-it-starts" class="mt-12 pt-12 border-t border-white/[0.05] reveal-up">
+                    <h3 class="font-extrabold text-[1.2rem] uppercase tracking-[-0.01em] text-white mb-6" id="faq">Process & FAQ</h3>
+                    <div class="flex flex-col gap-4">
+                        <details class="group bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-5 font-bold text-[0.8rem] text-white tracking-[0.03em] cursor-pointer hover:bg-white/[0.04] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">
+                                How it starts: The Process
+                                <span class="transition group-open:rotate-180">
+                                    <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 pt-0 text-[0.85rem] text-white/60 leading-[1.65]">
+                                <ul class="space-y-2">
+                                    <li><strong>1. Send the brief or role:</strong> A paragraph is enough. I assess fit honestly and reply fast.</li>
+                                    <li><strong>2. Response within 2 hours:</strong> Clear answer on timeline and capability.</li>
+                                    <li><strong>3. One aligned conversation:</strong> Call to confirm culture, workflow, and expectations.</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="group bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-5 font-bold text-[0.8rem] text-white tracking-[0.03em] cursor-pointer hover:bg-white/[0.04] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">
+                                Are you available for full-time roles?
+                                <span class="transition group-open:rotate-180">
+                                    <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 pt-0 text-[0.85rem] text-white/60 leading-[1.65]">
+                                Yes. Full-time, part-time, hybrid, or remote — I am open to the right structure. Currently based in Kuala Lumpur and available immediately. For international and remote roles, no sponsorship is needed.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-5 font-bold text-[0.8rem] text-white tracking-[0.03em] cursor-pointer hover:bg-white/[0.04] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">
+                                Are you available for freelance projects and retainers?
+                                <span class="transition group-open:rotate-180">
+                                    <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 pt-0 text-[0.85rem] text-white/60 leading-[1.65]">
+                                Yes. Project-based, ongoing retainer, or embedded as a senior creative partner. 80% of my client relationships last 2+ years. I work best with founders, creative directors, and marketing leads who want a senior partner, not a vendor.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-5 font-bold text-[0.8rem] text-white tracking-[0.03em] cursor-pointer hover:bg-white/[0.04] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">
+                                What does bilingual actually mean in practice?
+                                <span class="transition group-open:rotate-180">
+                                    <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 pt-0 text-[0.85rem] text-white/60 leading-[1.65]">
+                                It means I design in Arabic and English natively — not translated. RTL/LTR layouts, Arabic typography, GCC cultural adaptation, and MENA market entry built into the work from day one. No translators, no extra rounds, no cultural consultant on the side.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                            <summary class="flex items-center justify-between p-5 font-bold text-[0.8rem] text-white tracking-[0.03em] cursor-pointer hover:bg-white/[0.04] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">
+                                Do you sign NDAs?
+                                <span class="transition group-open:rotate-180">
+                                    <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <div class="p-5 pt-0 text-[0.85rem] text-white/60 leading-[1.65]">
+                                Always. Standard NDA or company-provided. Your strategy, IP, and pre-launch work stay completely confidential.
+                            </div>
+                        </details>
                     </div>
                 </div>
             </div>
