@@ -344,6 +344,34 @@
         .lumina-loading.hidden { opacity: 0; }
         .lumina-spinner { width: 28px; height: 28px; border: 2px solid rgba(255,255,255,0.08); border-top-color: oklch(83.5% 0.17 84); border-radius: 50%; animation: spin 0.9s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ============ PORTFOLIO CARDS ============ */
+        .port-card {
+            transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), box-shadow 0.5s cubic-bezier(0.22,1,0.36,1);
+            box-shadow: 0 8px 32px oklch(5% 0 0 / 60%), 0 0 0 1px rgba(255,255,255,0.04);
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .port-card:hover {
+                transform: translateY(-6px) translateZ(0);
+                box-shadow: 0 24px 60px oklch(5% 0 0 / 80%), 0 0 0 1px rgba(255,255,255,0.08);
+            }
+        }
+        .port-img-overlay {
+            transition: opacity 0.6s ease;
+        }
+        .port-card:hover .port-img-overlay {
+            opacity: 0.7;
+        }
+        .port-card-body {
+            transform: translateY(0);
+        }
+        .port-tag {
+            transition: opacity 0.3s ease;
+        }
+        /* Navbar CTA - prevent wrapping */
+        .nav-cta-btn {
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-accent/30 selection:text-white">
@@ -407,7 +435,7 @@
         <a href="/resume.pdf" target="_blank" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md" data-cursor="OPEN">Experience</a>
     </div>
     <div class="flex items-center z-10 gap-4">
-        <a href="#contact" class="hidden md:flex btn-glass-cta active:scale-[0.98] items-center justify-center px-6 h-12 min-w-[48px] rounded-full text-[0.65rem] font-bold uppercase tracking-[0.07em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian">Start a Project</a>
+        <a href="#contact" class="hidden md:flex btn-glass-cta nav-cta-btn active:scale-[0.98] items-center justify-center px-6 h-12 min-w-[160px] rounded-full text-[0.65rem] font-bold uppercase tracking-[0.07em] whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian">Start a Project</a>
         
         <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center gap-[4px] w-12 h-12 min-w-[48px] rounded-full bg-white/5 border border-white/10 active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian" aria-label="Toggle menu" aria-expanded="false" data-cursor="CLICK">
             <span class="w-5 h-[2px] bg-white rounded-full transition-transform duration-300 origin-center"></span>
@@ -489,64 +517,108 @@
     </section>
 
     <section id="portfolio" class="relative w-full pt-16 pb-24 z-20">
-        <div class="flex flex-col justify-center px-[clamp(1.25rem,6vw,5rem)] py-[clamp(3rem,6vh,5.5rem)] relative z-10 max-w-[1400px] mx-auto reveal-up">
-            <h2 class="text-[clamp(1.8rem,9vw,4.5rem)] font-extrabold uppercase tracking-tight text-white mb-6">The Work.</h2>
-            <p class="text-[clamp(0.9rem,1.4vw,1rem)] text-white/70 max-w-[52ch] leading-[1.75]">Every brief starts with one question: what does this business need to win? The design is the answer.</p>
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between px-[clamp(1.25rem,6vw,5rem)] py-[clamp(3rem,6vh,5.5rem)] relative z-10 max-w-[1400px] mx-auto reveal-up gap-6">
+            <div>
+                <span class="block text-accent font-bold text-[0.58rem] tracking-[0.2em] uppercase mb-3">Selected Work · 2021–2025</span>
+                <h2 class="text-[clamp(1.8rem,9vw,4.5rem)] font-extrabold uppercase tracking-tight text-white leading-[0.95]">The Work.</h2>
+            </div>
+            <p class="text-[clamp(0.88rem,1.2vw,1rem)] text-white/60 max-w-[38ch] leading-[1.75] sm:text-right">Every brief starts with one question: what does this business need to win?</p>
         </div>
 
-        <div class="px-[clamp(1.25rem,6vw,5rem)] max-w-[1400px] mx-auto relative z-10 reveal-up">
-            <div class="lumina-slider" id="luminaSlider">
-                <canvas class="webgl-canvas" id="luminaCanvas"></canvas>
+        <!-- Portfolio Cards Grid -->
+        <div class="px-[clamp(1.25rem,6vw,5rem)] max-w-[1400px] mx-auto relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6" id="portfolioGrid">
 
-                <!-- Overlay -->
-                <div class="lumina-overlay"></div>
+                <!-- Card 1: Nargis — large featured -->
+                <article class="port-card group relative overflow-hidden rounded-[20px] bg-[oklch(10%_0_0)] md:col-span-2 reveal-up" style="--delay:0ms" data-cursor="VIEW">
+                    <a href="al-nargis-case-study.html" class="block relative" aria-label="View Al Nargis case study">
+                        <div class="relative overflow-hidden" style="aspect-ratio:16/9;">
+                            <img src="/nargis.avif" alt="Al Nargis Beauty — Brand Identity" loading="eager" decoding="async"
+                                class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+                                onerror="this.style.display='none';this.parentElement.style.background='oklch(15% 0.02 280)'">
+                            <div class="port-img-overlay absolute inset-0 bg-gradient-to-t from-[oklch(5%_0_0)] via-[oklch(5%_0_0/40%)] to-transparent"></div>
+                        </div>
+                        <div class="port-card-body absolute bottom-0 left-0 right-0 p-[clamp(1.5rem,4vw,2.5rem)]">
+                            <div class="flex items-end justify-between gap-4">
+                                <div>
+                                    <span class="port-tag block text-accent font-bold text-[0.54rem] tracking-[0.18em] uppercase mb-2 opacity-80">Beauty · Brand Identity</span>
+                                    <h3 class="font-extrabold text-[clamp(1.6rem,3.5vw,2.4rem)] uppercase tracking-[-0.02em] text-white leading-[1]">Al Nargis</h3>
+                                    <p class="text-white/60 text-[0.82rem] mt-2 max-w-[40ch] leading-[1.6]">Zero to market. Identity built around softness as strength — launched across GCC.</p>
+                                </div>
+                                <div class="port-arrow shrink-0 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 group-hover:bg-accent group-hover:border-accent group-hover:text-obsidian transition-all duration-300">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
 
-                <!-- Loading -->
-                <div class="lumina-loading" id="luminaLoading">
-                    <div class="lumina-spinner"></div>
-                </div>
+                <!-- Card 2: Aethos — tall -->
+                <article class="port-card group relative overflow-hidden rounded-[20px] bg-[oklch(10%_0_0)] md:row-span-2 reveal-up" style="--delay:80ms" data-cursor="VIEW">
+                    <a href="aethos-case-study.html" class="block relative h-full" aria-label="View Aethos case study">
+                        <div class="relative overflow-hidden h-full min-h-[420px]">
+                            <img src="/aethos.avif" alt="Aethos — Technology Brand Identity" loading="lazy" decoding="async"
+                                class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+                                onerror="this.style.display='none';this.parentElement.style.background='oklch(12% 0.02 280)'">
+                            <div class="port-img-overlay absolute inset-0 bg-gradient-to-t from-[oklch(5%_0_0)] via-[oklch(5%_0_0/30%)] to-transparent"></div>
+                        </div>
+                        <div class="port-card-body absolute bottom-0 left-0 right-0 p-[clamp(1.5rem,3vw,2rem)]">
+                            <span class="port-tag block text-accent font-bold text-[0.54rem] tracking-[0.18em] uppercase mb-2 opacity-80">Technology · Brand Identity</span>
+                            <h3 class="font-extrabold text-[clamp(1.4rem,2.5vw,2rem)] uppercase tracking-[-0.02em] text-white leading-[1]">Aethos</h3>
+                            <p class="text-white/60 text-[0.8rem] mt-2 leading-[1.6]">Investor-ready brand system built to scale across 3 markets.</p>
+                            <div class="port-arrow mt-4 w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 group-hover:bg-accent group-hover:border-accent group-hover:text-obsidian transition-all duration-300">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </div>
+                        </div>
+                    </a>
+                </article>
 
-                <!-- Category tag -->
-                <span class="lumina-cat-tag" id="luminaCat">Beauty · Brand Identity</span>
+                <!-- Card 3: Wade Fit -->
+                <article class="port-card group relative overflow-hidden rounded-[20px] bg-[oklch(10%_0_0)] reveal-up" style="--delay:160ms" data-cursor="VIEW">
+                    <a href="wade-case-study.html" class="block relative" aria-label="View Wade Fit case study">
+                        <div class="relative overflow-hidden" style="aspect-ratio:4/3;">
+                            <img src="/wade.avif" alt="Wade Fit Studio — Logo Design" loading="lazy" decoding="async"
+                                class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
+                                onerror="this.style.display='none';this.parentElement.style.background='oklch(13% 0.02 280)'">
+                            <div class="port-img-overlay absolute inset-0 bg-gradient-to-t from-[oklch(5%_0_0)] via-[oklch(5%_0_0/40%)] to-transparent"></div>
+                        </div>
+                        <div class="port-card-body absolute bottom-0 left-0 right-0 p-[clamp(1.25rem,3vw,2rem)]">
+                            <div class="flex items-end justify-between gap-4">
+                                <div>
+                                    <span class="port-tag block text-accent font-bold text-[0.54rem] tracking-[0.18em] uppercase mb-2 opacity-80">Fitness · Logo Design</span>
+                                    <h3 class="font-extrabold text-[clamp(1.3rem,2vw,1.8rem)] uppercase tracking-[-0.02em] text-white leading-[1]">Wade Fit</h3>
+                                    <p class="text-white/60 text-[0.78rem] mt-1.5 leading-[1.6]">Studio identity. Still running unchanged 2+ years later.</p>
+                                </div>
+                                <div class="port-arrow shrink-0 w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 group-hover:bg-accent group-hover:border-accent group-hover:text-obsidian transition-all duration-300">
+                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
 
-                <!-- Counter -->
-                <div class="lumina-counter">
-                    <span class="lumina-slide-num" id="slideNumber">01</span>
-                    <span class="lumina-counter-sep">/</span>
-                    <span class="lumina-slide-total" id="slideTotal">03</span>
-                </div>
+            </div><!-- /grid -->
 
-                <!-- Content area -->
-                <div class="lumina-content">
-                    <div class="lumina-text">
-                        <div class="lumina-slide-title" id="mainTitle"></div>
-                        <p class="lumina-slide-desc" id="mainDesc"></p>
-                        <a href="al-nargis-case-study.html" class="lumina-cta-btn" id="luminaCta" data-cursor="VIEW">
-                            View Case Study
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
+            <!-- Stats bar -->
+            <div class="mt-10 pt-8 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-6 reveal-up">
+                <div class="flex flex-wrap gap-8">
+                    <div>
+                        <span class="block font-extrabold text-[1.4rem] text-white leading-none">200+</span>
+                        <span class="block text-[0.54rem] font-bold uppercase tracking-[0.14em] text-white/50 mt-1">Projects Delivered</span>
                     </div>
-                    <!-- Desktop: slide nav -->
-                    <nav class="lumina-nav" id="slidesNav" aria-label="Portfolio slides"></nav>
+                    <div>
+                        <span class="block font-extrabold text-[1.4rem] text-white leading-none">7</span>
+                        <span class="block text-[0.54rem] font-bold uppercase tracking-[0.14em] text-white/50 mt-1">Years Experience</span>
+                    </div>
+                    <div>
+                        <span class="block font-extrabold text-[1.4rem] text-accent leading-none">GCC · EU · USA</span>
+                        <span class="block text-[0.54rem] font-bold uppercase tracking-[0.14em] text-white/50 mt-1">Markets</span>
+                    </div>
                 </div>
+                <a href="https://behance.net/ghaidakalo5fb4" target="_blank" rel="noopener noreferrer" class="flex items-center min-h-[48px] gap-3 font-bold text-[0.68rem] text-white/60 uppercase tracking-[0.14em] hover:text-accent transition-colors active:scale-[0.98] hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-2" data-cursor="OPEN">
+                    Full portfolio on Behance <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
             </div>
-
-            <!-- Mobile nav -->
-            <div class="lumina-mobile-nav">
-                <button class="lumina-arrow" id="stackPrev" aria-label="Previous project">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-                </button>
-                <div id="stackDots" style="display:flex;gap:0.6rem;align-items:center;"></div>
-                <button class="lumina-arrow" id="stackNext" aria-label="Next project">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </button>
-            </div>
-        </div>
-        
-        <div class="py-16 flex justify-center relative z-10">
-            <a href="https://behance.net/ghaidakalo5fb4" target="_blank" rel="noopener noreferrer" class="flex items-center min-h-[48px] gap-3 font-bold text-[0.72rem] text-white/60 uppercase tracking-[0.14em] pb-1 hover:text-white transition-colors active:scale-[0.98] hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md px-4" data-cursor="OPEN">
-                Full portfolio on Behance <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
         </div>
     </section>
 
