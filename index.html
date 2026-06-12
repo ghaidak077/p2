@@ -10,18 +10,18 @@
     <link rel="manifest" href="/site.webmanifest">
 
     <title>Ghaidak Alosh — Senior Design Partner & Art Director | Brand Systems & Performance Creative</title>
-    <meta name="description" content="Senior Design Partner & Art Director with 7 years building brand identity systems, bilingual Arabic–English campaigns, and AI-accelerated performance creative across 15+ markets including GCC, MENA, USA, and EU. Available for senior full-time and embedded roles globally.">
+    <meta name="description" content="Senior Brand Identity Director. Arabic + English. 200+ projects across GCC, MENA, USA, and EU. Built for founders who need to win in two markets at once.">
     <meta name="theme-color" content="#040404">
     <link rel="canonical" href="https://ghaidak.com/">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ghaidak.com/">
     <meta property="og:title" content="Ghaidak Alosh — Senior Design Partner & Art Director | Bilingual Arabic–English | Global">
-    <meta property="og:description" content="7 years. 200+ projects. Bilingual Arabic–English brand systems and performance creative across 15+ markets including GCC, MENA, USA, and EU.">
+    <meta property="og:description" content="Senior Brand Identity Director. 7 years, 200+ projects. Arabic + English brand systems built for GCC founders and global markets.">
     <meta property="og:image" content="https://ghaidak.com/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ghaidak Alosh — Senior Design Partner & Art Director | Arabic–English | Global">
-    <meta name="twitter:description" content="Senior Design Partner & Art Director. Bilingual Arabic–English. 7 years, 200+ projects across 15+ markets including GCC, MENA, USA, EU.">
+    <meta name="twitter:description" content="Senior Brand Identity Director. 7 years, 200+ projects. Arabic + English brand systems built for GCC founders and global markets.">
     <meta name="twitter:image" content="https://ghaidak.com/og-image.jpg">
 
     <script type="application/ld+json">
@@ -36,7 +36,7 @@
         "https://linkedin.com/in/ghaidak-alosh",
         "https://behance.net/ghaidakalo5fb4"
       ],
-      "knowsAbout": ["Brand Identity", "Visual Strategy", "Bilingual Design", "Arabic Typography", "Islamic Finance", "Halal Branding", "RTL/LTR Adaptation", "GCC Market Strategy", "Pitch Decks", "Web Design", "UI/UX"]
+      "knowsAbout": ["Brand Identity", "Visual Strategy", "Bilingual Design", "Arabic Typography", "RTL/LTR Adaptation", "GCC Market Strategy", "Pitch Decks", "Web Design", "UI/UX"]
     },
     {
       "@context": "https://schema.org",
@@ -278,10 +278,43 @@
             word-break: break-word;
             hyphens: auto;
         }
+
+        /* Gooey text morph (hero h1) */
+        .gooey-hero { position: relative; display: block; min-height: clamp(6rem, 22vw, 14.5rem); }
+        .gooey-wrap { position: absolute; inset: 0; filter: url(#gooey-threshold); }
+        .gooey-text { position: absolute; inset: 0; display: flex; align-items: center; width: 100%; color: oklch(83.5% 0.17 84); filter: drop-shadow(0 0 24px oklch(83.5% 0.17 84 / 0.3)); will-change: filter, opacity; }
+
+        /* Lumina slider */
+        /* Stacked Portfolio Cards */
+        .portfolio-stack-section { position: relative; width: 100%; padding: clamp(1.5rem,4vw,3.5rem) 0; }
+        .card-stack-wrapper { position: relative; display: flex; align-items: center; justify-content: center; min-height: clamp(320px,55vh,560px); }
+        .card-stack { position: relative; width: min(68vw, 720px); height: clamp(320px,55vh,560px); }
+        @media (max-width: 768px) { .card-stack { width: 90vw; height: 55vh; } }
+        .port-card { position: absolute; inset: 0; border-radius: 1.25rem; overflow: hidden; cursor: pointer; will-change: transform, opacity; box-shadow: 0 24px 60px oklch(5% 0 0 / 70%); }
+        .port-card img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; transition: transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+        .port-card:hover img { transform: scale(1.03); }
+        .port-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, oklch(5% 0 0 / 92%) 0%, oklch(5% 0 0 / 45%) 45%, transparent 75%); }
+        .port-card-body { position: absolute; bottom: 0; left: 0; right: 0; padding: clamp(1.25rem,3vw,2rem); }
+        .port-card-cat { font-size: clamp(0.52rem,0.75vw,0.62rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em; color: oklch(83.5% 0.17 84); margin-bottom: 0.35rem; }
+        .port-card-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.7rem,4.5vw,3.2rem); line-height: 1; letter-spacing: -0.02em; color: #fff; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .port-card-desc { font-size: clamp(0.76rem,1vw,0.9rem); color: rgba(255,255,255,0.62); line-height: 1.65; max-width: 42ch; margin-bottom: 1rem; }
+        .port-card-cta { display: inline-flex; align-items: center; gap: 0.4rem; font-size: clamp(0.58rem,0.78vw,0.66rem); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: oklch(83.5% 0.17 84); text-decoration: none; transition: gap 0.2s; }
+        .port-card-cta:hover { gap: 0.7rem; }
+        .port-card-num { position: absolute; top: clamp(1rem,2vw,1.5rem); right: clamp(1rem,2vw,1.5rem); font-family: monospace; font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 0.12em; }
+        .stack-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(12px); color: rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.3s, color 0.3s, border-color 0.3s; flex-shrink: 0; }
+        .stack-arrow:hover { background: oklch(83.5% 0.17 84 / 15%); color: oklch(83.5% 0.17 84); border-color: oklch(83.5% 0.17 84 / 40%); }
+        .stack-arrow-prev { left: -32px; }
+        .stack-arrow-next { right: -32px; }
+        @media (max-width: 900px) { .stack-arrow-prev { left: -20px; } .stack-arrow-next { right: -20px; } }
+        @media (max-width: 768px) { .stack-arrow { display: none !important; } }
+        .stack-dots { display: flex; justify-content: center; gap: 0.6rem; margin-top: 1.75rem; }
+        .stack-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.22); cursor: pointer; transition: background 0.3s, transform 0.3s; border: none; padding: 0; min-width: 6px; min-height: 6px; flex-shrink: 0; }
+        .stack-dot.active { background: oklch(83.5% 0.17 84); transform: scale(1.5); }
     </style>
 </head>
 <body class="antialiased selection:bg-accent/30 selection:text-white">
 
+<svg id="gooey-svg-filter" style="position:absolute;height:0;width:0;" aria-hidden="true"><defs><filter id="gooey-threshold"><feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 255 -140"/></filter></defs></svg>
 <div class="noise-overlay" aria-hidden="true"></div>
 
 <a href="#main" class="skip-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">Skip to main content</a>
@@ -296,7 +329,7 @@
     <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-obsidian shadow-[0_0_12px_oklch(83.5%_0.17_84/0.5)] shrink-0">
         <svg class="w-4 h-4 ml-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </div>
-    <span>Hire Me</span>
+    <span>Start a Project</span>
 </a>
 
 <div id="cur-dot" aria-hidden="true"></div>
@@ -322,8 +355,8 @@
     <a href="#about" data-num="03" class="mobile-nav-link w-full flex items-center text-white/60 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">About</a>
     <a href="#how-it-starts" data-num="04" class="mobile-nav-link w-full flex items-center text-white/60 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">Process</a>
     <a href="#faq" data-num="05" class="mobile-nav-link w-full flex items-center text-white/60 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">FAQ</a>
-    <a href="/resume.pdf" data-num="06" target="_blank" class="mobile-nav-link w-full flex items-center text-white/60 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">Resume</a>
-    <a href="#contact" data-num="07" class="mobile-nav-link w-full flex items-center text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="START">Hire Me</a>
+    <a href="/resume.pdf" data-num="06" target="_blank" class="mobile-nav-link w-full flex items-center text-white/60 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">Experience</a>
+    <a href="#contact" data-num="07" class="mobile-nav-link w-full flex items-center text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="START">Start a Project</a>
     <div class="absolute bottom-12 left-[clamp(2rem,8vw,4rem)] text-[0.6rem] font-bold tracking-[0.3em] uppercase text-white/40">Ghaidak Studio</div>
 </div>
 
@@ -337,10 +370,10 @@
         <a href="#about" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md">About</a>
         <a href="#how-it-starts" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md">Process</a>
         <a href="#faq" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md">FAQ</a>
-        <a href="/resume.pdf" target="_blank" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md text-accent" data-cursor="OPEN">Resume</a>
+        <a href="/resume.pdf" target="_blank" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md text-accent" data-cursor="OPEN">Experience</a>
     </div>
     <div class="flex items-center z-10 gap-4">
-        <a href="#contact" class="hidden md:flex btn-glass-cta active:scale-[0.98] items-center justify-center px-6 h-12 min-w-[48px] rounded-full text-[0.65rem] font-bold uppercase tracking-[0.07em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian">Hire Me</a>
+        <a href="#contact" class="hidden md:flex btn-glass-cta active:scale-[0.98] items-center justify-center px-6 h-12 min-w-[48px] rounded-full text-[0.65rem] font-bold uppercase tracking-[0.07em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian">Start a Project</a>
         
         <button id="menu-toggle" class="lg:hidden flex flex-col justify-center items-center gap-[4px] w-12 h-12 min-w-[48px] rounded-full bg-white/5 border border-white/10 active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian" aria-label="Toggle menu" aria-expanded="false" data-cursor="CLICK">
             <span class="w-5 h-[2px] bg-white rounded-full transition-transform duration-300 origin-center"></span>
@@ -355,22 +388,23 @@
         
         <div class="hero-top relative z-10 grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-end pb-[clamp(2rem,3vw,2.5rem)]">
             <div class="flex flex-col justify-center max-w-[900px]">
-                <p class="font-bold text-[clamp(0.6rem,0.9vw,0.75rem)] uppercase tracking-[0.2em] text-white/60 mb-5 md:mb-6 pl-1">Senior Design Partner & Art Director · Bilingual Arabic–English · Available in KL and Globally</p>
-                <h1 class="mega-type font-extrabold tracking-[-0.02em] leading-[1.05] text-[clamp(2.5rem,4.5vw,4.5rem)] text-white">
-                    Brand systems.<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2 filter drop-shadow-[0_0_24px_oklch(83.5%_0.17_84/0.3)]">Arabic + English.</span><br>
-                    48 hours.
+                <p class="font-bold text-[clamp(0.6rem,0.9vw,0.75rem)] uppercase tracking-[0.2em] text-white/60 mb-5 md:mb-6 pl-1">Brand Identity & Creative Direction · Arabic + English · GCC & Global Markets</p>
+                <h1 class="mega-type gooey-hero font-extrabold tracking-[-0.02em] leading-[1.05] text-[clamp(2.5rem,4.5vw,4.5rem)] text-white">
+                    <div class="gooey-wrap">
+                        <span id="gooeyText1" class="gooey-text"></span>
+                        <span id="gooeyText2" class="gooey-text"></span>
+                    </div>
                 </h1>
                 <div class="mt-8 sm:mt-12 flex items-center reveal-up" style="animation-delay: 0.4s;">
                     <a href="#portfolio" class="btn-glass-cta active:scale-[0.98] flex items-center justify-center px-[clamp(1.5rem,5vw,2rem)] h-14 min-w-[48px] rounded-full text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian" data-cursor="CLICK">
-                        See the Work <svg class="w-4 h-4 ml-3 opacity-70" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        See What It Builds <svg class="w-4 h-4 ml-3 opacity-70" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-y-6 gap-x-4 md:flex md:flex-col md:gap-6 self-start md:self-end w-full md:w-auto pb-1 lg:pl-12 lg:border-l border-white/10 relative md:min-w-[220px] mt-8 md:mt-0">
                 <div>
                     <span class="block text-[0.56rem] font-bold uppercase tracking-[0.16em] text-white/60">Experience</span>
-                    <span class="block text-[0.82rem] font-bold text-accent mt-2">7 Years Senior</span>
+                    <span class="block text-[0.82rem] font-bold text-accent mt-2">7 Years</span>
                 </div>
                 <div>
                     <span class="block text-[0.56rem] font-bold uppercase tracking-[0.16em] text-white/60">Retention</span>
@@ -378,7 +412,7 @@
                 </div>
                 <div>
                     <span class="block text-[0.56rem] font-bold uppercase tracking-[0.16em] text-white/60">Status</span>
-                    <span class="block text-[0.82rem] font-bold text-accent mt-2">Open to Hire Now</span>
+                    <span class="block text-[0.82rem] font-bold text-accent mt-2">Accepting Select Projects</span>
                 </div>
                 <div>
                     <span class="block text-[0.56rem] font-bold uppercase tracking-[0.16em] text-white/60">Markets</span>
@@ -386,7 +420,7 @@
                 </div>
                 <div>
                     <span class="block text-[0.56rem] font-bold uppercase tracking-[0.16em] text-white/60">Projects Delivered</span>
-                    <span class="block text-[0.82rem] font-bold text-white mt-2">200+ Delivered</span>
+                    <span class="block text-[0.82rem] font-bold text-white mt-2">200+ Projects</span>
                 </div>
             </div>
         </div>
@@ -423,45 +457,22 @@
     <section id="portfolio" class="relative w-full pt-16 pb-24 z-20">
         <div class="flex flex-col justify-center px-[clamp(1.25rem,6vw,5rem)] py-[clamp(3rem,6vh,5.5rem)] relative z-10 max-w-[1400px] mx-auto reveal-up">
             <h2 class="text-[clamp(1.8rem,9vw,4.5rem)] font-extrabold uppercase tracking-tight text-white mb-6">The Work.</h2>
-            <p class="text-[clamp(0.9rem,1.4vw,1rem)] text-white/70 max-w-[52ch] leading-[1.75]">Every brief starts with a business problem, in Arabic or English, for GCC markets or global audiences. The design is the answer.</p>
+            <p class="text-[clamp(0.9rem,1.4vw,1rem)] text-white/70 max-w-[52ch] leading-[1.75]">Every brief starts with one question: what does this business need to win? The design is the answer.</p>
         </div>
 
-        <div class="px-[clamp(1.25rem,6vw,5rem)] max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-            <a href="al-nargis-case-study.html" class="group block spotlight-card rounded-3xl overflow-hidden bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] border border-white/5 transition-transform duration-[400ms] hover:-translate-y-2 reveal-up" data-cursor="VIEW">
-                <div class="w-full aspect-[4/3] overflow-hidden">
-                    <img src="nargis.avif" alt="Al Nargis" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        <div class="px-[clamp(1.25rem,6vw,5rem)] max-w-[1400px] mx-auto relative z-10">
+            <section id="portfolioStack" class="portfolio-stack-section reveal-up">
+                <div class="card-stack-wrapper">
+                    <div class="card-stack" id="cardStack"></div>
+                    <button class="stack-arrow stack-arrow-prev" id="stackPrev" aria-label="Previous project">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+                    </button>
+                    <button class="stack-arrow stack-arrow-next" id="stackNext" aria-label="Next project">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
                 </div>
-                <div class="p-8">
-                    <span class="block font-bold text-[0.55rem] text-white/60 tracking-[0.1em] uppercase mb-3">BEAUTY · Brand Identity</span>
-                    <h3 class="text-[1.5rem] font-extrabold uppercase leading-[1] tracking-tight text-white mb-4">AL NARGIS</h3>
-                    <p class="text-[0.85rem] text-white/70 leading-[1.6]">A beauty brand entering a market where every competitor looked clinical or mass-market. Built an identity around softness as strength.</p>
-                    <span class="flex items-center gap-2 font-bold text-[0.65rem] text-accent uppercase tracking-[0.08em] mt-6">View case study <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                </div>
-            </a>
-            
-            <a href="aethos-case-study.html" class="group block spotlight-card rounded-3xl overflow-hidden bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] border border-white/5 transition-transform duration-[400ms] hover:-translate-y-2 reveal-up delay-100" data-cursor="VIEW">
-                <div class="w-full aspect-[4/3] overflow-hidden">
-                    <img src="aethos.avif" alt="Aethos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="p-8">
-                    <span class="block font-bold text-[0.55rem] text-white/60 tracking-[0.1em] uppercase mb-3">TECHNOLOGY · Brand Identity</span>
-                    <h3 class="text-[1.5rem] font-extrabold uppercase leading-[1] tracking-tight text-white mb-4">AETHOS</h3>
-                    <p class="text-[0.85rem] text-white/70 leading-[1.6]">A brand identity designed to convey authority and innovation. Built for scalability across digital ecosystems, giving founders a premium foundation.</p>
-                    <span class="flex items-center gap-2 font-bold text-[0.65rem] text-accent uppercase tracking-[0.08em] mt-6">View case study <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                </div>
-            </a>
-
-            <a href="wade-case-study.html" class="group block spotlight-card rounded-3xl overflow-hidden bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] border border-white/5 transition-transform duration-[400ms] hover:-translate-y-2 reveal-up delay-200" data-cursor="VIEW">
-                <div class="w-full aspect-[4/3] overflow-hidden">
-                    <img src="wade.avif" alt="Wade Fit" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                </div>
-                <div class="p-8">
-                    <span class="block font-bold text-[0.55rem] text-white/60 tracking-[0.1em] uppercase mb-3">FITNESS · Logo Design</span>
-                    <h3 class="text-[1.5rem] font-extrabold uppercase leading-[1] tracking-tight text-white mb-4">WADE FIT</h3>
-                    <p class="text-[0.85rem] text-white/70 leading-[1.6]">A fitness studio that needed to feel serious without feeling intimidating. Structured, intentional, built for people who show up.</p>
-                    <span class="flex items-center gap-2 font-bold text-[0.65rem] text-accent uppercase tracking-[0.08em] mt-6">View case study <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-                </div>
-            </a>
+                <div class="stack-dots" id="stackDots"></div>
+            </section>
         </div>
         
         <div class="py-16 flex justify-center relative z-10">
@@ -478,17 +489,17 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <article class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
+            <article class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.25rem,4vw,2rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
                 <span class="text-accent font-bold text-[0.58rem] tracking-[0.18em] uppercase mb-6 opacity-80">01</span>
-                <p class="text-[clamp(0.88rem,1.1vw,1rem)] text-white/90 leading-[1.82] mb-8 flex-1">"What sets Ghaidak apart is that he connects design decisions to business outcomes. Most designers can't do that. He can."</p>
+                <p class="text-[clamp(0.88rem,1.1vw,1rem)] text-white/90 leading-[1.82] mb-8 flex-1">"Delivery is production-ready, deadlines are respected, and the quality is premium. A vital asset to our scaling process. Rare to find."</p>
                 <div class="pt-2 mt-4 w-full">
-                    <cite class="block font-extrabold text-[0.82rem] uppercase tracking-[0.06em] not-italic mb-2">Dr. Werner Korb</cite>
-                    <span class="block text-[0.56rem] text-white/60 mb-4 leading-[1.4]">Coach and Trainer, TEC ONE · Europe</span>
-                    <span class="inline-block bg-accent/10 text-accent text-[0.54rem] font-bold uppercase tracking-[0.08em] px-4 py-2 rounded-full">Retained · Europe</span>
+                    <cite class="block font-extrabold text-[0.82rem] uppercase tracking-[0.06em] not-italic mb-2">Emad Al Tayeb</cite>
+                    <span class="block text-[0.56rem] text-white/60 mb-4 leading-[1.4]">Founder, B2B Enterprise SaaS · KSA</span>
+                    <span class="inline-block bg-accent/10 text-accent text-[0.54rem] font-bold uppercase tracking-[0.08em] px-4 py-2 rounded-full">+60% Trust · KSA</span>
                 </div>
             </article>
 
-            <article class="spotlight-card lg:col-span-2 bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
+            <article class="spotlight-card lg:col-span-2 bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.25rem,4vw,2rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
                 <span class="text-accent font-bold text-[0.58rem] tracking-[0.18em] uppercase mb-6 opacity-80">02</span>
                 <p class="text-[clamp(1.2rem,2vw,1.5rem)] text-white/95 leading-[1.6] mb-8 flex-1 font-bold">"His branding work for our California client drove a 25% sales increase and a 50% surge in social media visibility within a single month."</p>
                 <div class="pt-2 mt-4 w-full">
@@ -498,17 +509,17 @@
                 </div>
             </article>
 
-            <article class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
+            <article class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.25rem,4vw,2rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
                 <span class="text-accent font-bold text-[0.58rem] tracking-[0.18em] uppercase mb-6 opacity-80">03</span>
-                <p class="text-[clamp(0.88rem,1.1vw,1rem)] text-white/90 leading-[1.82] mb-8 flex-1">"Flexible, quality-driven, and genuinely invested in getting it right. He was really listening, intuitive, and focused on delivering the best result."</p>
+                <p class="text-[clamp(0.88rem,1.1vw,1rem)] text-white/90 leading-[1.82] mb-8 flex-1">"What sets Ghaidak apart is that he connects design decisions to business outcomes. Most designers can't do that. He can."</p>
                 <div class="pt-2 mt-4 w-full">
-                    <cite class="block font-extrabold text-[0.82rem] uppercase tracking-[0.06em] not-italic mb-2">Troye Siadian</cite>
-                    <span class="block text-[0.56rem] text-white/60 mb-4 leading-[1.4]">CEO, Novakepler LLC · USA</span>
-                    <span class="inline-block bg-accent/10 text-accent text-[0.54rem] font-bold uppercase tracking-[0.08em] px-4 py-2 rounded-full">+25% Sales · US Market</span>
+                    <cite class="block font-extrabold text-[0.82rem] uppercase tracking-[0.06em] not-italic mb-2">Dr. Werner Korb</cite>
+                    <span class="block text-[0.56rem] text-white/60 mb-4 leading-[1.4]">Coach and Trainer, TEC ONE · Europe</span>
+                    <span class="inline-block bg-accent/10 text-accent text-[0.54rem] font-bold uppercase tracking-[0.08em] px-4 py-2 rounded-full">Retained · Europe</span>
                 </div>
             </article>
 
-            <article class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
+            <article class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.25rem,4vw,2rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
                 <span class="text-accent font-bold text-[0.58rem] tracking-[0.18em] uppercase mb-6 opacity-80">04</span>
                 <p class="text-[clamp(0.88rem,1.1vw,1rem)] text-white/90 leading-[1.82] mb-8 flex-1">"One of the most committed people I've worked with: respects deadlines, deeply creative, and his work is truly unique."</p>
                 <div class="pt-2 mt-4 w-full">
@@ -518,19 +529,17 @@
                 </div>
             </article>
 
-            <article class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
+            <article class="spotlight-card bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.25rem,4vw,2rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
                 <span class="text-accent font-bold text-[0.58rem] tracking-[0.18em] uppercase mb-6 opacity-80">05</span>
-                <p class="text-[clamp(0.88rem,1.1vw,1rem)] text-white/90 leading-[1.82] mb-8 flex-1">"Delivery is production-ready, deadlines are respected, and the quality is premium. A vital asset to our scaling process. Rare to find."</p>
+                <p class="text-[clamp(0.88rem,1.1vw,1rem)] text-white/90 leading-[1.82] mb-8 flex-1">"Flexible, quality-driven, and genuinely invested in getting it right. He was really listening, intuitive, and focused on delivering the best result."</p>
                 <div class="pt-2 mt-4 w-full">
-                    <cite class="block font-extrabold text-[0.82rem] uppercase tracking-[0.06em] not-italic mb-2">Emad Al Tayeb</cite>
-                    <span class="block text-[0.56rem] text-white/60 mb-4 leading-[1.4]">Founder, B2B Enterprise SaaS · KSA</span>
-                    <span class="inline-block bg-accent/10 text-accent text-[0.54rem] font-bold uppercase tracking-[0.08em] px-4 py-2 rounded-full">+60% Trust · KSA</span>
+                    <cite class="block font-extrabold text-[0.82rem] uppercase tracking-[0.06em] not-italic mb-2">Troye Siadian</cite>
+                    <span class="block text-[0.56rem] text-white/60 mb-4 leading-[1.4]">CEO, Novakepler LLC · USA</span>
+                    <span class="inline-block bg-accent/10 text-accent text-[0.54rem] font-bold uppercase tracking-[0.08em] px-4 py-2 rounded-full">+25% Sales · US Market</span>
                 </div>
             </article>
         </div>
-    </section>
-
-    <section id="expertise" class="relative bg-surface py-[clamp(4.5rem,8vh,8rem)] px-[clamp(1.25rem,6vw,5rem)] overflow-x-clip">
+    </section> class="relative bg-surface py-[clamp(4.5rem,8vh,8rem)] px-[clamp(1.25rem,6vw,5rem)] overflow-x-clip">
         <div class="max-w-[1400px] mx-auto relative z-10 pt-16">
 
             <div class="pb-12 mb-12 reveal-up">
@@ -565,11 +574,10 @@
                         </div>
                     </div>
                     <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">Bilingual GCC Design</h3>
-                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Native Arabic and English. RTL/LTR layouts and cultural adaptation built in. Not a translation service — true dual-market design for GCC and MENA market entry, with deep expertise in Islamic Finance and Halal Branding.</p>
+                    <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Native Arabic and English. RTL/LTR layouts and cultural adaptation built in. Not a translation service — true dual-market design for GCC and MENA market entry.</p>
                     <div class="mt-8 pt-6 border-t border-accent/10 flex flex-wrap gap-2">
-                        <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-accent/60 bg-accent/[0.08] px-3 py-1.5 rounded-full">Islamic Finance</span>
-                        <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-accent/60 bg-accent/[0.08] px-3 py-1.5 rounded-full">Halal Branding</span>
                         <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-accent/60 bg-accent/[0.08] px-3 py-1.5 rounded-full">GCC · MENA</span>
+                        <span class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-accent/60 bg-accent/[0.08] px-3 py-1.5 rounded-full">RTL / LTR</span>
                     </div>
                 </div>
 
@@ -619,30 +627,6 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 auto-rows-auto">
                 <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger" data-cursor="READ">
-                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">48-Hour Brand Sprint</h3>
-                    <ul class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 mb-8 space-y-2">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Core Identity & Logo</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Color & Type System</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Ready in 48 hours</li>
-                    </ul>
-                    <div class="pt-5 border-t border-white/10 flex justify-between items-center mt-auto">
-                        <span class="font-bold text-white text-[0.9rem]">From $3,500</span>
-                        <a href="#contact" class="text-[0.65rem] font-bold uppercase tracking-[0.08em] text-white hover:text-accent transition-colors" data-cursor="CLICK">Book →</a>
-                    </div>
-                </div>
-                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger delay-[80ms]" data-cursor="READ">
-                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">Brand Governance System</h3>
-                    <ul class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 mb-8 space-y-2">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Comprehensive Guidelines</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> International Team SOPs</li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Asset Libraries</li>
-                    </ul>
-                    <div class="pt-5 border-t border-white/10 flex justify-between items-center mt-auto">
-                        <span class="font-bold text-white text-[0.9rem]">From $2,000</span>
-                        <a href="#contact" class="text-[0.65rem] font-bold uppercase tracking-[0.08em] text-white hover:text-accent transition-colors" data-cursor="CLICK">Book →</a>
-                    </div>
-                </div>
-                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger delay-[160ms]" data-cursor="READ">
                     <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">GCC Market Entry Audit</h3>
                     <ul class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 mb-8 space-y-2">
                         <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Visual Strategy Review</li>
@@ -651,6 +635,30 @@
                     </ul>
                     <div class="pt-5 border-t border-white/10 flex justify-between items-center mt-auto">
                         <span class="font-bold text-white text-[0.9rem]">From $1,200</span>
+                        <a href="#contact" class="text-[0.65rem] font-bold uppercase tracking-[0.08em] text-white hover:text-accent transition-colors" data-cursor="CLICK">Book →</a>
+                    </div>
+                </div>
+                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger delay-[80ms]" data-cursor="READ">
+                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">Brand Sprint</h3>
+                    <ul class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 mb-8 space-y-2">
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Core Identity & Logo</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Color & Type System</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Production-ready files. Full ownership.</li>
+                    </ul>
+                    <div class="pt-5 border-t border-white/10 flex justify-between items-center mt-auto">
+                        <span class="font-bold text-white text-[0.9rem]">From $3,500</span>
+                        <a href="#contact" class="text-[0.65rem] font-bold uppercase tracking-[0.08em] text-white hover:text-accent transition-colors" data-cursor="CLICK">Book →</a>
+                    </div>
+                </div>
+                <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger delay-[160ms]" data-cursor="READ">
+                    <h3 class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">Brand Governance System</h3>
+                    <ul class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 mb-8 space-y-2">
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Comprehensive Guidelines</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> International Team SOPs</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Asset Libraries</li>
+                    </ul>
+                    <div class="pt-5 border-t border-white/10 flex justify-between items-center mt-auto">
+                        <span class="font-bold text-white text-[0.9rem]">From $2,000</span>
                         <a href="#contact" class="text-[0.65rem] font-bold uppercase tracking-[0.08em] text-white hover:text-accent transition-colors" data-cursor="CLICK">Book →</a>
                     </div>
                 </div>
@@ -679,7 +687,7 @@
                 <div class="flex flex-col reveal-up">
                     <h3 class="text-[clamp(1.1rem,1.6vw,1.35rem)] font-extrabold uppercase tracking-tight mb-4">Senior Design Partner.</h3>
                     <p class="text-[clamp(0.95rem,1.3vw,1.05rem)] text-white/70 leading-[1.85] mb-6 max-w-[48ch]">
-                        Seven years. 200+ projects. I partner with founders and creative directors to build brand ecosystems that perform — in Arabic and English, for markets that demand both.
+                        Seven years. 200+ projects. I partner with founders and creative directors to build brand ecosystems that perform — in Arabic and English, for markets that demand both. Native Arabic, C2 English, GCC market intelligence, and an AI workflow that compresses delivery timelines by 60%.
                     </p>
                     
                     <div class="mt-12 pt-8">
@@ -712,16 +720,14 @@
         
         <div class="max-w-[1400px] mx-auto px-[clamp(1.25rem,6vw,5rem)] grid lg:grid-cols-[1fr_1.1fr] gap-[clamp(3rem,6vw,7rem)] items-start relative z-10">
             <div class="flex flex-col gap-6 md:gap-8 reveal-up">
-                <p class="font-bold text-[0.6rem] text-white/60 uppercase tracking-[0.2em] mb-2">Available for Projects · Retainers · Full-Time Roles</p>
+                <p class="font-bold text-[0.6rem] text-white/60 uppercase tracking-[0.2em] mb-2">Available for Projects · Retainers · Partnerships</p>
                 <h2 class="font-extrabold tracking-[-0.02em] leading-[1.05] text-[clamp(2.2rem,5vw,4.5rem)] text-white">
-                    Let's build
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2 filter drop-shadow-[0_0_24px_oklch(83.5%_0.17_84/0.3)]">something.</span>
+                    What are you
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2 filter drop-shadow-[0_0_24px_oklch(83.5%_0.17_84/0.3)]">building?</span>
                     <span class="block mt-4 md:mt-6 text-[clamp(1.1rem,1.8vw,1.4rem)] font-bold text-white/60 tracking-normal leading-[1.45] max-w-[34ch]">Project, retainer, or long-term partnership. Senior creative delivery from strategy to final files — in Arabic and English, for any market.</span>
                 </h2>
-                <p class="font-normal text-[clamp(0.88rem,1.2vw,0.95rem)] text-white/70 leading-[1.75] max-w-[44ch] mt-4">Available now for full-time, part-time, hybrid, and remote positions — KL-based, remote, or relocation. For international and remote roles, available to start immediately with zero friction. I bring native Arabic, C2 English, GCC market intelligence, and an AI workflow that compresses delivery timelines by 60%.</p>
                 
                 <div class="flex flex-col mt-8 md:mt-12 gap-6">
-                    <p class="text-[0.62rem] font-bold text-white/40 uppercase tracking-[0.1em]">Most hiring managers hear back in under 2 hours.</p>
                     <a href="https://wa.link/649ato" target="_blank" rel="noopener noreferrer" class="group relative flex justify-between items-center p-[clamp(1.5rem,2.5vw,2rem)] rounded-[24px] bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] hover:bg-white/[0.05] transition-transform duration-[400ms] hover-trigger active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian spotlight-card" data-cursor="REACH">
                         <div class="flex items-center gap-6 md:gap-8">
                             <div class="w-16 h-16 md:w-16 md:h-16 rounded-full bg-whatsapp/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-[400ms] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_0_20px_oklch(76%_0.17_151/20%)] shrink-0">
@@ -783,13 +789,13 @@
 
                         <details class="group bg-white/[0.02] border border-white/5 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
                             <summary class="flex items-center justify-between p-5 font-bold text-[0.8rem] text-white tracking-[0.03em] cursor-pointer hover:bg-white/[0.04] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" data-cursor="CLICK">
-                                Are you available for full-time roles?
+                                Are you available for new projects?
                                 <span class="transition group-open:rotate-180">
                                     <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
                                 </span>
                             </summary>
                             <div class="p-5 pt-0 text-[0.85rem] text-white/60 leading-[1.65]">
-                                Yes. Full-time, part-time, hybrid, or remote — I am open to the right structure. Currently based in Kuala Lumpur and available immediately. For international and remote roles, no sponsorship is needed.
+                                Yes — currently accepting select projects and retainers. I work remotely with clients across GCC, MENA, Europe, and North America.
                             </div>
                         </details>
 
@@ -899,6 +905,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/128/three.min.js"></script>
 
 <script>
 document.documentElement.classList.remove('no-js');
@@ -992,7 +999,7 @@ function splitHeroWords() {
         return;
     }
     const h1 = document.querySelector('.mega-type');
-    if (!h1) return;
+    if (!h1 || h1.classList.contains('gooey-hero')) return;
     let wordIndex = 0;
     const children = Array.from(h1.childNodes);
     children.forEach(node => {
@@ -1021,93 +1028,126 @@ function splitHeroWords() {
 }
 splitHeroWords();
 
-document.addEventListener("DOMContentLoaded", () => {
+(function initLoader() {
     const loaderBg = document.getElementById('ga-loader');
     const loaderLogo = document.getElementById('loaderLogo');
     const loaderBar = document.getElementById('loaderBar');
     const loaderText = document.getElementById('loaderText');
-    
-    if(!loaderBg || !window.gsap) return;
+    if (!loaderBg) return;
 
-    const copyPhrases = [
-        "ALIGNING PERCEPTION", 
-        "BUILDING ARCHITECTURE", 
-        "RENDERING SYSTEM"
-    ];
-    let currentPhrase = 0;
+    // Fallback: if GSAP never loads in 4s, force-dismiss loader
+    const HARD_TIMEOUT = 4200;
+    let dismissed = false;
+    function forceExit() {
+        if (dismissed) return;
+        dismissed = true;
+        loaderBg.style.transition = 'opacity 0.4s';
+        loaderBg.style.opacity = '0';
+        setTimeout(() => loaderBg.remove(), 450);
+    }
+    const hardTimer = setTimeout(forceExit, HARD_TIMEOUT);
 
-    gsap.to([loaderLogo, loaderText], {
-        y: '0%',
-        opacity: 1,
-        duration: 1.4,
-        ease: 'expo.out',
-        stagger: 0.15,
-        delay: 0.2
-    });
+    // Wait for GSAP (may load async from CDN)
+    let polls = 0;
+    const waitForGSAP = setInterval(() => {
+        polls++;
+        if (window.gsap) {
+            clearInterval(waitForGSAP);
+            runLoader();
+        } else if (polls > 60) { // 3s timeout
+            clearInterval(waitForGSAP);
+            forceExit();
+        }
+    }, 50);
 
-    let textInterval = setInterval(() => {
-        gsap.to(loaderText, {
-            y: -15, opacity: 0, duration: 0.3, ease: 'power2.in',
-            onComplete: () => {
-                loaderText.textContent = copyPhrases[currentPhrase];
-                currentPhrase = (currentPhrase + 1) % copyPhrases.length;
-                gsap.fromTo(loaderText, 
-                    { y: 15, opacity: 0 }, 
-                    { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }
-                );
-            }
+    function runLoader() {
+        if (!window.gsap) { forceExit(); return; }
+
+        const copyPhrases = [
+            "ALIGNING PERCEPTION",
+            "BUILDING ARCHITECTURE",
+            "RENDERING SYSTEM"
+        ];
+        let currentPhrase = 0;
+
+        gsap.to([loaderLogo, loaderText], {
+            y: '0%',
+            opacity: 1,
+            duration: 1.4,
+            ease: 'expo.out',
+            stagger: 0.15,
+            delay: 0.2
         });
-    }, 1400);
 
-    let progress = { val: 0 };
-    let loadTween = gsap.to(progress, {
-        val: 85,
-        duration: 2.8,
-        ease: 'power3.inOut',
-        onUpdate: () => gsap.set(loaderBar, { scaleX: progress.val / 100 })
-    });
+        let textInterval = setInterval(() => {
+            gsap.to(loaderText, {
+                y: -15, opacity: 0, duration: 0.3, ease: 'power2.in',
+                onComplete: () => {
+                    loaderText.textContent = copyPhrases[currentPhrase];
+                    currentPhrase = (currentPhrase + 1) % copyPhrases.length;
+                    gsap.fromTo(loaderText,
+                        { y: 15, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 0.4, ease: 'power2.out' }
+                    );
+                }
+            });
+        }, 1400);
 
-    window.addEventListener('load', () => {
-        loadTween.kill();
-        
-        gsap.to(progress, {
-            val: 100,
-            duration: 0.6,
-            ease: 'power4.out',
-            onUpdate: () => gsap.set(loaderBar, { scaleX: progress.val / 100 }),
-            onComplete: () => {
-                clearInterval(textInterval);
-                
-                gsap.to(loaderText, {
-                    y: -15, opacity: 0, duration: 0.25, ease: 'power2.in',
-                    onComplete: () => {
-                        loaderText.style.color = "var(--accent)";
-                        loaderText.textContent = "VISION LOCKED";
-                        gsap.fromTo(loaderText, 
-                            { y: 15, opacity: 0 }, 
-                            { y: 0, opacity: 1, duration: 0.5, ease: 'expo.out' }
-                        );
-                    }
-                });
-
-                const exitTl = gsap.timeline({
-                    delay: 0.7,
-                    onComplete: () => loaderBg.remove()
-                });
-                
-                exitTl.to([loaderBar, loaderText], {
-                    opacity: 0, y: -20, duration: 0.5, stagger: 0.1, ease: 'power3.in'
-                })
-                .to(loaderLogo, {
-                    y: -30, opacity: 0, duration: 0.6, ease: 'power3.in'
-                }, "-=0.3")
-                .to(loaderBg, {
-                    yPercent: -100, duration: 1.2, ease: 'expo.inOut'
-                }, "-=0.2");
-            }
+        let progress = { val: 0 };
+        let loadTween = gsap.to(progress, {
+            val: 85,
+            duration: 2.8,
+            ease: 'power3.inOut',
+            onUpdate: () => gsap.set(loaderBar, { scaleX: progress.val / 100 })
         });
-    });
-});
+
+        function completeLoader() {
+            if (dismissed) return;
+            dismissed = true;
+            clearTimeout(hardTimer);
+            loadTween.kill();
+            gsap.to(progress, {
+                val: 100,
+                duration: 0.6,
+                ease: 'power4.out',
+                onUpdate: () => gsap.set(loaderBar, { scaleX: progress.val / 100 }),
+                onComplete: () => {
+                    clearInterval(textInterval);
+                    gsap.to(loaderText, {
+                        y: -15, opacity: 0, duration: 0.25, ease: 'power2.in',
+                        onComplete: () => {
+                            loaderText.style.color = "var(--accent)";
+                            loaderText.textContent = "VISION LOCKED";
+                            gsap.fromTo(loaderText,
+                                { y: 15, opacity: 0 },
+                                { y: 0, opacity: 1, duration: 0.5, ease: 'expo.out' }
+                            );
+                        }
+                    });
+                    const exitTl = gsap.timeline({ delay: 0.7, onComplete: () => loaderBg.remove() });
+                    exitTl.to([loaderBar, loaderText], {
+                        opacity: 0, y: -20, duration: 0.5, stagger: 0.1, ease: 'power3.in'
+                    })
+                    .to(loaderLogo, {
+                        y: -30, opacity: 0, duration: 0.6, ease: 'power3.in'
+                    }, "-=0.3")
+                    .to(loaderBg, {
+                        yPercent: -100, duration: 1.2, ease: 'expo.inOut'
+                    }, "-=0.2");
+                }
+            });
+        }
+
+        // Trigger on window load or after 3s max
+        if (document.readyState === 'complete') {
+            setTimeout(completeLoader, 200);
+        } else {
+            window.addEventListener('load', completeLoader, { once: true });
+            // Safety: if load never fires
+            setTimeout(() => { if (!dismissed) completeLoader(); }, 3500);
+        }
+    }
+})();
 
 const progressBar = document.getElementById('scrollProgress');
 const navEl = document.querySelector('.hud-nav');
@@ -1443,7 +1483,7 @@ function initMobileMenu() {
 
     links.forEach(link => link.addEventListener('click', closeMenu));
 }
-window.addEventListener('DOMContentLoaded', initMobileMenu);
+if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileMenu); } else { initMobileMenu(); }
 
 function initFloatingPill() {
     const pill = document.getElementById('res-pill');
@@ -1458,7 +1498,234 @@ function initFloatingPill() {
         }
     }, { passive: true });
 }
-window.addEventListener('DOMContentLoaded', initFloatingPill);
+if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initFloatingPill); } else { initFloatingPill(); }
+
+/* ===================== GOOEY TEXT MORPH (Hero) ===================== */
+function initGooeyMorph() {
+    const text1 = document.getElementById('gooeyText1');
+    const text2 = document.getElementById('gooeyText2');
+    if (!text1 || !text2) return;
+
+    const texts = [
+        "Founders who close",
+        "don't look like startups.",
+        "The brand is where deals are lost."
+    ];
+    const morphTime = 1.2;
+    const cooldownTime = 2.5;
+
+    let textIndex = 0;
+    text1.textContent = texts[0];
+    text2.textContent = texts[1];
+    text1.style.opacity = '100%';
+    text2.style.opacity = '0%';
+
+    if (REDUCED_MO) return;
+
+    let state = 'cooldown';
+    let elapsed = 0;
+    let last = performance.now();
+
+    function setMorph(fraction) {
+        text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+        text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+        const inv = 1 - fraction;
+        text1.style.filter = `blur(${Math.min(8 / inv - 8, 100)}px)`;
+        text1.style.opacity = `${Math.pow(inv, 0.4) * 100}%`;
+    }
+
+    function tick(now) {
+        const dt = (now - last) / 1000;
+        last = now;
+        if (state === 'cooldown') {
+            elapsed += dt;
+            if (elapsed >= cooldownTime) { state = 'morph'; elapsed = 0; }
+        } else {
+            elapsed += dt;
+            const fraction = Math.min(elapsed / morphTime, 1);
+            setMorph(fraction);
+            if (fraction >= 1) {
+                textIndex = (textIndex + 1) % texts.length;
+                text1.textContent = texts[textIndex];
+                text1.style.filter = '';
+                text1.style.opacity = '100%';
+                text2.textContent = texts[(textIndex + 1) % texts.length];
+                text2.style.filter = '';
+                text2.style.opacity = '0%';
+                state = 'cooldown';
+                elapsed = 0;
+            }
+        }
+        requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+}
+if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initGooeyMorph); } else { initGooeyMorph(); }
+
+/* ===================== STACKED PORTFOLIO CARDS ===================== */
+function initStackedPortfolio() {
+    const slides = [
+        { num:"01", cat:"Beauty · Brand Identity", title:"Al Nargis", desc:"Beauty brand. Zero to market presence. Identity built around softness as strength.", img:"nargis.avif", link:"al-nargis-case-study.html" },
+        { num:"02", cat:"Technology · Brand Identity", title:"Aethos", desc:"Investor-ready brand system. Built to scale across 3 markets from day one.", img:"aethos.avif", link:"aethos-case-study.html" },
+        { num:"03", cat:"Fitness · Logo Design", title:"Wade Fit", desc:"Studio identity. Launched. Still running unchanged 2+ years later.", img:"wade.avif", link:"wade-case-study.html" }
+    ];
+
+    const stack = document.getElementById('cardStack');
+    const dotsEl = document.getElementById('stackDots');
+    if (!stack || !dotsEl) return;
+
+    let current = 0;
+    let isAnimating = false;
+    let autoTimer = null;
+
+    // Build cards
+    const cards = slides.map((s, i) => {
+        const card = document.createElement('div');
+        card.className = 'port-card';
+        card.innerHTML = `
+            <img src="${s.img}" alt="${s.title}" loading="lazy">
+            <div class="port-card-overlay"></div>
+            <span class="port-card-num">${s.num} / 0${slides.length}</span>
+            <div class="port-card-body">
+                <p class="port-card-cat">${s.cat}</p>
+                <h3 class="port-card-title">${s.title}</h3>
+                <p class="port-card-desc">${s.desc}</p>
+                <a href="${s.link}" class="port-card-cta" data-cursor="VIEW">View Case Study
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>`;
+        stack.appendChild(card);
+        return card;
+    });
+
+    // Build dots
+    const dots = slides.map((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'stack-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+        return d;
+    });
+
+    function setPositions(activeIdx, animate) {
+        cards.forEach((card, i) => {
+            const offset = (i - activeIdx + slides.length) % slides.length;
+            let x = 0, y = 0, rot = 0, scale = 1, opacity = 1;
+            const zIndex = slides.length - offset;
+            if (offset === 0)      { x = 0;   y = 0;   rot = 0;  scale = 1.00; opacity = 1.00; }
+            else if (offset === 1) { x = -10; y = -14; rot = -4; scale = 0.95; opacity = 0.60; }
+            else                   { x = -18; y = -26; rot = -8; scale = 0.90; opacity = 0.35; }
+            const props = { x, y, rotation: rot, scale, opacity, zIndex,
+                duration: animate ? 0.55 : 0, ease: "back.out(1.2)" };
+            if (animate) gsap.to(card, props);
+            else gsap.set(card, props);
+        });
+        dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
+    }
+
+    function goTo(idx) {
+        if (isAnimating || idx === current) return;
+        isAnimating = true;
+        clearAutoTimer();
+        const prev = current;
+        current = idx;
+        gsap.to(cards[prev], {
+            x: "115%", opacity: 0, duration: 0.42, ease: "power2.in",
+            onComplete: () => {
+                gsap.set(cards[prev], { x: 0, y: 0, rotation: 0, scale: 0.90, opacity: 0.35 });
+                setPositions(current, true);
+                setTimeout(() => { isAnimating = false; startAutoTimer(); }, 580);
+            }
+        });
+    }
+
+    function next() { goTo((current + 1) % slides.length); }
+    function prev() { goTo((current - 1 + slides.length) % slides.length); }
+
+    document.getElementById('stackNext') && document.getElementById('stackNext').addEventListener('click', next);
+    document.getElementById('stackPrev') && document.getElementById('stackPrev').addEventListener('click', prev);
+
+    // Touch / swipe
+    let touchStartX = 0;
+    stack.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    stack.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); }
+    }, { passive: true });
+
+    // Click: active card = navigate to project, back card = bring forward
+    cards.forEach((card, i) => {
+        card.addEventListener('click', e => {
+            if (e.target.tagName === 'A' || e.target.closest('a')) return;
+            const offset = (i - current + slides.length) % slides.length;
+            if (offset === 0) { window.location.href = slides[i].link; }
+            else { goTo(i); }
+        });
+    });
+
+    function startAutoTimer() { autoTimer = setTimeout(next, 6000); }
+    function clearAutoTimer() { clearTimeout(autoTimer); autoTimer = null; }
+
+    stack.addEventListener('mouseenter', clearAutoTimer);
+    stack.addEventListener('mouseleave', () => { if (!isAnimating) startAutoTimer(); });
+
+    // Initial state + entrance animation
+    setPositions(0, false);
+    // Staggered entrance from below
+    gsap.from(cards, {
+        y: 60, opacity: 0, duration: 0.9, stagger: 0.1,
+        ease: "power3.out", delay: 0.2
+    });
+    startAutoTimer();
+}
+(function() {
+    function tryInitStackedPortfolio() {
+        if (window.gsap) { initStackedPortfolio(); }
+        else {
+            let attempts = 0;
+            const poll = setInterval(() => {
+                attempts++;
+                if (window.gsap) { clearInterval(poll); initStackedPortfolio(); }
+                else if (attempts > 80) { clearInterval(poll); initStackedPortfolioNoGSAP(); }
+            }, 50);
+        }
+    }
+    function initStackedPortfolioNoGSAP() {
+        // Fallback: basic stacked portfolio without GSAP animations
+        const stack = document.getElementById('cardStack');
+        const dotsEl = document.getElementById('stackDots');
+        if (!stack || !dotsEl) return;
+        const slides = [
+            { num:"01", cat:"Beauty · Brand Identity", title:"Al Nargis", desc:"Beauty brand. Zero to market presence. Identity built around softness as strength.", img:"nargis.avif", link:"al-nargis-case-study.html" },
+            { num:"02", cat:"Technology · Brand Identity", title:"Aethos", desc:"Investor-ready brand system. Built to scale across 3 markets from day one.", img:"aethos.avif", link:"aethos-case-study.html" },
+            { num:"03", cat:"Fitness · Logo Design", title:"Wade Fit", desc:"Studio identity. Launched. Still running unchanged 2+ years later.", img:"wade.avif", link:"wade-case-study.html" }
+        ];
+        let current = 0;
+        const cards = slides.map((s, i) => {
+            const card = document.createElement('div');
+            card.className = 'port-card';
+            card.innerHTML = `<img src="${s.img}" alt="${s.title}" loading="lazy"><div class="port-card-overlay"></div><span class="port-card-num">${s.num} / 0${slides.length}</span><div class="port-card-body"><p class="port-card-cat">${s.cat}</p><h3 class="port-card-title">${s.title}</h3><p class="port-card-desc">${s.desc}</p><a href="${s.link}" class="port-card-cta">View Case Study</a></div>`;
+            stack.appendChild(card);
+            return card;
+        });
+        function show(idx) {
+            cards.forEach((c, i) => { c.style.opacity = i === idx ? '1' : '0'; c.style.zIndex = i === idx ? '10' : '1'; });
+            dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+        const dots = slides.map((_, i) => {
+            const d = document.createElement('button');
+            d.className = 'stack-dot' + (i === 0 ? ' active' : '');
+            d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            d.addEventListener('click', () => { current = i; show(i); });
+            dotsEl.appendChild(d);
+            return d;
+        });
+        show(0);
+        setInterval(() => { current = (current + 1) % slides.length; show(current); }, 5000);
+    }
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', tryInitStackedPortfolio); } else { tryInitStackedPortfolio(); }
+})();
 
 </script>
 </body>
