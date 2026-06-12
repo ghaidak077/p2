@@ -50,7 +50,7 @@
     <link rel="preload" as="font" type="font/woff2" href="fonts/Syne-ExtraBold.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="fonts/Syne-Bold.woff2" crossorigin>
     
-    <link rel="preload" as="image" href="nargis.avif" type="image/avif" fetchpriority="high">
+    <link rel="preload" as="image" href="/nargis.avif" type="image/avif" fetchpriority="high">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -404,7 +404,7 @@
         <a href="#about" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md">About</a>
         <a href="#how-it-starts" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md">Process</a>
         <a href="#faq" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md">FAQ</a>
-        <a href="/resume.pdf" target="_blank" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md text-accent" data-cursor="OPEN">Experience</a>
+        <a href="/resume.pdf" target="_blank" class="nav-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian rounded-md" data-cursor="OPEN">Experience</a>
     </div>
     <div class="flex items-center z-10 gap-4">
         <a href="#contact" class="hidden md:flex btn-glass-cta active:scale-[0.98] items-center justify-center px-6 h-12 min-w-[48px] rounded-full text-[0.65rem] font-bold uppercase tracking-[0.07em] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian">Start a Project</a>
@@ -607,7 +607,9 @@
                 </div>
             </article>
         </div>
-    </section> class="relative bg-surface py-[clamp(4.5rem,8vh,8rem)] px-[clamp(1.25rem,6vw,5rem)] overflow-x-clip">
+    </section>
+
+    <section id="expertise" class="relative bg-surface py-[clamp(4.5rem,8vh,8rem)] px-[clamp(1.25rem,6vw,5rem)] overflow-x-clip">
         <div class="max-w-[1400px] mx-auto relative z-10 pt-16">
 
             <div class="pb-12 mb-12 reveal-up">
@@ -1638,21 +1640,21 @@ if (document.readyState === 'loading') { document.addEventListener('DOMContentLo
             title: "Al Nargis", 
             cat: "Beauty · Brand Identity", 
             desc: "Zero to market presence. Identity built around softness as strength — launched across GCC.", 
-            media: "nargis.avif", 
+            media: "/nargis.avif", 
             link: "al-nargis-case-study.html" 
         },
         { 
             title: "Aethos", 
             cat: "Technology · Brand Identity", 
             desc: "Investor-ready brand system built to scale across 3 markets from day one.", 
-            media: "aethos.avif", 
+            media: "/aethos.avif", 
             link: "aethos-case-study.html" 
         },
         { 
             title: "Wade Fit", 
             cat: "Fitness · Logo Design", 
             desc: "Studio identity. Launched. Still running unchanged 2+ years later.", 
-            media: "wade.avif", 
+            media: "/wade.avif", 
             link: "wade-case-study.html" 
         }
     ];
