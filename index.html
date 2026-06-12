@@ -1867,6 +1867,8 @@ if (document.readyState === 'loading') { document.addEventListener('DOMContentLo
 
     // --- Core transition ---
     const goTo = (targetIdx) => {
+        // CSS fallback mode
+        if (window._luminaCSSGoTo && !shaderMaterial) { window._luminaCSSGoTo(targetIdx); return; }
         if (isTransitioning || targetIdx === currentSlideIndex) return;
         stopTimer();
         quickResetProgress(currentSlideIndex);
@@ -1932,12 +1934,70 @@ if (document.readyState === 'loading') { document.addEventListener('DOMContentLo
     // --- Texture loading ---
     const loadTex = (src) => new Promise((resolve, reject) => {
         const loader = new THREE.TextureLoader();
+        loader.setCrossOrigin('anonymous');
+        // Timeout each texture after 8s
+        const timer = setTimeout(() => reject(new Error('Timeout: ' + src)), 8000);
         loader.load(src, (t) => {
+            clearTimeout(timer);
             t.minFilter = t.magFilter = THREE.LinearFilter;
+            t.generateMipmaps = false;
             t.userData = { size: new THREE.Vector2(t.image.width, t.image.height) };
             resolve(t);
-        }, undefined, reject);
+        }, undefined, (err) => { clearTimeout(timer); reject(err); });
     });
+
+    // --- CSS fallback if WebGL/textures fail ---
+    const showCSSFallback = () => {
+        const sliderEl = document.getElementById('luminaSlider');
+        const loadingEl = document.getElementById('luminaLoading');
+        const canvas = document.getElementById('luminaCanvas');
+        if (!sliderEl) return;
+
+        // Hide canvas and loader
+        if (canvas) canvas.style.display = 'none';
+        if (loadingEl) loadingEl.style.display = 'none';
+
+        // Build simple CSS image carousel
+        const imgWrap = document.createElement('div');
+        imgWrap.style.cssText = 'position:absolute;inset:0;overflow:hidden;border-radius:inherit;';
+        slides.forEach((s, i) => {
+            const img = document.createElement('img');
+            img.src = s.media;
+            img.alt = s.title;
+            img.style.cssText = `position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:${i===0?'1':'0'};transition:opacity 1.2s cubic-bezier(0.22,1,0.36,1);`;
+            img.dataset.slideIdx = String(i);
+            imgWrap.appendChild(img);
+        });
+        sliderEl.insertBefore(imgWrap, sliderEl.firstChild);
+
+        // Store ref for goTo fallback
+        sliderEl._imgWrap = imgWrap;
+        sliderEl._origGoTo = goTo;
+
+        // Override goTo for CSS mode
+        const cssGoTo = (targetIdx) => {
+            if (isTransitioning || targetIdx === currentSlideIndex) return;
+            stopTimer();
+            quickResetProgress(currentSlideIndex);
+            isTransitioning = true;
+            const imgs = imgWrap.querySelectorAll('img');
+            imgs.forEach((img, i) => { img.style.opacity = i === targetIdx ? '1' : '0'; });
+            updateContent(targetIdx);
+            updateCatTag(targetIdx);
+            updateCta(targetIdx);
+            currentSlideIndex = targetIdx;
+            updateCounter(currentSlideIndex);
+            updateNavState(currentSlideIndex);
+            setTimeout(() => { isTransitioning = false; safeStart(120); }, 1200);
+        };
+        // Monkey-patch goTo
+        window._luminaCSSGoTo = cssGoTo;
+
+        sliderEl.classList.add('loaded');
+        texturesLoaded = true;
+        sliderEnabled = true;
+        safeStart(600);
+    };
 
     // --- Renderer ---
     const initRenderer = async () => {
@@ -1973,11 +2033,21 @@ if (document.readyState === 'loading') { document.addEventListener('DOMContentLo
 
         scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), shaderMaterial));
 
+        // Hard timeout: dismiss loading after 5s no matter what
+        const loadingTimeout = setTimeout(() => {
+            if (!sliderEnabled) {
+                console.warn('Lumina: texture timeout, using CSS fallback');
+                showCSSFallback();
+            }
+        }, 5000);
+
         // Load textures
         for (const s of slides) {
             try { slideTextures.push(await loadTex(s.media)); }
-            catch (e) { console.warn('Lumina: texture load failed:', s.media); }
+            catch (e) { console.warn('Lumina: texture load failed:', s.media, e.message); }
         }
+
+        clearTimeout(loadingTimeout);
 
         if (slideTextures.length >= 1) {
             const t1 = slideTextures[0];
@@ -1993,6 +2063,10 @@ if (document.readyState === 'loading') { document.addEventListener('DOMContentLo
             if (loadingEl) loadingEl.classList.add('hidden');
 
             safeStart(600);
+        } else {
+            // All textures failed — CSS fallback
+            console.warn('Lumina: all textures failed, CSS fallback');
+            showCSSFallback();
         }
 
         // Render loop
