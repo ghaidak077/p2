@@ -525,78 +525,90 @@
             <p class="text-[clamp(0.88rem,1.2vw,1rem)] text-white/60 max-w-[38ch] leading-[1.75] sm:text-right">Every brief starts with one question: what does this business need to win?</p>
         </div>
 
-        <!-- Portfolio Cards Grid -->
+        <!-- Portfolio List (hover-preview style) -->
         <div class="px-[clamp(1.25rem,6vw,5rem)] max-w-[1400px] mx-auto relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6" id="portfolioGrid">
+            <div class="relative" id="portfolioShowcase">
 
-                <!-- Card 1: Nargis — large featured -->
-                <article class="port-card group relative overflow-hidden rounded-[20px] bg-[oklch(10%_0_0)] md:col-span-2 reveal-up" style="--delay:0ms" data-cursor="VIEW">
-                    <a href="al-nargis-case-study.html" class="block relative" aria-label="View Al Nargis case study">
-                        <div class="relative overflow-hidden" style="aspect-ratio:16/9;">
-                            <img src="/nargis.avif" alt="Al Nargis Beauty — Brand Identity" loading="eager" decoding="async"
-                                class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-                                onerror="this.style.display='none';this.parentElement.style.background='oklch(15% 0.02 280)'">
-                            <div class="port-img-overlay absolute inset-0 bg-gradient-to-t from-[oklch(5%_0_0)] via-[oklch(5%_0_0/40%)] to-transparent"></div>
-                        </div>
-                        <div class="port-card-body absolute bottom-0 left-0 right-0 p-[clamp(1.5rem,4vw,2.5rem)]">
-                            <div class="flex items-end justify-between gap-4">
-                                <div>
-                                    <span class="port-tag block text-accent font-bold text-[0.54rem] tracking-[0.18em] uppercase mb-2 opacity-80">Beauty · Brand Identity</span>
-                                    <h3 class="font-extrabold text-[clamp(1.6rem,3.5vw,2.4rem)] uppercase tracking-[-0.02em] text-white leading-[1]">Al Nargis</h3>
-                                    <p class="text-white/60 text-[0.82rem] mt-2 max-w-[40ch] leading-[1.6]">Zero to market. Identity built around softness as strength — launched across GCC.</p>
+                <!-- Floating hover preview -->
+                <div id="showcasePreview" class="pointer-events-none fixed z-50 overflow-hidden rounded-xl shadow-2xl opacity-0" style="width:280px;height:180px;transform:translate3d(-9999px,-9999px,0);transition:opacity .3s cubic-bezier(0.4,0,0.2,1), scale .3s cubic-bezier(0.4,0,0.2,1);">
+                    <div class="relative w-full h-full bg-[oklch(14%_0_0)] rounded-xl overflow-hidden">
+                        <img id="showcasePreviewImg" src="" alt="" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[oklch(5%_0_0/40%)] to-transparent"></div>
+                    </div>
+                </div>
+
+                <div id="portfolioGrid">
+                    <!-- Row 1: Al Nargis -->
+                    <a href="al-nargis-case-study.html" class="port-row group block border-t border-white/[0.08]" data-image="/nargis.avif" data-cursor="VIEW">
+                        <div class="relative py-6 sm:py-8 transition-all duration-300 ease-out">
+                            <div class="port-row-bg absolute inset-0 -mx-4 px-4 bg-white/[0.03] rounded-xl opacity-0 scale-[0.98] group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out"></div>
+                            <div class="relative flex items-start sm:items-end justify-between gap-4">
+                                <div class="flex-1 min-w-0">
+                                    <span class="block text-accent font-bold text-[0.54rem] tracking-[0.18em] uppercase mb-2 opacity-80">Beauty · Brand Identity</span>
+                                    <div class="inline-flex items-center gap-3">
+                                        <h3 class="font-extrabold text-[clamp(1.5rem,4vw,2.6rem)] uppercase tracking-[-0.02em] text-white leading-[1]">
+                                            <span class="relative">
+                                                Al Nargis
+                                                <span class="port-underline absolute left-0 -bottom-0.5 h-[2px] bg-accent w-0 group-hover:w-full transition-all duration-300 ease-out"></span>
+                                            </span>
+                                        </h3>
+                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/40 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 ease-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                    </div>
+                                    <p class="text-white/50 text-[0.85rem] mt-2 max-w-[42ch] leading-[1.6] group-hover:text-white/70 transition-colors duration-300">Zero to market. Identity built around softness as strength — launched across GCC.</p>
                                 </div>
-                                <div class="port-arrow shrink-0 w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/60 group-hover:bg-accent group-hover:border-accent group-hover:text-obsidian transition-all duration-300">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                </div>
+                                <span class="shrink-0 font-mono text-[0.8rem] text-white/40 tabular-nums group-hover:text-white/60 transition-colors duration-300">2024</span>
                             </div>
                         </div>
                     </a>
-                </article>
 
-                <!-- Card 2: Aethos — tall -->
-                <article class="port-card group relative overflow-hidden rounded-[20px] bg-[oklch(10%_0_0)] md:row-span-2 reveal-up" style="--delay:80ms" data-cursor="VIEW">
-                    <a href="aethos-case-study.html" class="block relative h-full" aria-label="View Aethos case study">
-                        <div class="relative overflow-hidden h-full min-h-[420px]">
-                            <img src="/aethos.avif" alt="Aethos — Technology Brand Identity" loading="lazy" decoding="async"
-                                class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-                                onerror="this.style.display='none';this.parentElement.style.background='oklch(12% 0.02 280)'">
-                            <div class="port-img-overlay absolute inset-0 bg-gradient-to-t from-[oklch(5%_0_0)] via-[oklch(5%_0_0/30%)] to-transparent"></div>
-                        </div>
-                        <div class="port-card-body absolute bottom-0 left-0 right-0 p-[clamp(1.5rem,3vw,2rem)]">
-                            <span class="port-tag block text-accent font-bold text-[0.54rem] tracking-[0.18em] uppercase mb-2 opacity-80">Technology · Brand Identity</span>
-                            <h3 class="font-extrabold text-[clamp(1.4rem,2.5vw,2rem)] uppercase tracking-[-0.02em] text-white leading-[1]">Aethos</h3>
-                            <p class="text-white/60 text-[0.8rem] mt-2 leading-[1.6]">Investor-ready brand system built to scale across 3 markets.</p>
-                            <div class="port-arrow mt-4 w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 group-hover:bg-accent group-hover:border-accent group-hover:text-obsidian transition-all duration-300">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <!-- Row 2: Aethos -->
+                    <a href="aethos-case-study.html" class="port-row group block border-t border-white/[0.08]" data-image="/aethos.avif" data-cursor="VIEW">
+                        <div class="relative py-6 sm:py-8 transition-all duration-300 ease-out">
+                            <div class="port-row-bg absolute inset-0 -mx-4 px-4 bg-white/[0.03] rounded-xl opacity-0 scale-[0.98] group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out"></div>
+                            <div class="relative flex items-start sm:items-end justify-between gap-4">
+                                <div class="flex-1 min-w-0">
+                                    <span class="block text-accent font-bold text-[0.54rem] tracking-[0.18em] uppercase mb-2 opacity-80">Technology · Brand Identity</span>
+                                    <div class="inline-flex items-center gap-3">
+                                        <h3 class="font-extrabold text-[clamp(1.5rem,4vw,2.6rem)] uppercase tracking-[-0.02em] text-white leading-[1]">
+                                            <span class="relative">
+                                                Aethos
+                                                <span class="port-underline absolute left-0 -bottom-0.5 h-[2px] bg-accent w-0 group-hover:w-full transition-all duration-300 ease-out"></span>
+                                            </span>
+                                        </h3>
+                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/40 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 ease-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                    </div>
+                                    <p class="text-white/50 text-[0.85rem] mt-2 max-w-[42ch] leading-[1.6] group-hover:text-white/70 transition-colors duration-300">Investor-ready brand system built to scale across 3 markets.</p>
+                                </div>
+                                <span class="shrink-0 font-mono text-[0.8rem] text-white/40 tabular-nums group-hover:text-white/60 transition-colors duration-300">2024</span>
                             </div>
                         </div>
                     </a>
-                </article>
 
-                <!-- Card 3: Wade Fit -->
-                <article class="port-card group relative overflow-hidden rounded-[20px] bg-[oklch(10%_0_0)] reveal-up" style="--delay:160ms" data-cursor="VIEW">
-                    <a href="wade-case-study.html" class="block relative" aria-label="View Wade Fit case study">
-                        <div class="relative overflow-hidden" style="aspect-ratio:4/3;">
-                            <img src="/wade.avif" alt="Wade Fit Studio — Logo Design" loading="lazy" decoding="async"
-                                class="w-full h-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-                                onerror="this.style.display='none';this.parentElement.style.background='oklch(13% 0.02 280)'">
-                            <div class="port-img-overlay absolute inset-0 bg-gradient-to-t from-[oklch(5%_0_0)] via-[oklch(5%_0_0/40%)] to-transparent"></div>
-                        </div>
-                        <div class="port-card-body absolute bottom-0 left-0 right-0 p-[clamp(1.25rem,3vw,2rem)]">
-                            <div class="flex items-end justify-between gap-4">
-                                <div>
-                                    <span class="port-tag block text-accent font-bold text-[0.54rem] tracking-[0.18em] uppercase mb-2 opacity-80">Fitness · Logo Design</span>
-                                    <h3 class="font-extrabold text-[clamp(1.3rem,2vw,1.8rem)] uppercase tracking-[-0.02em] text-white leading-[1]">Wade Fit</h3>
-                                    <p class="text-white/60 text-[0.78rem] mt-1.5 leading-[1.6]">Studio identity. Still running unchanged 2+ years later.</p>
+                    <!-- Row 3: Wade Fit -->
+                    <a href="wade-case-study.html" class="port-row group block border-t border-white/[0.08]" data-image="/wade.avif" data-cursor="VIEW">
+                        <div class="relative py-6 sm:py-8 transition-all duration-300 ease-out">
+                            <div class="port-row-bg absolute inset-0 -mx-4 px-4 bg-white/[0.03] rounded-xl opacity-0 scale-[0.98] group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out"></div>
+                            <div class="relative flex items-start sm:items-end justify-between gap-4">
+                                <div class="flex-1 min-w-0">
+                                    <span class="block text-accent font-bold text-[0.54rem] tracking-[0.18em] uppercase mb-2 opacity-80">Fitness · Logo Design</span>
+                                    <div class="inline-flex items-center gap-3">
+                                        <h3 class="font-extrabold text-[clamp(1.5rem,4vw,2.6rem)] uppercase tracking-[-0.02em] text-white leading-[1]">
+                                            <span class="relative">
+                                                Wade Fit
+                                                <span class="port-underline absolute left-0 -bottom-0.5 h-[2px] bg-accent w-0 group-hover:w-full transition-all duration-300 ease-out"></span>
+                                            </span>
+                                        </h3>
+                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 text-white/40 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 ease-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                                    </div>
+                                    <p class="text-white/50 text-[0.85rem] mt-2 max-w-[42ch] leading-[1.6] group-hover:text-white/70 transition-colors duration-300">Studio identity. Still running unchanged 2+ years later.</p>
                                 </div>
-                                <div class="port-arrow shrink-0 w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 group-hover:bg-accent group-hover:border-accent group-hover:text-obsidian transition-all duration-300">
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                </div>
+                                <span class="shrink-0 font-mono text-[0.8rem] text-white/40 tabular-nums group-hover:text-white/60 transition-colors duration-300">2023</span>
                             </div>
                         </div>
                     </a>
-                </article>
 
+                    <div class="border-t border-white/[0.08]"></div>
+                </div>
             </div><!-- /grid -->
 
             <!-- Stats bar -->
