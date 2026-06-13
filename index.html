@@ -373,6 +373,102 @@
             white-space: nowrap;
         }
 
+        /* ============ PORTFOLIO MOBILE CARDS ============ */
+        @media (max-width: 1023px) {
+            #portfolioGrid {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .port-row {
+                border-top: none !important;
+                border-radius: 20px;
+                overflow: hidden;
+                display: block;
+                position: relative;
+                min-height: 72vw;
+                max-height: 82vw;
+                text-decoration: none;
+            }
+
+            /* Image background via pseudo — src set via inline style on each card */
+            .port-row .port-card-bg {
+                position: absolute;
+                inset: 0;
+                background-size: cover;
+                background-position: center;
+                transform: scale(1.04);
+                transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
+            }
+
+            .port-row:active .port-card-bg {
+                transform: scale(1.0);
+            }
+
+            /* Gradient overlay */
+            .port-row::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to bottom,
+                    oklch(5% 0 0 / 0.15) 0%,
+                    oklch(5% 0 0 / 0.30) 30%,
+                    oklch(5% 0 0 / 0.82) 75%,
+                    oklch(5% 0 0 / 0.95) 100%
+                );
+                border-radius: inherit;
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            /* Inner content sits above overlay */
+            .port-row > div {
+                position: absolute !important;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 1.5rem !important;
+                z-index: 2;
+            }
+
+            /* Hide desktop hover bg slab */
+            .port-row-bg { display: none !important; }
+
+            /* Year — move to top right */
+            .port-row .shrink-0.font-mono {
+                position: absolute;
+                top: 1.25rem;
+                right: 1.25rem;
+                z-index: 3;
+                color: rgba(255,255,255,0.5) !important;
+                font-size: 0.72rem;
+            }
+
+            /* Arrow icon — always visible on mobile */
+            .port-row svg.text-white\/40 {
+                opacity: 1 !important;
+                transform: none !important;
+                color: rgba(255,255,255,0.6) !important;
+            }
+
+            /* Underline accent — always full width on mobile */
+            .port-underline {
+                width: 100% !important;
+            }
+
+            /* Divider after last row — hide */
+            #portfolioGrid > .border-t:last-child {
+                display: none;
+            }
+
+            /* Stats bar — adjust spacing */
+            #portfolioGrid + div {
+                margin-top: 2rem;
+            }
+        }
+
         /* ============ PORTFOLIO ROW HOVER IMAGE ============ */
         #port-hover-img {
             position: fixed;
@@ -575,6 +671,7 @@
                 <div id="portfolioGrid">
                     <!-- Row 1: Al Nargis -->
                     <a href="al-nargis-case-study.html" class="port-row group block border-t border-white/[0.08]" data-image="/nargis.avif" data-cursor="VIEW">
+                        <div class="port-card-bg" style="background-image:url('/nargis.avif')"></div>
                         <div class="relative py-6 sm:py-8 transition-all duration-300 ease-out">
                             <div class="port-row-bg absolute inset-0 -mx-4 px-4 bg-white/[0.03] rounded-xl opacity-0 scale-[0.98] group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out"></div>
                             <div class="relative flex items-start sm:items-end justify-between gap-4">
@@ -598,6 +695,7 @@
 
                     <!-- Row 2: Aethos -->
                     <a href="aethos-case-study.html" class="port-row group block border-t border-white/[0.08]" data-image="/aethos.avif" data-cursor="VIEW">
+                        <div class="port-card-bg" style="background-image:url('/aethos.avif')"></div>
                         <div class="relative py-6 sm:py-8 transition-all duration-300 ease-out">
                             <div class="port-row-bg absolute inset-0 -mx-4 px-4 bg-white/[0.03] rounded-xl opacity-0 scale-[0.98] group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out"></div>
                             <div class="relative flex items-start sm:items-end justify-between gap-4">
@@ -621,6 +719,7 @@
 
                     <!-- Row 3: Wade Fit -->
                     <a href="wade-case-study.html" class="port-row group block border-t border-white/[0.08]" data-image="/wade.avif" data-cursor="VIEW">
+                        <div class="port-card-bg" style="background-image:url('/wade.avif')"></div>
                         <div class="relative py-6 sm:py-8 transition-all duration-300 ease-out">
                             <div class="port-row-bg absolute inset-0 -mx-4 px-4 bg-white/[0.03] rounded-xl opacity-0 scale-[0.98] group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 ease-out"></div>
                             <div class="relative flex items-start sm:items-end justify-between gap-4">
