@@ -66,14 +66,6 @@
         },
         {
           "@type": "Question",
-          "name": "What does bilingual actually mean in practice?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "I design in Arabic and English natively, not translated. RTL/LTR, typography, GCC cultural fit — built in from day one. No translators, no extra rounds."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Do you sign NDAs?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -719,6 +711,36 @@
         }
 
         /* --- HARDWARE ACCELERATION & PAINT BOTTLENECKS --- */
+        .mask-line {
+            overflow: hidden;
+        }
+
+        .mask-line-inner {
+            transform: translateY(115%) rotate(2deg);
+            transform-origin: left bottom;
+            opacity: 0;
+            will-change: transform, opacity;
+        }
+
+        .hero-cta-wrap {
+            opacity: 0;
+            transform: translateY(18px) scale(0.96);
+            will-change: transform, opacity;
+        }
+
+        .hero-cta-inner {
+            display: inline-flex;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .mask-line-inner,
+            .hero-cta-wrap {
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+
         .reveal-up {
             opacity: 0;
             transform: translateY(40px) translateZ(0);
@@ -979,66 +1001,45 @@
             <canvas id="hero-veil" aria-hidden="true" role="presentation"></canvas>
             <div class="hero-pattern" aria-hidden="true"></div>
 
-            <div
-                class="hero-top relative z-10 grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-end pb-[clamp(2rem,3vw,2.5rem)]">
-                <div class="flex flex-col justify-center max-w-[900px]">
+            <div id="hero-intro" class="hero-top relative z-10 flex flex-col justify-center max-w-[760px] pb-[clamp(2rem,3vw,2.5rem)]">
+                <div class="mask-line mb-4 md:mb-5 pl-1">
                     <p
-                        class="font-bold text-[clamp(0.6rem,0.9vw,0.75rem)] uppercase tracking-[0.2em] text-white/60 mb-5 md:mb-6 pl-1">
-                        Senior Design Partner & Art Director · Bilingual Arabic–English · Remote-First · Global
+                        class="mask-line-inner font-bold text-[clamp(0.62rem,0.85vw,0.72rem)] uppercase tracking-[0.2em] text-white/50">
+                        Design Partner & Art Director · Global
                     </p>
-                    <h1
-                        class="mega-type font-extrabold tracking-[-0.02em] leading-[1.05] text-[clamp(2rem,4.2vw,3.8rem)] text-white">
-                        Brand systems.
-                        <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2 filter drop-shadow-[0_0_24px_oklch(83.5%_0.17_84/0.3)]">Built
-                            to perform anywhere.</span>
-                        <span
-                            class="block mt-4 md:mt-6 text-[clamp(0.95rem,1.8vw,1.35rem)] font-bold text-white/60 tracking-normal leading-[1.4] max-w-[30ch]">Seven
-                            years, 200+ projects, Arabic and English delivered at full quality, simultaneously.</span>
-                    </h1>
-                    <div class="mt-8 sm:mt-12 flex items-center reveal-up" style="animation-delay: 0.4s;">
-                        <a href="#portfolio"
-                            class="btn-glass-cta active:scale-[0.98] flex items-center justify-center px-[clamp(1.5rem,5vw,2rem)] h-14 min-w-[48px] rounded-full text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian"
-                            data-cursor="CLICK">
-                            See the Work <svg class="w-4 h-4 ml-3 opacity-70" fill="none" stroke="currentColor"
-                                stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </a>
-                    </div>
                 </div>
-                <div
-                    class="grid grid-cols-2 gap-y-6 gap-x-4 md:flex md:flex-col md:gap-6 self-start md:self-end w-full md:w-auto pb-1 lg:pl-12 lg:border-l border-white/10 relative md:min-w-[220px] mt-8 md:mt-0">
-                    <div>
+                <h1 class="mega-type tracking-[-0.02em] text-white">
+                    <span class="mask-line block mb-2 md:mb-3">
                         <span
-                            class="block text-[0.56rem] font-bold uppercase tracking-[0.16em] text-white/60">Experience</span>
-                        <span class="block text-[0.82rem] font-bold text-accent mt-2">7 Years Senior</span>
-                    </div>
-                    <div>
+                            class="mask-line-inner block font-semibold leading-[1.3] text-[clamp(1rem,3vw,1.3rem)] text-white/55">
+                            Most designers hand off a project and disappear.
+                        </span>
+                    </span>
+                    <span class="mask-line block">
                         <span
-                            class="block text-[0.56rem] font-bold uppercase tracking-[0.16em] text-white/60">Retention</span>
-                        <span class="block text-[0.82rem] font-bold text-accent mt-2">80% Client Retention</span>
-                    </div>
-                    <div>
-                        <span
-                            class="block text-[0.56rem] font-bold uppercase tracking-[0.16em] text-white/60">Markets</span>
-                        <span class="block text-[0.82rem] font-bold text-white mt-2">GCC · MENA · USA · EU</span>
-                    </div>
-                    <div>
-                        <span
-                            class="block text-[0.56rem] font-bold uppercase tracking-[0.16em] text-white/60">Status</span>
-                        <span class="block text-[0.82rem] font-bold text-accent mt-2">2 Retainer Slots Open</span>
-                    </div>
+                            class="mask-line-inner block font-extrabold leading-[1.08] text-[clamp(2.1rem,7.2vw,4.1rem)] text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2 filter drop-shadow-[0_0_24px_oklch(83.5%_0.17_84/0.3)]">
+                            I build brand systems founders trust.
+                        </span>
+                    </span>
+                </h1>
+                <div class="mask-line mt-4 md:mt-5">
+                    <p class="mask-line-inner text-[clamp(0.78rem,1.4vw,0.9rem)] font-bold text-white/45 tracking-wide">
+                        7 years · 200+ projects · 80% client retention
+                    </p>
+                </div>
+                <div class="mt-8 sm:mt-10 flex items-center hero-cta-wrap">
+                    <a href="#portfolio" id="hero-cta"
+                        class="btn-glass-cta active:scale-[0.98] flex items-center justify-center px-[clamp(1.5rem,5vw,2rem)] h-14 min-w-[48px] rounded-full text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian"
+                        data-cursor="CLICK">
+                        <span class="hero-cta-inner flex items-center justify-center">See the Work <svg
+                                class="w-4 h-4 ml-3 opacity-70" fill="none" stroke="currentColor" stroke-width="2.5"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg></span>
+                    </a>
                 </div>
             </div>
 
-            <div
-                class="hero-bottom relative z-10 pt-[clamp(2rem,3vw,2.5rem)] flex flex-col md:flex-row justify-between items-start md:items-end gap-10 mt-10">
-                <p class="text-[clamp(1rem,1.5vw,1.12rem)] text-white/70 max-w-[48ch] leading-[1.82] font-normal">
-                    Senior creative delivery for brands that need Arabic and English treated as one system. Brand
-                    identity, web, and performance creative for companies competing across GCC, MENA, USA, and Europe.
-                </p>
-            </div>
         </section>
 
         <section
@@ -1116,16 +1117,6 @@
                             starts with a business problem, in Arabic or English, for GCC markets or global audiences.
                             The design is the answer.</p>
                     </div>
-
-                    <a href="https://behance.net/ghaidakalo5fb4" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center justify-center gap-3 min-h-[52px] px-6 py-3 rounded-full bg-accent text-obsidian font-bold text-[0.7rem] uppercase tracking-[0.14em] hover:bg-white transition-colors active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian shrink-0"
-                        data-cursor="OPEN">
-                        View Full Portfolio
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                            aria-hidden="true">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                    </a>
                 </div>
 
                 <a href="al-nargis-case-study.html"
@@ -1136,10 +1127,10 @@
                             · Brand Identity · 2026</span>
                         <h3 class="port-title text-[clamp(1.8rem,8vw,6rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-transparent">
                             Al Nargis</h3>
-                        <p class="port-desc text-[clamp(0.82rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mt-6">A
-                            beauty launch identity shaped to feel soft, premium, and bilingual from the first
-                            touchpoint. Built to stand apart from the clinical or mass-market look common in the
-                            category. 100% bespoke assets delivered for a bilingual launch system.</p>
+                        <p class="port-desc text-[clamp(0.82rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mt-6">Most
+                            beauty launches default to a clinical or mass-market look. Al Nargis needed to feel soft,
+                            premium, and distinct from the first touchpoint — so I built a fully bespoke identity
+                            system, not a template dressed up.</p>
                         <span class="port-arrow flex items-center gap-3 font-bold text-[0.68rem] text-accent uppercase tracking-[0.08em] mt-8">View
                             Case Study <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" aria-hidden="true">
@@ -1156,10 +1147,10 @@
                             · Brand Identity · 2026</span>
                         <h3 class="port-title text-[clamp(1.8rem,8vw,6rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-transparent">
                             Aethos</h3>
-                        <p class="port-desc text-[clamp(0.82rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mt-6">An
-                            authority-led identity built for scale across digital ecosystems. The visual system was
-                            designed to give the founders a premium foundation that could carry a complex product
-                            story. AI-augmented workflow compressed a multi-week timeline into 48 hours.</p>
+                        <p class="port-desc text-[clamp(0.82rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mt-6">Early-stage
+                            founders rarely have weeks to wait on a brand system that signals authority. Aethos needed
+                            a premium foundation to carry a complex product story — delivered through an
+                            AI-augmented workflow that compressed a multi-week timeline into 48 hours.</p>
                         <span class="port-arrow flex items-center gap-3 font-bold text-[0.68rem] text-accent uppercase tracking-[0.08em] mt-8">View
                             Case Study <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" aria-hidden="true">
@@ -1176,10 +1167,10 @@
                             · Logo Design · 2026</span>
                         <h3 class="port-title text-[clamp(1.8rem,8vw,6rem)] font-extrabold uppercase leading-[0.95] tracking-tight text-transparent">
                             Wade Fit</h3>
-                        <p class="port-desc text-[clamp(0.82rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mt-6">A
-                            high-precision fitness identity built to feel disciplined, premium, and confident. The
-                            barbell system and wordmark were designed to read cleanly at every size. 200+ global
-                            deployments across the identity ecosystem.</p>
+                        <p class="port-desc text-[clamp(0.82rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mt-6">Most
+                            fitness brands blur into the same generic gym look. Wade Fit needed to read as
+                            disciplined, premium, and confident at every size — the barbell system and wordmark were
+                            built for that precision, now live across 200+ global deployments.</p>
                         <span class="port-arrow flex items-center gap-3 font-bold text-[0.68rem] text-accent uppercase tracking-[0.08em] mt-8">View
                             Case Study <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" aria-hidden="true">
@@ -1204,18 +1195,6 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between pb-12 mb-10 reveal-up">
                 <h2 class="text-[clamp(1.8rem,9vw,4.5rem)] font-extrabold uppercase tracking-tight leading-[0.92]">What
                     Clients Say</h2>
-                <span class="text-[0.58rem] font-bold text-white/60 tracking-[0.18em] uppercase mt-4 md:mt-0">Every
-                    client below is one click away from confirming this themselves.</span>
-            </div>
-
-            <div
-                class="mb-8 flex flex-wrap items-center gap-3 text-[0.58rem] font-bold uppercase tracking-[0.16em] text-white/55">
-                <span
-                    class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2">6
-                    client profiles linked</span>
-                <span
-                    class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2">Every
-                    name is verifiable</span>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 auto-rows-auto items-stretch">
@@ -1374,48 +1353,10 @@
                 </article>
 
                 <article
-                    class="testimonial-card spotlight-card bg-white/[0.016] bg-gradient-to-b from-white/[0.028] via-white/[0.016] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger"
-                    data-cursor="READ">
-                    <span
-                        class="text-accent font-bold text-[0.58rem] tracking-[0.18em] uppercase mb-6 opacity-80">05</span>
-                    <p class="text-[clamp(0.88rem,1.1vw,1rem)] text-white/90 leading-[1.82] mb-8 flex-1">"Delivery is
-                        production-ready, deadlines are respected, and the quality is premium. A vital asset to our
-                        scaling process. Rare to find."</p>
-                    <div class="pt-2 mt-4 w-full">
-                        <div class="flex items-start gap-4">
-                            <div class="testimonial-avatar bg-[oklch(100%_0_0/6%)] text-white">
-                                <img src="/clients/emad.png" alt="Emad Al Tayeb avatar"
-                                    class="w-full h-full object-cover"
-                                    onerror="this.hidden=true;this.nextElementSibling.hidden=false;">
-                                <div class="avatar-fallback" hidden>E</div>
-                            </div>
-                            <div class="min-w-0 flex-1">
-                                <a href="https://arabista.net/" target="_blank" rel="noopener noreferrer"
-                                    aria-label="View Emad Al Tayeb's profile"
-                                    class="testimonial-name-link group inline-flex items-center gap-1.5 font-extrabold text-[0.82rem] uppercase tracking-[0.06em] not-italic mb-2 text-white/95 underline decoration-transparent underline-offset-4 transition-colors">
-                                    <cite class="testimonial-name not-italic">Emad Al Tayeb</cite>
-                                    <svg class="testimonial-external w-3 h-3 text-accent opacity-0 -translate-x-1 transition-all duration-[240ms]"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
-                                        aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M14 3h7v7M10 14L21 3M21 14v7h-7" />
-                                    </svg>
-                                </a>
-                                <span class="block text-[0.56rem] text-white/60 mb-4 leading-[1.4]">Founder, B2B
-                                    Enterprise SaaS · KSA</span>
-                                <span
-                                    class="inline-block bg-accent/10 text-accent text-[0.54rem] font-bold uppercase tracking-[0.08em] px-4 py-2 rounded-full">+60%
-                                    Trust · KSA</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article
                     class="testimonial-card xl:col-span-2 spotlight-card bg-white/[0.018] bg-gradient-to-tl from-white/[0.03] via-white/[0.018] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl flex flex-col transition-transform duration-[400ms] reveal-up hover-trigger"
                     data-cursor="READ">
                     <span
-                        class="text-accent font-bold text-[0.58rem] tracking-[0.18em] uppercase mb-6 opacity-80">06</span>
+                        class="text-accent font-bold text-[0.58rem] tracking-[0.18em] uppercase mb-6 opacity-80">05</span>
                     <p class="text-[clamp(0.88rem,1.1vw,1rem)] text-white/90 leading-[1.82] mb-8 flex-1">"Ghaidak was a
                         wonderful designer who provided our company great value in Canada. Highly recommended to work
                         with."</p>
@@ -1488,7 +1429,8 @@
                         <p
                             class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1 max-w-[52ch]">
                             Visual architecture that scales. From core identity to comprehensive guidelines, built to
-                            stay consistent across every touchpoint, in every market, in any language.</p>
+                            stay consistent across every touchpoint — including native Arabic/English RTL and LTR
+                            systems for teams entering GCC and MENA markets.</p>
                         <div class="mt-8 pt-6 border-t border-white/[0.05] flex flex-wrap gap-2">
                             <span
                                 class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">Logo
@@ -1499,37 +1441,9 @@
                             <span
                                 class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">Brand
                                 Guidelines</span>
-                        </div>
-                    </div>
-
-                    <div class="spotlight-card sm:row-span-1 lg:row-span-3 bg-gradient-to-b from-accent/[0.08] to-accent/[0.02] backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_oklch(83.5%_0.17_84/15%)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up delay-[120ms] hover-trigger"
-                        data-cursor="READ">
-                        <div class="flex items-start justify-between mb-6">
                             <span
-                                class="text-accent font-bold text-[0.56rem] tracking-[0.22em] uppercase opacity-80">05</span>
-                            <div class="w-8 h-8 rounded-full bg-accent/15 flex items-center justify-center">
-                                <svg class="w-4 h-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" aria-hidden="true">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
-                                    <path
-                                        d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                                </svg>
-                            </div>
-                        </div>
-                        <h3
-                            class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">
-                            Bilingual Brand Systems</h3>
-                        <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Native Arabic, native English. Full RTL/LTR systems, GCC market entry, and regional cultural fluency built in from day one — not bolted on after the fact. Most agencies outsource this. I don't.</p>
-                        <div class="mt-8 pt-6 border-t border-accent/10 flex flex-wrap gap-2">
-                            <span
-                                class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-accent/60 bg-accent/[0.08] px-3 py-1.5 rounded-full">RTL
+                                class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-white/40 bg-white/[0.04] px-3 py-1.5 rounded-full">RTL
                                 / LTR</span>
-                            <span
-                                class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-accent/60 bg-accent/[0.08] px-3 py-1.5 rounded-full">Market
-                                Entry</span>
-                            <span
-                                class="text-[0.54rem] font-bold uppercase tracking-[0.08em] text-accent/60 bg-accent/[0.08] px-3 py-1.5 rounded-full">GCC
-                                · MENA</span>
                         </div>
                     </div>
 
@@ -1614,9 +1528,29 @@
                     <h2
                         class="capabilities-heading text-[clamp(1.5rem,6vw,3rem)] font-extrabold uppercase tracking-tight leading-[0.92]">
                         Productized Offerings</h2>
-                    <p class="mt-4 max-w-[58ch] text-[clamp(0.82rem,1vw,0.95rem)] text-white/60 leading-[1.75]">Projects
-                        typically sit in the mid-four-figure to low-five-figure range depending on scope — full quote
-                        after a 15-minute call.</p>
+                    <p class="mt-4 max-w-[58ch] text-[clamp(0.82rem,1vw,0.95rem)] text-white/60 leading-[1.75]">Fixed
+                        scope, fixed timeline. Full quote confirmed after a 15-minute call.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 auto-rows-auto mb-6">
+                    <div class="lg:col-span-2 spotlight-card bg-gradient-to-b from-accent/[0.08] to-accent/[0.02] backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_oklch(83.5%_0.17_84/15%)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col md:flex-row md:items-center md:justify-between gap-6 rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger"
+                        data-cursor="READ">
+                        <div>
+                            <span
+                                class="inline-block bg-accent/15 text-accent text-[0.54rem] font-bold uppercase tracking-[0.1em] px-3 py-1.5 rounded-full mb-4">Flagship
+                                Offer</span>
+                            <h3
+                                class="font-extrabold text-[clamp(1.3rem,2.4vw,1.65rem)] uppercase tracking-[-0.01em] mb-3 text-white">
+                                Brand + Site, Built as One</h3>
+                            <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] max-w-[52ch]">
+                                Full identity system and a production-ready website, designed and built by the same
+                                hand — no handoff between designer and developer, nothing lost in translation.</p>
+                            <div class="mt-6 flex flex-wrap gap-x-8 gap-y-2 text-[0.62rem] font-bold uppercase tracking-[0.08em] text-white/50">
+                                <span>Scope: Brand system + website</span>
+                                <span>Timeline: [confirm weeks]</span>
+                                <span>Starting at: [confirm price]</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 auto-rows-auto">
                     <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger"
@@ -1624,25 +1558,40 @@
                         <h3
                             class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">
                             The 48-Hour Brand Sprint</h3>
-                        <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">AI-augmented
-                            workflows compress standard 5-day timelines into 48 hours — without reducing quality.</p>
+                        <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mb-6">AI-augmented
+                            workflows compress standard 5-day timelines into 48 hours, without cutting quality.</p>
+                        <div class="mt-auto pt-5 border-t border-white/[0.05] flex flex-col gap-1.5 text-[0.6rem] font-bold uppercase tracking-[0.08em] text-white/45">
+                            <span>Scope: Core identity</span>
+                            <span>Timeline: 48 hours</span>
+                            <span>Starting at: [confirm price]</span>
+                        </div>
                     </div>
                     <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger delay-[80ms]"
                         data-cursor="READ">
                         <h3
                             class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">
                             Brand Governance System</h3>
-                        <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">
-                            Comprehensive Brand Identity SOPs and guidelines built for international teams to scale
-                            without breaking the system.</p>
+                        <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mb-6">
+                            Comprehensive brand SOPs and guidelines built for international teams to scale without
+                            breaking the system.</p>
+                        <div class="mt-auto pt-5 border-t border-white/[0.05] flex flex-col gap-1.5 text-[0.6rem] font-bold uppercase tracking-[0.08em] text-white/45">
+                            <span>Scope: Guidelines + SOPs</span>
+                            <span>Timeline: [confirm weeks]</span>
+                            <span>Starting at: [confirm price]</span>
+                        </div>
                     </div>
                     <div class="spotlight-card bg-white/[0.02] bg-gradient-to-br from-white/[0.04] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.04)] p-[clamp(1.75rem,4vw,2.75rem)] flex flex-col rounded-3xl transition-transform duration-[400ms] reveal-up hover-trigger delay-[160ms]"
                         data-cursor="READ">
                         <h3
                             class="font-extrabold text-[clamp(1.15rem,2vw,1.35rem)] uppercase tracking-[-0.01em] mb-4 text-accent">
                             GCC Market Entry Audit</h3>
-                        <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.82] flex-1">Bicultural
+                        <p class="text-[clamp(0.86rem,1.05vw,0.95rem)] text-white/70 leading-[1.72] mb-6">Bicultural
                             typographic and visual strategy for Western brands entering the Middle East.</p>
+                        <div class="mt-auto pt-5 border-t border-white/[0.05] flex flex-col gap-1.5 text-[0.6rem] font-bold uppercase tracking-[0.08em] text-white/45">
+                            <span>Scope: Audit + recommendations</span>
+                            <span>Timeline: [confirm weeks]</span>
+                            <span>Starting at: [confirm price]</span>
+                        </div>
                     </div>
                 </div>
 
@@ -1681,8 +1630,6 @@
                         <h3 class="text-[clamp(1.1rem,1.6vw,1.35rem)] font-extrabold uppercase tracking-tight mb-4">
                             Senior Design Partner.</h3>
                         <p class="text-[clamp(0.95rem,1.3vw,1.05rem)] text-white/70 leading-[1.85] mb-6 max-w-[48ch]">
-                            Seven years. 200+ projects. Brands that perform in any market, in any language.<br><br>
-
                             I design brand identity for founders and growth-stage companies competing in Arabic and English at once — not translated, not adapted, built natively from day one. That's what most senior designers can't offer.<br><br>
 
                             80% of my clients stay 2+ years. That's the actual proof.
@@ -1777,6 +1724,17 @@
                             <p class="font-normal text-[clamp(0.92rem,1.2vw,1rem)] text-white/70 leading-[1.85]">One call to confirm fit and expectations. NDA on request. We move when both sides are clear.</p>
                         </div>
                     </div>
+
+                    <div class="spotlight-card grid grid-cols-[96px_1fr] md:max-lg:grid-cols-[48px_1fr] max-md:grid-cols-[48px_1fr] gap-[clamp(1.5rem,3vw,3rem)] p-[clamp(2rem,3vw,3rem)] rounded-3xl items-start bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger"
+                        data-cursor="READ">
+                        <span class="font-bold text-[0.72rem] text-accent tracking-[0.08em] pt-1">04</span>
+                        <div>
+                            <h3
+                                class="font-extrabold text-[clamp(1.35rem,2.2vw,1.9rem)] uppercase tracking-[-0.02em] leading-[1.1] mb-4">
+                                Deliver &amp; iterate</h3>
+                            <p class="font-normal text-[clamp(0.92rem,1.2vw,1rem)] text-white/70 leading-[1.85]">Structured revision rounds defined upfront. Weekly async updates. No surprises, no drift — you get files that are ready to ship.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="reveal-up mt-8">
@@ -1807,13 +1765,6 @@
                     <h3 class="font-bold text-[clamp(0.82rem,1.2vw,0.95rem)] text-white tracking-[0.03em] mb-4">Do you
                         take freelance projects and retainers?</h3>
                     <p class="text-[clamp(0.78rem,1.1vw,0.88rem)] text-white/60 leading-[1.65]">Yes — that's the primary focus. Project-based, ongoing retainer, or embedded as a senior creative partner. 80% of client relationships run 2+ years. Full-time roles considered for the right fit.</p>
-                </div>
-                
-                <div class="spotlight-card p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger"
-                    data-cursor="READ">
-                    <h3 class="font-bold text-[clamp(0.82rem,1.2vw,0.95rem)] text-white tracking-[0.03em] mb-4">What
-                        does bilingual actually mean in practice?</h3>
-                    <p class="text-[clamp(0.78rem,1.1vw,0.88rem)] text-white/60 leading-[1.65]">I design in Arabic and English natively, not translated. RTL/LTR, typography, GCC cultural fit — built in from day one. No translators, no extra rounds.</p>
                 </div>
                 
                 <div class="spotlight-card p-[clamp(1.5rem,5vw,2.5rem)] rounded-3xl bg-white/[0.02] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-3xl shadow-[0_8px_32px_oklch(5%_0_0/60%),_inset_0_1px_0_rgba(255,255,255,0.03)] transition-transform duration-[400ms] reveal-up hover-trigger delay-[120ms]"
@@ -2067,6 +2018,73 @@
         const MQ_MOBILE = window.matchMedia('(max-width:1024px)');
         const REDUCED_MO = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
+        // ---- Hero intro: line mask-reveal + CTA pop, played once the loader curtain lifts ----
+        let heroIntroTl = null;
+        function buildHeroIntro() {
+            if (!window.gsap) return null;
+            const lines = gsap.utils.toArray('#hero-intro .mask-line-inner');
+            const cta = document.querySelector('.hero-cta-wrap');
+            if (!lines.length && !cta) return null;
+
+            if (REDUCED_MO) {
+                gsap.set(lines, { clearProps: 'all' });
+                if (cta) gsap.set(cta, { clearProps: 'all' });
+                return null;
+            }
+
+            const tl = gsap.timeline({ paused: true });
+            tl.to(lines, {
+                y: 0,
+                rotate: 0,
+                opacity: 1,
+                duration: 1.1,
+                ease: 'expo.out',
+                stagger: 0.11
+            });
+            if (cta) {
+                tl.to(cta, {
+                    y: 0,
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.85,
+                    ease: 'back.out(1.7)'
+                }, '-=0.55');
+            }
+            return tl;
+        }
+        heroIntroTl = buildHeroIntro();
+
+        function playHeroIntro() {
+            if (heroIntroTl) heroIntroTl.play();
+        }
+        // Fallback: if there's no page loader to sync with, play shortly after paint.
+        if (!document.getElementById('ga-loader')) {
+            requestAnimationFrame(() => setTimeout(playHeroIntro, 150));
+        }
+
+        // ---- Magnetic CTA micro-interaction ----
+        if (window.gsap && !REDUCED_MO && window.matchMedia('(pointer: fine)').matches) {
+            const heroCta = document.getElementById('hero-cta');
+            if (heroCta) {
+                const magX = gsap.quickTo(heroCta, 'x', { duration: 0.5, ease: 'power3.out' });
+                const magY = gsap.quickTo(heroCta, 'y', { duration: 0.5, ease: 'power3.out' });
+                const innerX = gsap.quickTo('.hero-cta-inner', 'x', { duration: 0.5, ease: 'power3.out' });
+                const innerY = gsap.quickTo('.hero-cta-inner', 'y', { duration: 0.5, ease: 'power3.out' });
+                heroCta.addEventListener('mousemove', (e) => {
+                    const r = heroCta.getBoundingClientRect();
+                    const relX = e.clientX - r.left - r.width / 2;
+                    const relY = e.clientY - r.top - r.height / 2;
+                    magX(relX * 0.35);
+                    magY(relY * 0.5);
+                    innerX(relX * 0.15);
+                    innerY(relY * 0.2);
+                });
+                heroCta.addEventListener('mouseleave', () => {
+                    magX(0); magY(0); innerX(0); innerY(0);
+                });
+            }
+        }
+
         let lenisRef = null;
         if (!MQ_MOBILE.matches && typeof Lenis !== 'undefined') {
             lenisRef = new Lenis({ duration: 0.8, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smoothTouch: false });
@@ -2260,7 +2278,8 @@
                                 y: -30, opacity: 0, duration: 0.6, ease: 'power3.in'
                             }, "-=0.3")
                             .to(loaderBg, {
-                                yPercent: -100, duration: 1.2, ease: 'expo.inOut'
+                                yPercent: -100, duration: 1.2, ease: 'expo.inOut',
+                                onStart: playHeroIntro
                             }, "-=0.2");
                     }
                 });
@@ -2341,6 +2360,38 @@
             });
         } else {
             document.querySelectorAll('.reveal-up').forEach(el => el.classList.add('in-view'));
+        }
+
+        // ---- Hero scroll-out: content fades/lifts and pattern drifts as you scroll past ----
+        if (window.gsap && window.ScrollTrigger && !REDUCED_MO) {
+            const heroSection = document.getElementById('hero');
+            const heroIntro = document.getElementById('hero-intro');
+            const heroPattern = heroSection ? heroSection.querySelector('.hero-pattern') : null;
+            if (heroSection && heroIntro) {
+                gsap.to(heroIntro, {
+                    yPercent: -18,
+                    opacity: 0.15,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: heroSection,
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: 0.6
+                    }
+                });
+            }
+            if (heroPattern) {
+                gsap.to(heroPattern, {
+                    yPercent: 12,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: heroSection,
+                        start: 'top top',
+                        end: 'bottom top',
+                        scrub: 0.6
+                    }
+                });
+            }
         }
 
         const initCursor = () => {
