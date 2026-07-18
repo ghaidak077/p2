@@ -465,9 +465,7 @@
             position: relative;
             z-index: 0;
             height: clamp(440px, 70vh, 680px);
-            border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 30px 80px oklch(5% 0 0 / 55%), inset 0 0 0 1px oklch(100% 0 0 / 6%);
             perspective: 1000px;
         }
 
@@ -511,21 +509,16 @@
 
         @media (max-width: 767px) {
             .hero-portrait {
-                position: absolute;
-                inset: 0 0 auto auto;
-                top: 0;
-                right: 0;
-                width: 64%;
-                height: 66%;
-                opacity: 0.34;
+                position: relative;
+                width: 100%;
+                height: clamp(320px, 52vh, 440px);
+                opacity: 1;
                 z-index: 0;
-                border-radius: 0;
-                box-shadow: none;
                 pointer-events: none;
             }
             .hero-portrait-img {
-                -webkit-mask-image: linear-gradient(to bottom, black 35%, transparent 96%);
-                mask-image: linear-gradient(to bottom, black 35%, transparent 96%);
+                object-fit: contain;
+                object-position: top center;
             }
             .hero-portrait-ground {
                 display: none;
