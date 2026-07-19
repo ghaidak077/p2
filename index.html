@@ -844,6 +844,26 @@
             opacity: 0;
             transform: translateY(18px) scale(0.96);
             will-change: transform, opacity;
+            justify-content: center;
+        }
+
+        @media (min-width: 640px) {
+            .hero-cta-wrap {
+                justify-content: flex-start;
+            }
+        }
+
+        /* #res-pill ("Start Your Project" floating CTA): perfectly centered on
+           mobile via left:50%/-translate-x-1/2 (baked into compiled CSS below),
+           moved to bottom-right from tablet up. Written as real CSS because
+           the Tailwind stylesheet is statically compiled and md:left-auto /
+           md:right-[...] were never generated, so they did nothing. */
+        @media (min-width: 768px) {
+            #res-pill {
+                left: auto;
+                transform: none;
+                right: clamp(1.25rem, 4vw, 2.5rem);
+            }
         }
 
         .hero-cta-inner {
@@ -1030,7 +1050,7 @@
     </div>
 
     <a href="#contact" id="res-pill"
-        class="btn-primary fixed bottom-[clamp(1.5rem,4vw,2rem)] left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[clamp(1.25rem,4vw,2.5rem)] z-[990] flex items-center justify-center gap-3 p-1.5 pr-6 h-14 rounded-full font-bold text-[0.7rem] uppercase tracking-[0.1em] transition-all duration-[600ms] opacity-100 translate-y-0 pointer-events-auto hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian"
+        class="btn-primary fixed bottom-[clamp(1.5rem,4vw,2rem)] left-1/2 -translate-x-1/2 z-[990] flex items-center justify-center gap-3 p-1.5 pr-6 h-14 rounded-full font-bold text-[0.7rem] uppercase tracking-[0.1em] transition-all duration-[600ms] opacity-100 translate-y-0 pointer-events-auto hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian"
         data-cursor="START">
         <div
             class="w-10 h-10 rounded-full bg-obsidian flex items-center justify-center text-accent shrink-0">
@@ -1141,7 +1161,7 @@
                             7 years · 200+ projects · 80% client retention
                         </p>
                     </div>
-                    <div class="mt-8 sm:mt-10 flex items-center justify-center sm:justify-start hero-cta-wrap">
+                    <div class="mt-8 sm:mt-10 flex items-center hero-cta-wrap">
                         <a href="#portfolio" id="hero-cta"
                             class="btn-glass-cta active:scale-[0.98] flex items-center justify-center px-[clamp(1.5rem,5vw,2rem)] h-14 min-w-[48px] rounded-full text-[0.7rem] font-bold uppercase tracking-[0.1em] text-white hover-trigger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-obsidian"
                             data-cursor="CLICK">
