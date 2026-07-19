@@ -886,6 +886,14 @@
             border: none;
         }
 
+        /* #res-pill and #dynamicScrollBtn reuse .btn-primary/.btn-glass-cta for their
+           visual style, but must stay position:fixed to float above the page.
+           ID specificity here intentionally overrides the .position:relative above. */
+        #res-pill,
+        #dynamicScrollBtn {
+            position: fixed;
+        }
+
         .spotlight-card::before {
             content: '';
             position: absolute;
