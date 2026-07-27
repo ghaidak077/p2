@@ -845,6 +845,7 @@
             transform: translateY(18px) scale(0.96);
             will-change: transform, opacity;
             justify-content: center;
+            width: 100%;
         }
 
         @media (min-width: 640px) {
@@ -911,6 +912,15 @@
            intentionally overrides the position:relative rule above. */
         #res-pill {
             position: fixed;
+        }
+
+        @media (max-width: 767px) {
+            #res-pill {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                margin: 0;
+            }
         }
 
         .spotlight-card::before {
