@@ -3419,171 +3419,98 @@ img,video {
             border-top: 1px solid oklch(100% 0 0 / 6%);
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr;
+        .footer-top {
+            display: flex;
+            flex-direction: column;
             gap: clamp(2.5rem, 5vw, 3rem);
-            padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
-            border-bottom: 1px solid oklch(100% 0 0 / 6%);
+            padding-bottom: clamp(3rem, 6vw, 4.5rem);
         }
 
-        @media (min-width: 640px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .footer-grid {
-                grid-template-columns: 1.3fr 0.8fr 0.8fr 1fr;
+        @media (min-width: 768px) {
+            .footer-top {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: clamp(3rem, 6vw, 5rem);
             }
         }
 
         .footer-brand {
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
+            gap: 1.5rem;
+            max-width: 32ch;
         }
 
         .footer-logo {
             display: inline-flex;
-            align-items: center;
             width: fit-content;
             transition: opacity 0.25s ease;
         }
 
         .footer-logo:hover {
-            opacity: 0.8;
+            opacity: 0.75;
         }
 
         .footer-tagline {
             font-size: 0.85rem;
-            line-height: 1.75;
-            color: oklch(100% 0 0 / 55%);
-            max-width: 30ch;
+            line-height: 1.85;
+            color: oklch(100% 0 0 / 48%);
         }
 
-        .footer-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            width: fit-content;
-            font-size: 0.56rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--accent);
-            background: oklch(79% 0.21 82 / 10%);
-            border: 1px solid oklch(79% 0.21 82 / 15%);
-            padding: 0.5rem 0.9rem;
-            border-radius: 999px;
-        }
-
-        .footer-badge-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 8px oklch(79% 0.21 82 / 70%);
-            flex-shrink: 0;
-        }
-
-        .footer-heading {
-            display: block;
-            font-size: 0.58rem;
-            font-weight: 800;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: oklch(100% 0 0 / 40%);
-            margin-bottom: 1.25rem;
-        }
-
-        .footer-nav,
-        .footer-contact {
+        .footer-nav {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 2rem clamp(2rem, 4vw, 3.5rem);
         }
 
-        .footer-link,
-        .footer-email {
+        @media (min-width: 768px) {
+            .footer-nav {
+                padding-top: 0.5rem;
+            }
+        }
+
+        .footer-link {
             position: relative;
-            display: inline-flex;
-            align-items: center;
             width: fit-content;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: oklch(100% 0 0 / 65%);
-            padding: 0.4rem 0;
-            min-height: 44px;
-            transition: color 0.25s ease, transform 0.25s ease;
-        }
-
-        .footer-link:hover,
-        .footer-email:hover {
-            color: oklch(100% 0 0 / 100%);
-            transform: translateX(3px);
-        }
-
-        .footer-link::before,
-        .footer-email::before {
-            content: '';
-            width: 0;
-            height: 1px;
-            margin-right: 0;
-            background: var(--accent);
-            transition: width 0.25s ease, margin-right 0.25s ease;
-        }
-
-        .footer-link:hover::before,
-        .footer-email:hover::before {
-            width: 12px;
-            margin-right: 8px;
-        }
-
-        .footer-note {
-            margin-top: 0.75rem;
-            font-size: 0.68rem;
-            line-height: 1.6;
-            color: oklch(100% 0 0 / 40%);
-            max-width: 28ch;
-        }
-
-        .footer-social {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-top: 0.5rem;
-        }
-
-        .footer-social a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: oklch(100% 0 0 / 4%);
-            border: 1px solid oklch(100% 0 0 / 6%);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             color: oklch(100% 0 0 / 55%);
-            transition: all 0.25s ease;
+            transition: color 0.25s ease;
         }
 
-        .footer-social a:hover {
-            color: var(--bg);
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -0.4rem;
+            height: 1px;
             background: var(--accent);
-            border-color: var(--accent);
-            transform: translateY(-2px);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: oklch(100% 0 0 / 100%);
+        }
+
+        .footer-link:hover::after {
+            transform: scaleX(1);
         }
 
         .footer-bottom {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
             gap: 1.25rem;
-            padding-top: clamp(1.75rem, 3vw, 2.25rem);
-            font-size: 0.68rem;
-            letter-spacing: 0.02em;
+            padding-top: clamp(2rem, 4vw, 2.75rem);
+            border-top: 1px solid oklch(100% 0 0 / 6%);
+            font-size: 0.65rem;
+            letter-spacing: 0.03em;
             color: oklch(100% 0 0 / 40%);
             text-align: center;
         }
@@ -3591,14 +3518,18 @@ img,video {
         @media (min-width: 640px) {
             .footer-bottom {
                 flex-direction: row;
+                justify-content: space-between;
                 text-align: left;
             }
         }
 
-        .footer-bottom-links {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
+        .footer-email {
+            color: oklch(100% 0 0 / 48%);
+            transition: color 0.25s ease;
+        }
+
+        .footer-email:hover {
+            color: var(--accent);
         }
 
         .back-to-top {
@@ -3608,8 +3539,7 @@ img,video {
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            font-size: 0.62rem;
-            color: oklch(100% 0 0 / 55%);
+            color: oklch(100% 0 0 / 48%);
             transition: color 0.25s ease;
         }
 
@@ -4712,87 +4642,39 @@ img,video {
         </section>
     </main>
 
-    <footer class="site-footer bg-obsidian pt-[clamp(3.5rem,7vw,5.5rem)] pb-[clamp(3rem,6vh,4rem)] px-[clamp(1.25rem,6vw,5rem)] relative z-20 overflow-hidden">
+    <footer class="site-footer bg-obsidian pt-[clamp(4rem,8vw,7rem)] pb-[clamp(2.5rem,5vw,3.5rem)] px-[clamp(1.25rem,6vw,5rem)] relative z-20 overflow-hidden">
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[60vh] bg-[radial-gradient(ellipse_55%_60%_at_50%_100%,oklch(79%_0.21_82/8%)_0%,oklch(79%_0.21_82/3%)_40%,transparent_72%)] pointer-events-none"
             aria-hidden="true"></div>
 
         <div class="relative z-10 max-w-[1400px] mx-auto">
-            <div class="footer-grid">
+            <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#hero" aria-label="Home" class="footer-logo hover-trigger" data-cursor="CLICK">
                         <img src="logo.svg" alt="GA" class="h-8 w-auto">
                     </a>
                     <p class="footer-tagline">Bilingual Arabic–English brand systems and performance creative
                         for GCC, MENA, USA and EU markets.</p>
-                    <span class="footer-badge"><span class="footer-badge-dot" aria-hidden="true"></span>Available
-                        for Projects</span>
-                    <div class="footer-social" aria-label="Social links">
-                        <a href="https://linkedin.com/in/ghaidak-alosh" target="_blank" rel="noopener noreferrer"
-                            aria-label="LinkedIn" class="hover-trigger" data-cursor="CLICK">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path
-                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg>
-                        </a>
-                        <a href="https://behance.net/ghaidakalo5fb4" target="_blank" rel="noopener noreferrer"
-                            aria-label="Behance" class="hover-trigger" data-cursor="CLICK">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path
-                                    d="M4 6h6.6c2 0 3.5 1.3 3.5 3.1a2.8 2.8 0 01-1.7 2.7 3 3 0 012.3 3c0 2-1.7 3.2-3.9 3.2H4zm2 2v2.9h4c.9 0 1.6-.5 1.6-1.5S10.9 8 10 8zm0 4.7V17h4.3c1 0 1.8-.6 1.8-1.6s-.8-1.6-1.9-1.6zM14.5 8.7h5.8v1.5h-5.8zM17.4 11a3.1 3.1 0 00-3.1 2.5h6.2a3.1 3.1 0 00-3.1-2.5zm-4.9 3a5 5 0 119.8.9h-7.5a2.4 2.4 0 002.5 2 2.5 2.5 0 002.1-1.1h2.8a5 5 0 01-4.9 3.3 5 5 0 01-4.8-5z" />
-                            </svg>
-                        </a>
-                        <a href="mailto:studio@ghaidak.com" aria-label="Email" class="hover-trigger"
-                            data-cursor="CLICK">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                <polyline points="22,6 12,12 2,6" />
-                            </svg>
-                        </a>
-                    </div>
                 </div>
 
                 <nav class="footer-nav" aria-label="Footer navigation">
-                    <span class="footer-heading">Navigate</span>
                     <a href="#portfolio" class="footer-link hover-trigger" data-cursor="CLICK">Work</a>
                     <a href="#expertise" class="footer-link hover-trigger" data-cursor="CLICK">Services</a>
                     <a href="#about" class="footer-link hover-trigger" data-cursor="CLICK">About</a>
                     <a href="#contact" class="footer-link hover-trigger" data-cursor="CLICK">Contact</a>
                 </nav>
-
-                <nav class="footer-nav" aria-label="Footer services">
-                    <span class="footer-heading">Services</span>
-                    <a href="#expertise" class="footer-link hover-trigger" data-cursor="CLICK">Brand Systems</a>
-                    <a href="#expertise" class="footer-link hover-trigger" data-cursor="CLICK">Web &amp; UI Design</a>
-                    <a href="#expertise" class="footer-link hover-trigger" data-cursor="CLICK">Marketing Visuals</a>
-                    <a href="#expertise" class="footer-link hover-trigger" data-cursor="CLICK">Strategic Decks</a>
-                </nav>
-
-                <div class="footer-contact">
-                    <span class="footer-heading">Get in Touch</span>
-                    <a href="mailto:studio@ghaidak.com" class="footer-email hover-trigger" data-cursor="CLICK">
-                        studio@ghaidak.com</a>
-                    <a href="https://wa.link/649ato" target="_blank" rel="noopener noreferrer"
-                        class="footer-email hover-trigger" data-cursor="CLICK">WhatsApp — Fastest reply</a>
-                    <p class="footer-note">Kuala Lumpur, Malaysia · Remote worldwide. Process and FAQ live on this
-                        page.</p>
-                </div>
             </div>
 
             <div class="footer-bottom">
                 <span>© <span id="current-year">2026</span> Ghaidak Alosh. All rights reserved.</span>
-                <div class="footer-bottom-links">
-                    <span>Designed &amp; built by Ghaidak Alosh</span>
-                    <a href="#hero" class="back-to-top hover-trigger" data-cursor="CLICK">
-                        Back to top
-                        <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7" />
-                        </svg>
-                    </a>
-                </div>
+                <a href="mailto:studio@ghaidak.com" class="footer-email hover-trigger" data-cursor="CLICK">
+                    studio@ghaidak.com</a>
+                <a href="#hero" class="back-to-top hover-trigger" data-cursor="CLICK">
+                    Back to top
+                    <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7" />
+                    </svg>
+                </a>
             </div>
         </div>
     </footer>
