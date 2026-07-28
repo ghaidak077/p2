@@ -3419,27 +3419,42 @@ img,video {
             border-top: 1px solid oklch(100% 0 0 / 6%);
         }
 
+        /* Smooths the hard seam where the previous section's bg-surface
+           meets this section's bg-obsidian - was previously a visible line. */
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 140px;
+            background: linear-gradient(to bottom, oklch(18% 0.01 285) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Continues the previous section's own accent-glow (it peaks exactly
+           at the section boundary) so the seam doesn't jump at the horizontal
+           center where that glow is brightest. */
+        .footer-top-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+            height: 60vh;
+            background: radial-gradient(ellipse 55% 60% at 50% 0%, oklch(79% 0.21 82 / 8%) 0%, oklch(79% 0.21 82 / 3%) 40%, transparent 72%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .footer-top {
             display: flex;
             flex-direction: column;
-            gap: clamp(2.5rem, 5vw, 3rem);
-            padding-bottom: clamp(3rem, 6vw, 4.5rem);
-        }
-
-        @media (min-width: 768px) {
-            .footer-top {
-                flex-direction: row;
-                align-items: flex-start;
-                justify-content: space-between;
-                gap: clamp(3rem, 6vw, 5rem);
-            }
-        }
-
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 1.5rem;
-            max-width: 32ch;
+            padding-bottom: clamp(3rem, 6vw, 4.5rem);
+            text-align: center;
         }
 
         .footer-logo {
@@ -3456,50 +3471,7 @@ img,video {
             font-size: 0.85rem;
             line-height: 1.85;
             color: oklch(100% 0 0 / 48%);
-        }
-
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem clamp(2rem, 4vw, 3.5rem);
-        }
-
-        @media (min-width: 768px) {
-            .footer-nav {
-                padding-top: 0.5rem;
-            }
-        }
-
-        .footer-link {
-            position: relative;
-            width: fit-content;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: oklch(100% 0 0 / 55%);
-            transition: color 0.25s ease;
-        }
-
-        .footer-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -0.4rem;
-            height: 1px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .footer-link:hover {
-            color: oklch(100% 0 0 / 100%);
-        }
-
-        .footer-link:hover::after {
-            transform: scaleX(1);
+            max-width: 38ch;
         }
 
         .footer-bottom {
@@ -4642,26 +4614,18 @@ img,video {
         </section>
     </main>
 
-    <footer class="site-footer bg-obsidian pt-[clamp(4rem,8vw,7rem)] pb-[clamp(2.5rem,5vw,3.5rem)] px-[clamp(1.25rem,6vw,5rem)] relative z-20 overflow-hidden">
+    <footer class="site-footer bg-obsidian pt-[clamp(4rem,8vw,7rem)] pb-[clamp(7rem,12vh,9rem)] px-[clamp(1.25rem,6vw,5rem)] relative z-20 overflow-hidden">
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[60vh] bg-[radial-gradient(ellipse_55%_60%_at_50%_100%,oklch(79%_0.21_82/8%)_0%,oklch(79%_0.21_82/3%)_40%,transparent_72%)] pointer-events-none"
             aria-hidden="true"></div>
+        <div class="footer-top-glow" aria-hidden="true"></div>
 
         <div class="relative z-10 max-w-[1400px] mx-auto">
             <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="#hero" aria-label="Home" class="footer-logo hover-trigger" data-cursor="CLICK">
-                        <img src="logo.svg" alt="GA" class="h-8 w-auto">
-                    </a>
-                    <p class="footer-tagline">Bilingual Arabic–English brand systems and performance creative
-                        for GCC, MENA, USA and EU markets.</p>
-                </div>
-
-                <nav class="footer-nav" aria-label="Footer navigation">
-                    <a href="#portfolio" class="footer-link hover-trigger" data-cursor="CLICK">Work</a>
-                    <a href="#expertise" class="footer-link hover-trigger" data-cursor="CLICK">Services</a>
-                    <a href="#about" class="footer-link hover-trigger" data-cursor="CLICK">About</a>
-                    <a href="#contact" class="footer-link hover-trigger" data-cursor="CLICK">Contact</a>
-                </nav>
+                <a href="#hero" aria-label="Home" class="footer-logo hover-trigger" data-cursor="CLICK">
+                    <img src="logo.svg" alt="GA" class="h-8 w-auto">
+                </a>
+                <p class="footer-tagline">Bilingual Arabic–English brand systems and performance creative
+                    for GCC, MENA, USA and EU markets.</p>
             </div>
 
             <div class="footer-bottom">
